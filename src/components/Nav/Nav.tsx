@@ -17,9 +17,24 @@ const Nav: React.FC <NavProps> = props => {
   return (
     <div 
       className={`Nav Nav--${navState ? 'large' : 'small'}`}
-      onClick={handleToggle}
     >
-      hello
+      <div 
+        className="Nav__button"
+        onClick={handleToggle}
+      >
+
+        {/* // ?? Closed Nav Menu */}
+        {!navState && <div className="Nav__button--open">
+          <span>---</span>
+          <span>---</span>
+          <span>---</span>
+        </div>}
+
+        {/* // ?? Opened Nav Menu */}
+        {navState && <div className="Nav__button--close">
+          <span>x</span>
+        </div>}
+      </div>
     </div>
   )
 }
