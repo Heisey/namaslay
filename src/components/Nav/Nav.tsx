@@ -7,7 +7,7 @@ interface NavProps {
   navState: boolean
 }
 
-const Nav: React.FC <NavProps> = props => {
+const Nav: React.FC<NavProps> = props => {
   const { navState, toggleNav } = props
 
   const handleToggle = () => {
@@ -15,10 +15,30 @@ const Nav: React.FC <NavProps> = props => {
   }
 
   return (
-    <div 
+    <div
       className={`Nav Nav--${navState ? 'large' : 'small'}`}
     >
-      <div 
+      {navState && <>
+        <div className="Nav__column-outer">
+          <div className="Nav__box1"></div>
+          <div className="Nav__box2"></div>
+          <div className="Nav__box3"></div>
+          <div className="Nav__box4"></div>
+        </div>
+        <div className="Nav__column-inner">
+          <div className="Nav__box1"></div>
+          <div className="Nav__box2"></div>
+        </div>
+        <div className="Nav__column-outer">
+          <div className="Nav__box1"></div>
+          <div className="Nav__box2"></div>
+          <div className="Nav__box3"></div>
+          <div className="Nav__box4"></div>
+        </div>
+      </>
+      }
+
+      <div
         className="Nav__button"
         onClick={handleToggle}
       >
