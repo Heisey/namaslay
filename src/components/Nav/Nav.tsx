@@ -3,19 +3,20 @@ import React from 'react';
 import './Nav.scss'
 
 interface NavProps {
-  toggleNav: () => void
+  toggleNav: () => void,
+  navState: boolean
 }
 
 const Nav: React.FC <NavProps> = props => {
-  const { toggleNav } = props
-  
+  const { navState, toggleNav } = props
+
   const handleToggle = () => {
     toggleNav()
   }
 
   return (
     <div 
-      className="Nav"
+      className={`Nav Nav--${navState ? 'large' : 'small'}`}
       onClick={handleToggle}
     >
       hello

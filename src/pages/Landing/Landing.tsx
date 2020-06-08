@@ -12,7 +12,10 @@ const Landing: React.FC = () => {
   }
   return (
     <div className="Landing">
-      <Nav toggleNav={handleShowNav} />
+      <Nav 
+        navState={showNav}
+        toggleNav={handleShowNav} 
+      />
       <div className="Landing__tl"></div>
       <div className="Landing__tr"></div>
       <div className="Landing__bl"></div>
