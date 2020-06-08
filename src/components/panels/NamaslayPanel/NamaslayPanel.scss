@@ -1,0 +1,12 @@
+.NamaslayPanel {
+  background-color: red;
+  height: 50vh;
+
+  &--small {
+    width: 16.6vw;
+  }
+
+  &--large {
+    width: 50vw;
+  }
+}
