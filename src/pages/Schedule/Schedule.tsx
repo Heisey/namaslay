@@ -1,6 +1,14 @@
 import React, { useState } from 'react'
 
+// ?? Components
 import Nav from '../../components/Nav/Nav';
+
+// ?? Box Components
+import TeacherBox from '../../components/boxes/scheduleBoxes/TeacherBox/TeacherBox'
+
+// ?? Panel Components
+import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
+
 
 import './Schedule.scss';
 
@@ -16,6 +24,10 @@ const Schedule: React.FC = () => {
         navState={showNav}
         toggleNav={handleShowNav}  
       />
+      <NamaslayPanel
+        panelSize={'small'} 
+      />
+      <TeacherBox />
     </div>
   )
 }
