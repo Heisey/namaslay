@@ -3,10 +3,10 @@
   height: 50vh;
 
   &--small {
-    width: 16.6vw;
+    width: calc(100vw / 6);
   }
 
   &--large {
-    width: 50vw;
+    width: calc(100vw / 2);
   }
 }

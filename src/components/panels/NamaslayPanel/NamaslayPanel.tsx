@@ -2,13 +2,14 @@ import React from 'react';
 
 import './NamaslayPanel.scss'
 interface NamaslayPanelProps {
-  navState: boolean
+  panelSize: string
 }
 
 const NamaslayPanel: React.FC <NamaslayPanelProps> = props => {
-  const { navState } = props
+  const { panelSize } = props
+  
   return (
-    <div className={`NamaslayPanel NamaslayPanel--${navState ? 'small' : 'large'}`}>
+    <div className={`NamaslayPanel NamaslayPanel--${panelSize}`}>
       namaslay
     </div>
   )
