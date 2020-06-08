@@ -1,0 +1,33 @@
+.Landing {
+  height: 100vh;
+  width: 100vw;
+  background-color: plum;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  position: relative;
+
+  &__tl,
+  &__tr,
+  &__bl,
+  &__br {
+    height: 100vh / 2;
+    width: 100vw / 2;
+    // min-height: 540px;
+    // min-width: 960px;
+  }
+  &__tl {
+    background-color: red;
+  }
+
+  &__tr {
+    background-color: green;
+  }
+  &__bl {
+    background-color: yellow;
+  }
+
+  &__br {
+    background-color: turquoise;
+  }
+}
