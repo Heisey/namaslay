@@ -1,4 +1,6 @@
 import React from 'react';
+
+import './NamaslayPanel.scss'
 interface NamaslayPanelProps {
   navState: boolean
 }

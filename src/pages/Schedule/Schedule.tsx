@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
 import Nav from '../../components/Nav/Nav';
 
 import './Schedule.scss';
@@ -15,6 +16,9 @@ const Schedule: React.FC = () => {
       <Nav
         navState={showNav}
         toggleNav={handleShowNav}  
+      />
+      <NamaslayPanel
+        navState={showNav} 
       />
     </div>
   )
