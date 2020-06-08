@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 
 // import H2W4 from '../../components/boxes/H2W4/H2W4'
+import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
 import Nav from '../../components/Nav/Nav'
 
 import './Landing.scss';
@@ -16,7 +17,9 @@ const Landing: React.FC = () => {
         navState={showNav}
         toggleNav={handleShowNav} 
       />
-      <div className="Landing__tl"></div>
+      <NamaslayPanel
+        navState={showNav} 
+      />
       <div className="Landing__tr"></div>
       <div className="Landing__bl"></div>
       <div className="Landing__br"></div>
