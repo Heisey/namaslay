@@ -7,8 +7,8 @@ import Schedule from './pages/Schedule/Schedule'
 function App() {
   return (
     <div className="App">
-      {/* <Landing /> */}
-      <Schedule />
+      <Landing />
+      {/* <Schedule /> */}
     </div>
   );
 }
