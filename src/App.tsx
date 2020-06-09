@@ -2,6 +2,7 @@ import React from 'react';
 
 import Landing from './pages/Landing/Landing'
 import Schedule from './pages/Schedule/Schedule'
+import UserProfile from './pages/UserProfile/UserProfile'
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <div className="App">
       <Landing />
       {/* <Schedule /> */}
+      {/* <UserProfile /> */}
     </div>
   );
 }
