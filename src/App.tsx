@@ -13,14 +13,19 @@ function App() {
   const [showUserProfile, showUserProfileHandler] = useState<boolean>(false)
     
   const handleShowLanding = () => {
+    showNavHandler(false)
     showLandingHandler(true)
     showPunchCardHandler(false)
-
+    showScheduleHandler(false)
+    showUserProfileHandler(false)
   }
 
   const handleShowPunchCard = () => {
+    showNavHandler(false)
     showLandingHandler(false)
     showPunchCardHandler(true)
+    showScheduleHandler(false)
+    showUserProfileHandler(false)
   }
 
   const handleShowNav = () => {
@@ -28,9 +33,20 @@ function App() {
   }
 
   const handleShowSchedule = () => {
-    showLandingHandler(false)
-    showPunchCardHandler(true)
+    // showNavHandler(false)
+    // showLandingHandler(false)
+    // showPunchCardHandler(false)
+    // showScheduleHandler(true)
+    // showUserProfileHandler(false)
   }
+
+  // const handleShowUserProfile = () => {
+  //   showNavHandler(false)
+  //   showLandingHandler(false)
+  //   showPunchCardHandler(false)
+  //   showScheduleHandler(false)
+  //   showUserProfileHandler(true)
+  // }
 
   return (
     <div className="App">
@@ -39,6 +55,7 @@ function App() {
           handleShowLanding={handleShowLanding} 
           handleShowNav={handleShowNav}
           handleShowPunchCard={handleShowPunchCard}
+          handleShowSchedule={handleShowSchedule}
           navState={showNav}
         />
       )}
@@ -47,6 +64,7 @@ function App() {
           handleShowLanding={handleShowLanding} 
           handleShowNav={handleShowNav}
           handleShowPunchCard={handleShowPunchCard}
+          handleShowSchedule={handleShowSchedule}
           navState={showNav}
         />
       )}
@@ -55,6 +73,7 @@ function App() {
           handleShowLanding={handleShowLanding} 
           handleShowNav={handleShowNav}
           handleShowPunchCard={handleShowPunchCard}
+          handleShowSchedule={handleShowSchedule}
           navState={showNav}
         />
       )}
@@ -63,6 +82,7 @@ function App() {
           handleShowLanding={handleShowLanding} 
           handleShowNav={handleShowNav}
           handleShowPunchCard={handleShowPunchCard}
+          handleShowSchedule={handleShowSchedule}
           navState={showNav}
         />
       )}

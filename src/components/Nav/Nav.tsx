@@ -16,6 +16,7 @@ interface NavProps {
   handleShowLanding: () => void,
   handleShowPunchCard: () => void,
   handleShowNav: () => void,
+  handleShowSchedule: () => void
   navState: boolean
 }
 
@@ -24,7 +25,8 @@ const Nav: React.FC<NavProps> = props => {
     navState, 
     handleShowLanding, 
     handleShowNav,
-    handleShowPunchCard
+    handleShowPunchCard,
+    handleShowSchedule
   } = props
 
   const handleToggle = () => {

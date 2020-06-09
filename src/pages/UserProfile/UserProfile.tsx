@@ -14,6 +14,7 @@ interface UserProfileProps {
   handleShowLanding: () => void,
   handleShowNav: () => void,
   handleShowPunchCard: () => void,
+  handleShowSchedule: () => void
   navState: boolean
 }
 
@@ -23,6 +24,7 @@ const UserProfile: React.FC <UserProfileProps> = props => {
     handleShowLanding,
     handleShowNav,
     handleShowPunchCard,
+    handleShowSchedule,
     navState
   } = props;
 
@@ -33,6 +35,7 @@ const UserProfile: React.FC <UserProfileProps> = props => {
         handleShowLanding={handleShowLanding}
         handleShowPunchCard={handleShowPunchCard}
         handleShowNav={handleShowNav}
+        handleShowSchedule={handleShowSchedule}
       />
       <div className="UserProfile__Namaslay">
         <NamaslayPanel

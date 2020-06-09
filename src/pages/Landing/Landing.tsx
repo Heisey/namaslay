@@ -10,6 +10,7 @@ interface LandingProps {
   handleShowLanding: () => void,
   handleShowNav: () => void,
   handleShowPunchCard: () => void,
+  handleShowSchedule: () => void,
   navState: boolean
 }
 const Landing: React.FC <LandingProps> = props => {
@@ -18,6 +19,7 @@ const Landing: React.FC <LandingProps> = props => {
     handleShowLanding,
     handleShowNav,
     handleShowPunchCard,
+    handleShowSchedule,
     navState
   } = props;
 
@@ -31,6 +33,7 @@ const Landing: React.FC <LandingProps> = props => {
         handleShowLanding={handleShowLanding}
         handleShowPunchCard={handleShowPunchCard}
         handleShowNav={handleShowNav} 
+        handleShowSchedule={handleShowSchedule}
       />
       <NamaslayPanel
         panelSize={navState ? 'small' : 'large'} 

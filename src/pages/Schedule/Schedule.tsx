@@ -15,6 +15,7 @@ interface ScheduleProps {
   handleShowLanding: () => void,
   handleShowNav: () => void,
   handleShowPunchCard: () => void,
+  handleShowSchedule: () => void,
   navState: boolean
 }
 
@@ -24,6 +25,7 @@ const Schedule: React.FC <ScheduleProps> = props => {
     handleShowLanding,
     handleShowNav,
     handleShowPunchCard,
+    handleShowSchedule,
     navState
   } = props;
 
@@ -33,6 +35,7 @@ const Schedule: React.FC <ScheduleProps> = props => {
         handleShowLanding={handleShowLanding}
         handleShowNav={handleShowNav}
         handleShowPunchCard={handleShowPunchCard}
+        handleShowSchedule={handleShowSchedule}
         navState={navState}
       />
       <div className="Schedule__namaslay">

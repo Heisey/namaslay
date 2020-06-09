@@ -8,6 +8,7 @@ interface PunchCardProps {
   handleShowLanding: () => void,
   handleShowNav: () => void,
   handleShowPunchCard: () => void,
+  handleShowSchedule: () => void,
   navState: boolean
 }
 
@@ -16,6 +17,7 @@ const PunchCard: React.FC<PunchCardProps> = props => {
     handleShowLanding,
     handleShowNav,
     handleShowPunchCard,
+    handleShowSchedule,
     navState
   } = props
 
@@ -25,6 +27,7 @@ const PunchCard: React.FC<PunchCardProps> = props => {
         handleShowLanding={handleShowLanding}
         handleShowNav={handleShowNav}
         handleShowPunchCard={handleShowPunchCard}
+        handleShowSchedule={handleShowSchedule}
         navState={navState}
       />
       <div className="PunchCard__namaslay">namaslay</div>
