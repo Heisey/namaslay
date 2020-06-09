@@ -4,10 +4,6 @@ import React, { useState } from 'react'
 import Nav from '../../components/Nav/Nav';
 
 // ?? Box Components
-<<<<<<< HEAD
-import TeacherBox from '../../components/boxes/navBoxes/TeacherBox/TeacherBox'
-=======
->>>>>>> pages/schedule
 
 // ?? Panel Components
 import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
