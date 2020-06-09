@@ -1,5 +1,18 @@
 import React from 'react';
 
-import BookingCalendar from 'react-booking-calendar';
+import Calendar from 'react-calendar';
+// import 'react-calendar/dist/Calendar.css'
 
-const 
+import './CalendarPanel.scss'
+const CalendarPanel: React.FC = () => {
+  
+  return (
+    <div className="CalendarPanel">
+      <Calendar
+      
+        />
+    </div>
+  )
+}
+
+export default CalendarPanel

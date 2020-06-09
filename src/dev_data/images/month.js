@@ -94,7 +94,16 @@ const data = {
 }
 
 
+const createMonthDays = () => {
+  const value = []
+  for (let i = 1; i < 32; i++) {
+    if (i % 2 === 0) {
+      value.push(new Date(2020, 6, i))
+    }
+    
+  }
+  return value
+}
 
 
-
-
+export default createMonthDays

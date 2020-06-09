@@ -6,6 +6,7 @@ import Nav from '../../components/Nav/Nav';
 // ?? Box Components
 
 // ?? Panel Components
+import CalendarPanel from '../../components/panels/CalendarPanel/CalendarPanel'
 import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
 
 
@@ -52,7 +53,7 @@ const Schedule: React.FC <ScheduleProps> = props => {
       </div>
 
       <div className="Schedule__calendar">
-        Calendar
+        <CalendarPanel />
       </div>
 
       <div className="Schedule__classSelection">
