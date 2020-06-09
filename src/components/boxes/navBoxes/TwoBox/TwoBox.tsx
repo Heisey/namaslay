@@ -5,7 +5,7 @@ const TwoBox: React.FC = () => {
 
   return (
     <div className="TwoBox">
-      Sixth Box
+      two Box
     </div>
   )
 }

@@ -5,7 +5,7 @@ const ThreeBox: React.FC = () => {
 
   return (
     <div className="ThreeBox">
-      Seventh Box
+      three Box
     </div>
   )
 }

@@ -47,6 +47,7 @@ const Nav: React.FC<NavProps> = props => {
   }
 
   const goToUserProfile = () => {
+    console.log('hello')
     handleShowUserProfile()
   }
 
@@ -97,9 +98,6 @@ const Nav: React.FC<NavProps> = props => {
       </div>
       <div className={`Nav__three ${!navState && "hidden"}`}>
         <ThreeBox />
-      </div>
-      <div className={`Nav__userProfile ${!navState && "hidden"}`}>
-        <UserProfileBox />
       </div>
       
       
