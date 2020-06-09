@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 // ?? Components
 import Nav from '../../components/Nav/Nav';
@@ -16,6 +16,7 @@ interface ScheduleProps {
   handleShowNav: () => void,
   handleShowPunchCard: () => void,
   handleShowSchedule: () => void,
+  handleShowUserProfile: () => void,
   navState: boolean
 }
 
@@ -26,6 +27,7 @@ const Schedule: React.FC <ScheduleProps> = props => {
     handleShowNav,
     handleShowPunchCard,
     handleShowSchedule,
+    handleShowUserProfile,
     navState
   } = props;
 
@@ -36,6 +38,7 @@ const Schedule: React.FC <ScheduleProps> = props => {
         handleShowNav={handleShowNav}
         handleShowPunchCard={handleShowPunchCard}
         handleShowSchedule={handleShowSchedule}
+        handleShowUserProfile={handleShowUserProfile}
         navState={navState}
       />
       <div className="Schedule__namaslay">

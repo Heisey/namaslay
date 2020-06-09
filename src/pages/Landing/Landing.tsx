@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 // import H2W4 from '../../components/boxes/H2W4/H2W4'
 import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
@@ -11,6 +11,7 @@ interface LandingProps {
   handleShowNav: () => void,
   handleShowPunchCard: () => void,
   handleShowSchedule: () => void,
+  handleShowUserProfile: () => void,
   navState: boolean
 }
 const Landing: React.FC <LandingProps> = props => {
@@ -20,6 +21,7 @@ const Landing: React.FC <LandingProps> = props => {
     handleShowNav,
     handleShowPunchCard,
     handleShowSchedule,
+    handleShowUserProfile,
     navState
   } = props;
 
@@ -34,6 +36,7 @@ const Landing: React.FC <LandingProps> = props => {
         handleShowPunchCard={handleShowPunchCard}
         handleShowNav={handleShowNav} 
         handleShowSchedule={handleShowSchedule}
+        handleShowUserProfile={handleShowUserProfile}
       />
       <NamaslayPanel
         panelSize={navState ? 'small' : 'large'} 

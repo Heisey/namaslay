@@ -4,6 +4,58 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: (100vw / 6) ((100vw / 6) * 2) (100vw / 6);
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+
+  &__Home {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  &__stories {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  &__classes {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 4;
+  }
+
+  &__teachers {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+  }
+
+  &__punchCard {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+
+  &__schedule {
+    grid-row-start: 3;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+
+  &__userProfile {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
 
   &--small {
     width: 75px;
@@ -12,20 +64,7 @@
 
   &--large {
     height: 100vh;
-    width: 16.6vw * 4;
-    display: grid;
-    grid-template-columns: 25% auto 25%;
-  }
-
-  .Nav__column-outer {
-    display: grid;
-    grid-template-rows: 25%;
-  }
-
-  .Nav__column-inner {
-    display: grid;
-    grid-template-rows: 50%;
-  }
+    width: 16.6vw * 4;}
 
   &__button {
     background-color: yellowgreen;

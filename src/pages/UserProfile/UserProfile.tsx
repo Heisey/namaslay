@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 // ?? Components
 import Nav from '../../components/Nav/Nav';
-import NinthBox from '../../components/boxes/navBoxes/NinthBox/NinthBox'
-import TenthBox from '../../components/boxes/navBoxes/TenthBox/TenthBox'
 import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
 import NotificationsPanel from '../../components/panels/NotificationsPanel/NotificationsPanel'
 import UserDataPanel from '../../components/panels/UserDataPanel/UserDataPanel'
@@ -14,7 +12,8 @@ interface UserProfileProps {
   handleShowLanding: () => void,
   handleShowNav: () => void,
   handleShowPunchCard: () => void,
-  handleShowSchedule: () => void
+  handleShowSchedule: () => void,
+  handleShowUserProfile: () => void,
   navState: boolean
 }
 
@@ -25,6 +24,7 @@ const UserProfile: React.FC <UserProfileProps> = props => {
     handleShowNav,
     handleShowPunchCard,
     handleShowSchedule,
+    handleShowUserProfile,
     navState
   } = props;
 
@@ -36,6 +36,7 @@ const UserProfile: React.FC <UserProfileProps> = props => {
         handleShowPunchCard={handleShowPunchCard}
         handleShowNav={handleShowNav}
         handleShowSchedule={handleShowSchedule}
+        handleShowUserProfile={handleShowUserProfile}
       />
       <div className="UserProfile__Namaslay">
         <NamaslayPanel

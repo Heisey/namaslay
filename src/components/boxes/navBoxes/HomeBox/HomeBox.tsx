@@ -1,11 +1,11 @@
 import React from 'react';
-import './FourthBox.scss';
+import './HomeBox.scss';
 
 const FourthBox: React.FC = () => {
 
   return (
-    <div className="FourthBox">
-      Fourth Box
+    <div className="HomeBox">
+      Home Box
     </div>
   )
 }

@@ -33,20 +33,20 @@ function App() {
   }
 
   const handleShowSchedule = () => {
-    // showNavHandler(false)
-    // showLandingHandler(false)
-    // showPunchCardHandler(false)
-    // showScheduleHandler(true)
-    // showUserProfileHandler(false)
+    showNavHandler(false)
+    showLandingHandler(false)
+    showPunchCardHandler(false)
+    showScheduleHandler(true)
+    showUserProfileHandler(false)
   }
 
-  // const handleShowUserProfile = () => {
-  //   showNavHandler(false)
-  //   showLandingHandler(false)
-  //   showPunchCardHandler(false)
-  //   showScheduleHandler(false)
-  //   showUserProfileHandler(true)
-  // }
+  const handleShowUserProfile = () => {
+    showNavHandler(false)
+    showLandingHandler(false)
+    showPunchCardHandler(false)
+    showScheduleHandler(false)
+    showUserProfileHandler(true)
+  }
 
   return (
     <div className="App">
@@ -56,6 +56,7 @@ function App() {
           handleShowNav={handleShowNav}
           handleShowPunchCard={handleShowPunchCard}
           handleShowSchedule={handleShowSchedule}
+          handleShowUserProfile={handleShowUserProfile}
           navState={showNav}
         />
       )}
@@ -65,6 +66,7 @@ function App() {
           handleShowNav={handleShowNav}
           handleShowPunchCard={handleShowPunchCard}
           handleShowSchedule={handleShowSchedule}
+          handleShowUserProfile={handleShowUserProfile}
           navState={showNav}
         />
       )}
@@ -74,6 +76,7 @@ function App() {
           handleShowNav={handleShowNav}
           handleShowPunchCard={handleShowPunchCard}
           handleShowSchedule={handleShowSchedule}
+          handleShowUserProfile={handleShowUserProfile}
           navState={showNav}
         />
       )}
@@ -83,6 +86,7 @@ function App() {
           handleShowNav={handleShowNav}
           handleShowPunchCard={handleShowPunchCard}
           handleShowSchedule={handleShowSchedule}
+          handleShowUserProfile={handleShowUserProfile}
           navState={showNav}
         />
       )}
