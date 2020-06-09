@@ -18,7 +18,11 @@ const Landing: React.FC = () => {
         toggleNav={handleShowNav} 
       />
       <NamaslayPanel
+<<<<<<< HEAD
         panelSize={showNav ? 'large' : 'small'} 
+=======
+        panelSize={showNav ? 'small' : 'large'} 
+>>>>>>> pages/schedule
       />
       <div className="Landing__tr"></div>
       <div className="Landing__bl"></div>

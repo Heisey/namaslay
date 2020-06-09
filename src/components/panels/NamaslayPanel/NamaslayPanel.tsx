@@ -7,7 +7,10 @@ interface NamaslayPanelProps {
 
 const NamaslayPanel: React.FC <NamaslayPanelProps> = props => {
   const { panelSize } = props
+<<<<<<< HEAD
   
+=======
+>>>>>>> pages/schedule
   return (
     <div className={`NamaslayPanel NamaslayPanel--${panelSize}`}>
       namaslay
