@@ -8,9 +8,9 @@ import UserProfile from './pages/UserProfile/UserProfile'
 function App() {
   return (
     <div className="App">
-      <Landing />
+      {/* <Landing /> */}
       {/* <Schedule /> */}
-      {/* <UserProfile /> */}
+      <UserProfile />
     </div>
   );
 }
