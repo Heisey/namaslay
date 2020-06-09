@@ -5,6 +5,7 @@ import Nav from '../../components/Nav/Nav';
 import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
 import NotificationsPanel from '../../components/panels/NotificationsPanel/NotificationsPanel'
 import UserDataPanel from '../../components/panels/UserDataPanel/UserDataPanel'
+import PassesPanel from '../../components/panels/PassesPanel/PassesPanel'
 
 import './UserProfile.scss';
 
@@ -51,7 +52,7 @@ const UserProfile: React.FC <UserProfileProps> = props => {
       <div className="UserProfile__AccountSettings">MANAGE
       ACCOUNT &
 SETTINGS</div>
-      <div className="UserProfile__SubscriptionDetails">UserProfile__SubscriptionDetails</div>
+      <div className="UserProfile__SubscriptionDetails"><PassesPanel /></div>
       <div className="UserProfile__ClassHistory">BROWSE YOUR CLASS HISTORY</div>
       <div className="UserProfile__BrowseReviews">UserProfile__BrowseReviews</div>
       <div className="UserProfile__Breathe">BREATHE</div>
