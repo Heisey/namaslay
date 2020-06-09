@@ -18,7 +18,7 @@ const Landing: React.FC = () => {
         toggleNav={handleShowNav} 
       />
       <NamaslayPanel
-        panelSize={showNav ? 'large' : 'small'} 
+        panelSize={showNav ? 'small' : 'large'} 
       />
       <div className="Landing__tr"></div>
       <div className="Landing__bl"></div>
