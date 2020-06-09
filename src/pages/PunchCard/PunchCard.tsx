@@ -1,11 +1,32 @@
 import React from 'react';
 
+import Nav from '../../components/Nav/Nav'
+
 import './PunchCard.scss';
 
-const PunchCard: React.FC = () => {
+interface PunchCardProps {
+  handleShowLanding: () => void,
+  handleShowNav: () => void,
+  handleShowPunchCard: () => void,
+  navState: boolean
+}
+
+const PunchCard: React.FC<PunchCardProps> = props => {
+  const {
+    handleShowLanding,
+    handleShowNav,
+    handleShowPunchCard,
+    navState
+  } = props
 
   return (
     <div className="PunchCard">
+      <Nav 
+        handleShowLanding={handleShowLanding}
+        handleShowNav={handleShowNav}
+        handleShowPunchCard={handleShowPunchCard}
+        navState={navState}
+      />
       <div className="PunchCard__namaslay">namaslay</div>
       <div className="PunchCard__image--small">image small</div>
       <div className="PunchCard__image--bigOne">image big</div>

@@ -11,17 +11,29 @@ import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
 
 import './Schedule.scss';
 
-const Schedule: React.FC = () => {
-  const [showNav, showNavHandler] = useState<boolean>(false)
-  const handleShowNav = () => {
-    showNavHandler(!showNav)
-  }
+interface ScheduleProps {
+  handleShowLanding: () => void,
+  handleShowNav: () => void,
+  handleShowPunchCard: () => void,
+  navState: boolean
+}
+
+const Schedule: React.FC <ScheduleProps> = props => {
+
+  const { 
+    handleShowLanding,
+    handleShowNav,
+    handleShowPunchCard,
+    navState
+  } = props;
 
   return (
     <div className="Schedule">
       <Nav
-        navState={showNav}
-        toggleNav={handleShowNav}
+        handleShowLanding={handleShowLanding}
+        handleShowNav={handleShowNav}
+        handleShowPunchCard={handleShowPunchCard}
+        navState={navState}
       />
       <div className="Schedule__namaslay">
         <NamaslayPanel

@@ -13,15 +13,22 @@ import TenthBox from '../boxes/navBoxes/TenthBox/TenthBox'
 
 
 interface NavProps {
-  toggleNav: () => void,
+  handleShowLanding: () => void,
+  handleShowPunchCard: () => void,
+  handleShowNav: () => void,
   navState: boolean
 }
 
 const Nav: React.FC<NavProps> = props => {
-  const { navState, toggleNav } = props
+  const { 
+    navState, 
+    handleShowLanding, 
+    handleShowNav,
+    handleShowPunchCard
+  } = props
 
   const handleToggle = () => {
-    toggleNav()
+    handleShowNav()
   }
 
   return (

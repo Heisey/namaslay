@@ -6,19 +6,34 @@ import Nav from '../../components/Nav/Nav'
 
 import './Landing.scss';
 
-const Landing: React.FC = () => {
-  const [showNav, showNavHandler] = useState<boolean>(false)
-  const handleShowNav = () => {
-    showNavHandler(!showNav)
-  }
+interface LandingProps {
+  handleShowLanding: () => void,
+  handleShowNav: () => void,
+  handleShowPunchCard: () => void,
+  navState: boolean
+}
+const Landing: React.FC <LandingProps> = props => {
+
+  const { 
+    handleShowLanding,
+    handleShowNav,
+    handleShowPunchCard,
+    navState
+  } = props;
+
+
+  
+
   return (
     <div className="Landing">
       <Nav 
-        navState={showNav}
-        toggleNav={handleShowNav} 
+        navState={navState}
+        handleShowLanding={handleShowLanding}
+        handleShowPunchCard={handleShowPunchCard}
+        handleShowNav={handleShowNav} 
       />
       <NamaslayPanel
-        panelSize={showNav ? 'small' : 'large'} 
+        panelSize={navState ? 'small' : 'large'} 
       />
       <div className="Landing__tr"></div>
       <div className="Landing__bl"></div>

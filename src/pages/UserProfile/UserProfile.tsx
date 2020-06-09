@@ -9,18 +9,30 @@ import NotificationsPanel from '../../components/panels/NotificationsPanel/Notif
 import UserDataPanel from '../../components/panels/UserDataPanel/UserDataPanel'
 
 import './UserProfile.scss';
-import '../Landing/Landing.scss';
 
-const UserProfile: React.FC = () => {
-  const [showNav, showNavHandler] = useState<boolean>(false)
-  const handleShowNav = () => {
-    showNavHandler(!showNav)
-  }
+interface UserProfileProps {
+  handleShowLanding: () => void,
+  handleShowNav: () => void,
+  handleShowPunchCard: () => void,
+  navState: boolean
+}
+
+const UserProfile: React.FC <UserProfileProps> = props => {
+
+  const { 
+    handleShowLanding,
+    handleShowNav,
+    handleShowPunchCard,
+    navState
+  } = props;
+
   return (
     <div className="UserProfile">
       <Nav
-        navState={showNav}
-        toggleNav={handleShowNav}
+        navState={navState}
+        handleShowLanding={handleShowLanding}
+        handleShowPunchCard={handleShowPunchCard}
+        handleShowNav={handleShowNav}
       />
       <div className="UserProfile__Namaslay">
         <NamaslayPanel
