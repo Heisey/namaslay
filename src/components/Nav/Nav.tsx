@@ -1,5 +1,16 @@
 import React from 'react';
 import './Nav.scss'
+import TeacherBox from '../boxes/navBoxes/TeacherBox/TeacherBox'
+import ClassesBox from '../boxes/navBoxes/ClassesBox/ClassesBox'
+import StoriesBox from '../boxes/navBoxes/StoriesBox/StoriesBox'
+import FourthBox from '../boxes/navBoxes/FourthBox/FourthBox'
+import FifthBox from '../boxes/navBoxes/FifthBox/FifthBox'
+import SixthBox from '../boxes/navBoxes/SixthBox/SixthBox'
+import SeventhBox from '../boxes/navBoxes/SeventhBox/SeventhBox'
+import EighthBox from '../boxes/navBoxes/EighthBox/EighthBox'
+import NinthBox from '../boxes/navBoxes/NinthBox/NinthBox'
+import TenthBox from '../boxes/navBoxes/TenthBox/TenthBox'
+
 
 interface NavProps {
   toggleNav: () => void,
@@ -19,20 +30,20 @@ const Nav: React.FC<NavProps> = props => {
     >
       {navState && <>
         <div className="Nav__column-outer">
-          <div className="Nav__box1"></div>
-          <div className="Nav__box2"></div>
-          <div className="Nav__box3"></div>
-          <div className="Nav__box4"></div>
+          <TeacherBox />
+          <ClassesBox />
+          <StoriesBox />
+          <FourthBox />
         </div>
         <div className="Nav__column-inner">
-          <div className="Nav__box1"></div>
-          <div className="Nav__box2"></div>
+          <NinthBox />
+          <TenthBox />
         </div>
         <div className="Nav__column-outer">
-          <div className="Nav__box1"></div>
-          <div className="Nav__box2"></div>
-          <div className="Nav__box3"></div>
-          <div className="Nav__box4"></div>
+          <FifthBox />
+          <SixthBox />
+          <SeventhBox />
+          <EighthBox />
         </div>
       </>
       }
