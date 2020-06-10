@@ -1,8 +1,12 @@
 import React from 'react';
 import './HomeBox.scss';
 
-const FourthBox: React.FC = () => {
+interface HomeBoxProps {
+  navState: boolean
+}
 
+const HomeBox: React.FC <HomeBoxProps> = props => {
+  const { navState } = props
   return (
     <div className="HomeBox">
       Home Box
@@ -10,4 +14,4 @@ const FourthBox: React.FC = () => {
   )
 }
 
-export default FourthBox
+export default HomeBox

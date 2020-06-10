@@ -1,10 +1,13 @@
 import React from 'react';
 import './ScheduleBox.scss';
 
-const ScheduleBox: React.FC = () => {
-
+interface ScheduleBoxProps {
+  navState: boolean
+}
+const ScheduleBox: React.FC <ScheduleBoxProps> = props => {
+  const { navState } = props
   return (
-    <div className="ScheduleBox">
+    <div className={`ScheduleBox ScheduleBox--${!navState ? 'small': 'large'}`}>
       ScheduleBox
     </div>
   )

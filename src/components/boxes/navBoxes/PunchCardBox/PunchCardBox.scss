@@ -1,5 +1,6 @@
 .PunchCardBox {
   height: 100%;
   width: 100%;
-  background: rgb(23, 156, 245);
+  background: var(--neutral-color);
+  transition: opacity 5s;
 }

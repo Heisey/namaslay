@@ -10,7 +10,17 @@ const NamaslayPanel: React.FC <NamaslayPanelProps> = props => {
   
   return (
     <div className={`NamaslayPanel NamaslayPanel--${panelSize}`}>
-      namaslay
+      <h1 className={`NamaslayPanel__title${panelSize === 'small' ? '--turned' : ''}`}>
+        <span className="NamaslayPanel__title--nama">
+          Nama
+        </span>
+        <span className="NamaslayPanel__title--slay">
+          Slay
+        </span>
+      </h1>
+      {panelSize !== 'small' && <p className="NamaslayPanel__quote">
+        Happiness is not by chance. its by choice
+      </p>}
     </div>
   )
 }

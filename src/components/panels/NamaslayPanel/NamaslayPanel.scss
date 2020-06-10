@@ -1,6 +1,6 @@
 .NamaslayPanel {
-  background-color: red;
   height: 50vh;
+  position: relative;
 
   &--small {
     width: 100vw / 6;
@@ -8,5 +8,42 @@
 
   &--large {
     width: 50vw;
+  }
+
+  &__title {
+
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    color: var(--accent-primary);
+    // transform: rotate(-90deg);
+    transform: translateX(-50%);
+    font-size: 6rem;
+
+    &--turned {
+      position: absolute;
+      top: 25%;
+      left: -5%;
+      color: var(--accent-primary);
+      transform: rotate(-90deg);
+      font-size: 6rem;
+    }
+  
+    &--nama {
+      font-family: 'Dancing Script', cursive;
+    }
+    &--slay {
+      font-family: 'Metal Mania', cursive;
+    }
+  }
+
+  &__quote {
+    position: absolute;
+    
+    top: 60%;
+    left: 20%;
+    color: var(--accent-primary);
+    font-family: 'Rock Salt', cursive;
+    font-size: 1.5em;
   }
 }

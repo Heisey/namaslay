@@ -1,5 +1,7 @@
 .Nav {
-  background-color: violet;
+  background-color: var(--primary-color);
+  color: rgb(204, 196, 196);
+  z-index: 100;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7,6 +9,7 @@
   display: grid;
   grid-template-columns: (100vw / 6) ((100vw / 6) * 2) (100vw / 6);
   grid-template-rows: 1fr 1fr 1fr 1fr;
+  transition: all 0.3s;
 
   &__Home {
     grid-row-start: 1;
@@ -48,6 +51,7 @@
     grid-row-end: 5;
     grid-column-start: 2;
     grid-column-end: 3;
+    transition-delay: 5s;
   }
 
   &__userProfile {
@@ -55,6 +59,16 @@
     grid-row-end: 3;
     grid-column-start: 1;
     grid-column-end: 2;
+  }
+
+  &--hidden {
+    height: 0;
+    width: 0;
+  }
+
+  &--show {
+    height: 100%;
+    width: 100%;
   }
 
   &--small {
@@ -67,7 +81,7 @@
     width: 16.6vw * 4;}
 
   &__button {
-    background-color: yellowgreen;
+    background-color: var(--primary-color);
 
     position: absolute;
     top: 50%;

@@ -1,5 +1,14 @@
 .ScheduleBox {
-  height: 100%;
-  width: 100%;
-  background: olive;
+  background: var(--neutral-color);
+
+  // &--small {
+  //   height: 0%;
+  //   width: 0%;
+  // }
+
+  // &--large {
+  //   height: 100%;
+  //   width: 100%;
+  //   background-color: red;
+  // }
 }

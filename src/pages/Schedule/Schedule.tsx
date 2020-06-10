@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 // ?? Components
 import Nav from '../../components/Nav/Nav';
@@ -32,6 +32,24 @@ const Schedule: React.FC <ScheduleProps> = props => {
     navState
   } = props;
 
+  const [selectedDay, selectedDayHandler] = useState(1)
+  const [selectedMonth, selectedMonthHandler] = useState(1)
+ 
+  useEffect(() => {
+    const month = new Date().getMonth()
+    selectedMonthHandler(month + 1)
+  }, [])
+
+  const handleCalendarDayChange = date => {
+    let day: any = ("0" + date.getDate()).slice(-2)
+    selectedDayHandler(day * 1)
+  }
+
+  const handleCalendarMonthChange = date => {
+    let month: any = ("0" + (date.getMonth() + 1)).slice(-2);
+    selectedMonthHandler(month * 1)
+  }
+
   return (
     <div className="Schedule">
       <Nav
@@ -53,7 +71,10 @@ const Schedule: React.FC <ScheduleProps> = props => {
       </div>
 
       <div className="Schedule__calendar">
-        <CalendarPanel />
+        <CalendarPanel 
+          handleCalendarDayChange={handleCalendarDayChange}
+          handleCalendarMonthChange={handleCalendarMonthChange}
+        />
       </div>
 
       <div className="Schedule__classSelection">

@@ -1,7 +1,6 @@
 .Landing {
   height: 100vh;
   width: 100vw;
-  background-color: plum;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -13,19 +12,5 @@
   &__br {
     height: 50vh;
     width: 50vw;
-  }
-  &__tl {
-    background-color: red;
-  }
-
-  &__tr {
-    background-color: green;
-  }
-  &__bl {
-    background-color: yellow;
-  }
-
-  &__br {
-    background-color: turquoise;
   }
 }

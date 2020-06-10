@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { motion } from "framer-motion"
+
 import './Nav.scss'
 import TeacherBox from '../boxes/navBoxes/TeacherBox/TeacherBox'
 import ClassesBox from '../boxes/navBoxes/ClassesBox/ClassesBox'
@@ -30,6 +33,11 @@ const Nav: React.FC<NavProps> = props => {
     handleShowUserProfile,
   } = props
 
+  const variants = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
+  }
+
   const handleToggle = () => {
     handleShowNav()
   }
@@ -55,13 +63,13 @@ const Nav: React.FC<NavProps> = props => {
     <div
       className={`Nav Nav--${navState ? 'large' : 'small'}`}
     >
-      <div 
-        className={`Nav__Home ${!navState && "hidden"}`}
+      {/* <div 
+        className={`Nav__Home Nav--${navState ? "show": "hidden"}`}
         onClick={goToHome}
       >
-        <HomeBox  />
-      </div>
-      <div className={`Nav__teachers ${!navState && "hidden"}`}>
+        <HomeBox navState={navState} />
+      </div> */}
+      {/* <div className={`Nav__teachers ${!navState && "hidden"}`}>
         <TeacherBox />
       </div>
       <div className={`Nav__classes ${!navState && "hidden"}`}>
@@ -75,15 +83,22 @@ const Nav: React.FC<NavProps> = props => {
         onClick={goToPunchCard}
       >
         <PunchCardBox />
-      </div>
-      <div 
+      </div> */}
+      <motion.div 
+        animate={{ x: 2 }}
+        initial={false}
+        // initial="hidden"
+        // animate="visible"
+        variants={variants}
         className={`Nav__schedule ${!navState && "hidden"}`}
         onClick={goToSchedule}
       >
-        <ScheduleBox />
-      </div>
+        <ScheduleBox 
+          navState={navState}
+        />
+      </motion.div>
 
-      <div 
+      {/* <div 
         className={`Nav__userProfile ${!navState && "hidden"}`}
         onClick={goToUserProfile}
       >
@@ -98,7 +113,7 @@ const Nav: React.FC<NavProps> = props => {
       </div>
       <div className={`Nav__three ${!navState && "hidden"}`}>
         <ThreeBox />
-      </div>
+      </div> */}
       
       
 
