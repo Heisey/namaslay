@@ -53,7 +53,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
   const [selectedMonth, selectedMonthHandler] = useState(7)
   // new Date().getMonth() + 1
   const [classesForDay, classesForDayHandler] = useState({})
- 
+
   useEffect(() => {
     // ?? Set month from calendar
     // const month = new Date().getMonth()
@@ -62,7 +62,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
     // ^^ Request data for current month
     axios.get(`/api/${selectedMonth}`)
       .then(function (response) {
-        
+
         // ?? Set State with data
         setScheduleData({
           teachers: response.data.teachers,
@@ -83,21 +83,21 @@ const Schedule: React.FC<ScheduleProps> = props => {
     let day: any = ("0" + date.getDate()).slice(-2)
     selectedDayHandler(day * 1 - 1)
     let selectedDayId = scheduleData.daysLegend[day * 1]
-    console.log('day',day * 1)
+    console.log('day', day * 1)
     classesForDayHandler(selectedDayId)
   }
 
   const handleCalendarMonthChange = date => {
-  
+
   }
 
   // let month: any = ("0" + (date.getMonth() + 1)).slice(-2);
   // selectedMonthHandler(month * 1)
-  
- 
-  
 
- 
+
+
+
+
 
 
   //nb if you click these too quickly after pageload, they don't work...
@@ -154,7 +154,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
       </div>
 
       <div className="Schedule__calendar">
-        <CalendarPanel 
+        <CalendarPanel
           handleCalendarDayChange={handleCalendarDayChange}
           handleCalendarMonthChange={handleCalendarMonthChange}
         />
