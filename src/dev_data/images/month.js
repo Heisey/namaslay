@@ -3,12 +3,12 @@ const data = {
     {
       id: 1, // ref to this key in the outer object
       date: {
-        year: 2020, 
+        year: 2020,
         monthNumber: 7,
         dayNumber: 1
       },
       // ?? first class starts at 6am; last class starts at 8pm
-      classes: [ 
+      classes: [
         {
           id: 1,
           name: 'Standing on your head #2',
@@ -42,6 +42,7 @@ const data = {
       ]
     }
   ],
+  difficulties: ['All Levels', 'Beginner', 'Intermediate', 'Advanced', 'Extreme'],
   disciplines: [
     {
       id: 1,
@@ -100,10 +101,10 @@ const createMonthDays = () => {
     if (i % 2 === 0) {
       value.push(new Date(2020, 6, i))
     }
-    
+
   }
   return value
 }
 
 
-export default createMonthDays
+module.exports = { createMonthDays, data } 
