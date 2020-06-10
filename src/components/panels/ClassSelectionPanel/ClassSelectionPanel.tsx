@@ -2,26 +2,32 @@ import React from 'react'
 import './ClassSelectionPanel.scss'
 
 interface ClassSelectionPanelProps {
-  // classes: {
-  //   name:
-  // }[];
-  // handleTypeSelection: any;
+  classesForDay: any
 }
 
-const ClassSelectionPanel: React.FC<ClassSelectionPanelProps> = props => {
+const ClassSelectionPanel: React.FC <ClassSelectionPanelProps> = props => {
 
-  // const { classes } = props
+  const { classesForDay } = props
+  
+  const loopThroughClasses = () => {
+    console.log(classesForDay.length)
+    if (classesForDay.length) {
+      const listItems = classesForDay.map(el => (
+        <li>{el.name}</li>
+      ))
+      return listItems
+      return <h1>testing</h1>
+    } else {
+      return (<h1>Hello</h1>)
+    }
+  }
 
-  // const ugh = () => {
-  //   for (let i = 0; i < classes.length; i++) {
-  //     return <div>{classes[i].name}</div>
-  //   }
-  // }
-
-
+  console.log(classesForDay)
   return (
     <div className="ClassSelectionPanel">
-      hello
+      <ul>
+        {loopThroughClasses()}
+      </ul>
     </div>
   )
 }

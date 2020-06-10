@@ -12,6 +12,7 @@ import ProgramsFilterBox from '../../components/boxes/scheduleBoxes/ProgramsFilt
 import CalendarPanel from '../../components/panels/CalendarPanel/CalendarPanel'
 import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
 import DynamicDataPanel from '../../components/panels/DynamicDataPanel/DynamicDataPanel'
+import ClassSelectionPanel from '../../components/panels/ClassSelectionPanel/ClassSelectionPanel';
 
 import axios from 'axios'
 
@@ -175,7 +176,9 @@ const Schedule: React.FC<ScheduleProps> = props => {
       </div>
 
       <div className="Schedule__classSelection">
-        {/* {classesForDay.} */}
+        <ClassSelectionPanel  
+          classesForDay={classesForDay}
+        />
       </div>
 
       <div className="Schedule__dynamicSelection">
