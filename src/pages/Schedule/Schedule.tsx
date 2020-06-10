@@ -41,11 +41,12 @@ const Schedule: React.FC<ScheduleProps> = props => {
   } = props;
 
   const [dynamicData, setDynamicData] = useState<string[]>([]);
-  const [scheduleData, setScheduleData] = useState<{ teachers: any[]; disciplines: any[]; programs: any[]; difficulties: any[] }>({
+  const [scheduleData, setScheduleData] = useState<{ teachers: any[]; disciplines: any[]; programs: any[]; difficulties: any[]; classes: any[] }>({
     teachers: [],
     disciplines: [],
     programs: [],
-    difficulties: []
+    difficulties: [],
+    classes: []
   });
 
   useEffect(() => {
@@ -55,7 +56,9 @@ const Schedule: React.FC<ScheduleProps> = props => {
           teachers: response.data.teachers,
           difficulties: response.data.difficulties,
           disciplines: response.data.disciplines,
-          programs: response.data.programs
+          programs: response.data.programs,
+          //this is dummy data
+          classes: response.data.classes
         })
       })
       .catch(function (error) {
@@ -63,6 +66,8 @@ const Schedule: React.FC<ScheduleProps> = props => {
       })
   }, [])
 
+
+  //nb if you click these too quickly after pageload, they don't work...
   const handleTeachersFilter = () => {
     const teachers = scheduleData.teachers.map((t) => t.name)
     teachers.push('Teacher')
@@ -85,6 +90,13 @@ const Schedule: React.FC<ScheduleProps> = props => {
     const difficulties = scheduleData.difficulties.map((t) => t);
     difficulties.push('Difficulty')
     setDynamicData(difficulties);
+  }
+
+  const handleTypeSelection = () => {
+    console.log('hello');
+
+
+
   }
 
   return (
@@ -117,6 +129,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
 
       <div className="Schedule__dynamicSelection">
         <DynamicDataPanel
+          handleTypeSelection={handleTypeSelection}
           data={dynamicData} />
       </div>
 
