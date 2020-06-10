@@ -95,8 +95,8 @@ const Schedule: React.FC<ScheduleProps> = props => {
     let day: any = ("0" + date.getDate()).slice(-2)
     selectedDayHandler(day * 1 - 1)
     let selectedDayId = scheduleData.daysLegend[day * 1 - 1]
-    classesForDayHandler(selectedDayId)
-    getClassesByDay(day * 1)
+    classesForDayHandler(getClassesByDay(day * 1))
+
   }
 
   const handleCalendarMonthChange = date => {
