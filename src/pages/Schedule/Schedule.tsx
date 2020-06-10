@@ -4,18 +4,16 @@ import React, { useEffect, useState } from 'react'
 import Nav from '../../components/Nav/Nav';
 
 // ?? Box Components
-
-// ?? Panel Components
-import CalendarPanel from '../../components/panels/CalendarPanel/CalendarPanel'
-import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
-import DynamicDataPanel from '../../components/panels/DynamicDataPanel/DynamicDataPanel'
 import TeacherFilterBox from '../../components/boxes/scheduleBoxes/TeacherFilterBox/TeacherFilterBox'
 import DifficultiesFilterBox from '../../components/boxes/scheduleBoxes/DifficultiesFilterBox/DifficultiesFilterBox'
 import DisciplinesFilterBox from '../../components/boxes/scheduleBoxes/DisciplinesFilterBox/DisciplinesFilterBox'
 import ProgramsFilterBox from '../../components/boxes/scheduleBoxes/ProgramsFilterBox/ProgramsFilterBox'
-// import { data } from '../../dev_data/images/month'
-import axios from 'axios'
+// ?? Panel Components
+import CalendarPanel from '../../components/panels/CalendarPanel/CalendarPanel'
+import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
+import DynamicDataPanel from '../../components/panels/DynamicDataPanel/DynamicDataPanel'
 
+import axios from 'axios'
 
 import './Schedule.scss';
 
@@ -69,7 +67,6 @@ const Schedule: React.FC<ScheduleProps> = props => {
           difficulties: response.data.difficulties,
           disciplines: response.data.disciplines,
           programs: response.data.programs,
-          // !! this is dummy data
           classes: response.data.classes,
           daysLegend: response.data.days
         })
@@ -79,12 +76,27 @@ const Schedule: React.FC<ScheduleProps> = props => {
       })
   }, [])
 
+  const getClassesByDay = (dayID) => {
+    const classesScheduled = [...scheduleData.classes]
+    let classesScheduledByDay: {}[] = [];
+
+    // i used a fucking c-loop because typescript hates me
+    for (let i = 0; i < classesScheduled.length; i++) {
+      if (classesScheduled[i].day_id === dayID) {
+        classesScheduledByDay.push(classesScheduled[i])
+      }
+    }
+
+    console.log(classesScheduledByDay);
+    return classesScheduledByDay;
+  }
+
   const handleCalendarDayChange = date => {
     let day: any = ("0" + date.getDate()).slice(-2)
     selectedDayHandler(day * 1 - 1)
-    let selectedDayId = scheduleData.daysLegend[day * 1]
-    console.log('day', day * 1)
+    let selectedDayId = scheduleData.daysLegend[day * 1 - 1]
     classesForDayHandler(selectedDayId)
+    getClassesByDay(day * 1)
   }
 
   const handleCalendarMonthChange = date => {
@@ -102,6 +114,8 @@ const Schedule: React.FC<ScheduleProps> = props => {
 
   //nb if you click these too quickly after pageload, they don't work...
   const handleTeachersFilter = () => {
+    // console.log(scheduleData.teachers[0].name);
+
     const teachers = scheduleData.teachers.map((t) => t.name)
     teachers.push('Teacher')
     setDynamicData(teachers);
@@ -121,7 +135,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
   }
 
   const handleDifficultiesFilter = () => {
-    const difficulties = scheduleData.difficulties.map((t) => t);
+    const difficulties = scheduleData.difficulties.map((t) => t.description);
     difficulties.push('Difficulty')
     setDynamicData(difficulties);
   }

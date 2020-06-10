@@ -13,12 +13,11 @@ const DynamicDataPanel: React.FC<DynamicDataPanelProps> = props => {
 
   const tempData = [...data]
   const type: string = tempData.pop()
-  const newData = tempData.map((d) => Object.values(d))
-  const details = newData.map((detail, i) => {
+  const details = tempData.map((detail, i) => {
     return (
       <TeacherSelectionBox
         key={i + 1}
-        detail={detail[1]}
+        detail={detail}
         onClick={handleTypeSelection}
       />
     )
