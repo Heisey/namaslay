@@ -1,6 +1,7 @@
 {
   "name": "namaslay",
   "version": "0.1.0",
+  "proxy": "http://localhost:4000/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -11,6 +12,7 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "framer-motion": "^1.11.0",
+    "axios": "^0.19.2",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-booking-calendar": "^1.0.3",
