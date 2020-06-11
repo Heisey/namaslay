@@ -19,6 +19,7 @@ import ScheculePrimaryDataPanel from '../../components/panels/ScheculePrimaryDat
 import axios from 'axios'
 
 import './Schedule.scss';
+import classes from '*.module.css';
 
 interface ScheduleProps {
   handleShowLanding: () => void,
@@ -58,7 +59,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
   const [primaryDataPanel, primaryDataPanelHandler] = useState({ title: null, info: null })
   const [dataLoad, dataLoadHandler] = useState(false)
   const [selectedClass, selectedClassHandler] = useState(-1)
- 
+  const [filtersApplied, filtersAppliedHandler] = useState(false)
   const getClassesByDay = (dayID) => {
     
     return [...scheduleData.classes].filter(c => c.day_id === dayID)
@@ -97,8 +98,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
       })
   }, [])
 
-
-
+ 
   const handleCalendarDayChange = date => {
     let day: any = ("0" + date.getDate()).slice(-2)
     selectedDayHandler(day * 1 - 1)
@@ -118,7 +118,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
 
   const handleDisciplinesFilter = () => {
     const disciplines = scheduleData.disciplines.map((t) => t.name)
-    
+    console.log(disciplines)
     setDynamicData(disciplines);
   }
 
@@ -135,22 +135,33 @@ const Schedule: React.FC<ScheduleProps> = props => {
   }
 
   const handleTypeSelection = (id: number) => {
+    
     classesForDayHandler(getClassesByDay(selectedDay))
+
     const teacher = scheduleData.teachers.filter(el => el.id === id)
 
     primaryDataPanelHandler({ title: teacher[0].name, info: teacher[0].bio })
-    console.log(classesForDay)
-    console.log(teacher[0].id)
+ 
     const newClassesForDay = classesForDay.filter(el => el.teacher_id === teacher[0].id)
-    // console.log(newClassesForDay)
-    // !! need to filter classesForDay
+ 
     classesForDayHandler(newClassesForDay)
+
   }
 
   const clearFilters = () => {
     const classesForDaySelected = getClassesByDay(selectedDay)
+
     classesForDayHandler(classesForDaySelected)
   }
+
+  useEffect(() => {
+    const classesForDaySelected = getClassesByDay(selectedDay)
+
+    classesForDayHandler(classesForDaySelected)
+    // if (filtersApplied)
+    // filtersAppliedHandler(false)
+
+  }, [filtersApplied])
 
   return (
     <div className="Schedule">
