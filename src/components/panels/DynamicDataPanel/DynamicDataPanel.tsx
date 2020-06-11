@@ -18,6 +18,7 @@ const DynamicDataPanel: React.FC<DynamicDataPanelProps> = props => {
       <TeacherSelectionBox
         key={detail.id}
         detail={detail}
+        type={type}
         handleTypeSelection={handleTypeSelection}
       />
     )

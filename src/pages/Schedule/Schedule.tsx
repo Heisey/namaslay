@@ -52,19 +52,22 @@ const Schedule: React.FC<ScheduleProps> = props => {
   const [dynamicData, setDynamicData] = useState<string[]>([]);
   const [selectedDay, selectedDayHandler] = useState(1)
   const [selectedMonth, selectedMonthHandler] = useState(7)
+  //to hold state for the date selected
   const [classesForDay, classesForDayHandler] = useState<any[]>([])
   const [primaryDataPanel, primaryDataPanelHandler] = useState({ title: null, info: null })
   const [dataLoad, dataLoadHandler] = useState(false)
   const [selectedClass, selectedClassHandler] = useState(-1)
- 
+  //to hold state for filtered classes
+  const [classesData, classesDataHandler] = useState<any[]>([])
+
   const getClassesByDay = (dayID) => {
-    console.log('hello')
     return [...scheduleData.classes].filter(c => c.day_id === dayID)
   }
   useEffect(() => {
     // ?? Set Class Filter to current day
     const getTodayID = () => {
       const today = new Date(Date.now())
+      selectedDayHandler(today.getDate())
       return today.getDate()
     }
     // ?? Set month from calendar
@@ -81,12 +84,14 @@ const Schedule: React.FC<ScheduleProps> = props => {
           classes: response.data.classes,
           daysLegend: response.data.days
         })
+
         return response.data
       })
       .then((data) => {
         const today = getTodayID()
         const classesToday = data.classes.filter(c => c.day_id === today)
         classesForDayHandler(classesToday)
+        classesDataHandler(classesToday)
         dataLoadHandler(true)
       }
       )
@@ -94,8 +99,6 @@ const Schedule: React.FC<ScheduleProps> = props => {
         console.log(error);
       })
   }, [])
-
-
 
   const handleCalendarDayChange = date => {
     let day: any = ("0" + date.getDate()).slice(-2)
@@ -109,39 +112,56 @@ const Schedule: React.FC<ScheduleProps> = props => {
 
   //nb if you click these too quickly after pageload, they don't work...
   const handleTeachersFilter = () => {
+    //to reset classes filter to full day 
+    classesDataHandler([...classesForDay])
     const teachers = scheduleData.teachers.map((t) => t)
-    
+    teachers.push('Teacher')
     setDynamicData(teachers);
   }
 
   const handleDisciplinesFilter = () => {
+    //to reset classes filter to full day 
+    classesDataHandler([...classesForDay])
     const disciplines = scheduleData.disciplines.map((t) => t.name)
-    
+    disciplines.push('Discipline')
     setDynamicData(disciplines);
   }
 
   const handleProgramsFilter = () => {
+    //to reset classes filter to full day 
+    classesDataHandler([...classesForDay])
     const programs = scheduleData.programs.map((t) => t.name)
     programs.push('Program')
     setDynamicData(programs);
   }
 
   const handleDifficultiesFilter = () => {
+    //to reset classes filter to full day 
+    classesDataHandler([...classesForDay])
     const difficulties = scheduleData.difficulties.map((t) => t.description);
     difficulties.push('Difficulty')
     setDynamicData(difficulties);
   }
 
-  const handleTypeSelection = (id: number) => {
-    classesForDayHandler(getClassesByDay(selectedDay))
-    const teacher = scheduleData.teachers.filter(el => el.id === id)
+  const handleTypeSelection = (id: number, type: string) => {
+    //reset the classes filtered data with today's class state
+    classesDataHandler([...classesForDay])
 
-    primaryDataPanelHandler({ title: teacher[0].name, info: teacher[0].bio })
-    
-    const newClassesForDay = classesForDay.filter(el => el.teacher_id === teacher[0].id!)
-    console.log(newClassesForDay)
-    // !! need to filter classesForDay
-    classesForDayHandler(newClassesForDay)
+    //switch statement to filter which param
+    let newClassesForDay: any[] = [];
+    if (type === 'Teacher') {
+      const teacher = [...scheduleData.teachers].filter(el => el.id === id)
+      primaryDataPanelHandler({ title: teacher[0].name, info: teacher[0].bio })
+      newClassesForDay = [...classesForDay].filter(el => el.teacher_id === teacher[0].id!)
+    }
+    if (newClassesForDay.length !== 0) {
+      //set the filtered classes state to the new filter
+      classesDataHandler(newClassesForDay)
+    } else {
+      classesDataHandler(newClassesForDay)
+      //need to also render a message that says no classes for this teacher today.
+    }
+
   }
 
   return (
@@ -173,7 +193,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
 
       <div className="Schedule__classSelection">
         {dataLoad && <ClassSelectionPanel
-          classesForDay={classesForDay}
+          classesForDay={classesData}
           selectedClassHandler={selectedClassHandler}
         />}
       </div>

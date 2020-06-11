@@ -4,19 +4,22 @@ import './TeacherSelectionBox.scss'
 interface TeacherSelectionBoxProps {
   key: number;
   detail: any;
+  type: string;
   handleTypeSelection: any;
 }
 
 const TeacherSelectionBox: React.FC<TeacherSelectionBoxProps> = props => {
 
-  const { detail, handleTypeSelection } = props
+  const { detail, handleTypeSelection, type } = props
 
   const handleSelected = () => {
-    handleTypeSelection(detail.id)
+    handleTypeSelection(detail.id, type)
+    console.log(detail);
+
   }
 
   return (
-    <div 
+    <div
       id={detail.id}
       className="TeacherSelectionBox"
       style={{
@@ -24,7 +27,7 @@ const TeacherSelectionBox: React.FC<TeacherSelectionBoxProps> = props => {
       }}
       onClick={handleSelected}
     >
-      
+
     </div>
   )
 }
