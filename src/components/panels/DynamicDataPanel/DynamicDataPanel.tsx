@@ -12,7 +12,7 @@ const DynamicDataPanel: React.FC<DynamicDataPanelProps> = props => {
   const { data, handleTypeSelection } = props
 
   const tempData = [...data]
-  
+
   const details = tempData.map((detail, i) => {
     return (
       <TeacherSelectionBox
@@ -26,7 +26,7 @@ const DynamicDataPanel: React.FC<DynamicDataPanelProps> = props => {
   return (
     <div className="DynamicDataPanel">
       {data && <div className="DynamicDataPanel__grid">{details}</div>}
-      {data.length === 0 && <h1>Puppies</h1>}
+      {data.length === 0 && <h1></h1>}
     </div>
   )
 }
