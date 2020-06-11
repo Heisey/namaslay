@@ -19,7 +19,6 @@ import ScheculePrimaryDataPanel from '../../components/panels/ScheculePrimaryDat
 import axios from 'axios'
 
 import './Schedule.scss';
-import classes from '*.module.css';
 
 interface ScheduleProps {
   handleShowLanding: () => void,
@@ -56,10 +55,10 @@ const Schedule: React.FC<ScheduleProps> = props => {
   const [selectedDay, selectedDayHandler] = useState(1)
   const [selectedMonth, selectedMonthHandler] = useState(7)
   const [classesForDay, classesForDayHandler] = useState<any[]>([])
+  const [filteredClassesForDay, filteredClassesForDayHandler] = useState<any[]>([])
   const [primaryDataPanel, primaryDataPanelHandler] = useState({ title: null, info: null })
   const [dataLoad, dataLoadHandler] = useState(false)
   const [selectedClass, selectedClassHandler] = useState(-1)
-  const [filtersApplied, filtersAppliedHandler] = useState(false)
   const getClassesByDay = (dayID) => {
     
     return [...scheduleData.classes].filter(c => c.day_id === dayID)
@@ -96,13 +95,14 @@ const Schedule: React.FC<ScheduleProps> = props => {
       .catch(function (error) {
         console.log(error);
       })
-  }, [])
+  }, [selectedMonth])
 
  
   const handleCalendarDayChange = date => {
     let day: any = ("0" + date.getDate()).slice(-2)
     selectedDayHandler(day * 1 - 1)
     classesForDayHandler(getClassesByDay(day * 1))
+    filteredClassesForDayHandler(getClassesByDay(day * 1))
   }
 
   const handleCalendarMonthChange = date => {
@@ -154,14 +154,6 @@ const Schedule: React.FC<ScheduleProps> = props => {
     classesForDayHandler(classesForDaySelected)
   }
 
-  useEffect(() => {
-    const classesForDaySelected = getClassesByDay(selectedDay)
-
-    classesForDayHandler(classesForDaySelected)
-    // if (filtersApplied)
-    // filtersAppliedHandler(false)
-
-  }, [filtersApplied])
 
   return (
     <div className="Schedule">

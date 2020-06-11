@@ -1,14 +1,16 @@
 .ScheduleBox {
   background: var(--neutral-color);
+  transition: height 0.7s linear, width 0.1s linear, visibility 0.01s linear;
+  transition-delay: 0.1s;
+  &--small {
+    height: 0%;
+    width: 0%;
+    visibility: hidden;
+  }
 
-  // &--small {
-  //   height: 0%;
-  //   width: 0%;
-  // }
-
-  // &--large {
-  //   height: 100%;
-  //   width: 100%;
-  //   background-color: red;
-  // }
+  &--large {
+    height: 100%;
+    width: 100%;
+    visibility: visible;
+  }
 }

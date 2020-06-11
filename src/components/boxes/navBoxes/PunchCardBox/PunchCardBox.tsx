@@ -1,10 +1,15 @@
 import React from 'react';
 import './PunchCardBox.scss';
 
-const PunchCardBox: React.FC = () => {
+interface PunchCardBoxProps {
+  navState: boolean
+}
 
+const PunchCardBox: React.FC <PunchCardBoxProps> = props => {
+
+  const { navState } = props
   return (
-    <div className="PunchCardBox">
+    <div className={`PunchCardBox PunchCardBox--${!navState ? 'small': 'large'}`}>
       PunchCardBox
     </div>
   )

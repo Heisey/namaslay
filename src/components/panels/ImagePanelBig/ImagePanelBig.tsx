@@ -13,6 +13,7 @@ const ImagePanelBig: React.FC <ImagePanelBigProps> = props => {
       <img 
         className="ImagePanelBig__image"
         src={url} 
+        alt={url}
       />
       
     </div>

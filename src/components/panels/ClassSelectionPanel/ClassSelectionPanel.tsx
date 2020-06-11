@@ -26,7 +26,6 @@ const ClassSelectionPanel: React.FC <ClassSelectionPanelProps> = props => {
         </li>
       ))
       return listItems
-      return <h1>testing</h1>
     } else {
       return (<h1>Hello</h1>)
     }
