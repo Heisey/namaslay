@@ -52,10 +52,11 @@ const Schedule: React.FC<ScheduleProps> = props => {
   const [dynamicData, setDynamicData] = useState<string[]>([]);
   const [selectedDay, selectedDayHandler] = useState(1)
   const [selectedMonth, selectedMonthHandler] = useState(7)
-  const [classesForDay, classesForDayHandler] = useState({})
+  const [classesForDay, classesForDayHandler] = useState<any[]>([])
   const [primaryDataPanel, primaryDataPanelHandler] = useState({ title: null, info: null })
   const [dataLoad, dataLoadHandler] = useState(false)
-
+  const [selectedClass, selectedClassHandler] = useState(-1)
+ 
   const getClassesByDay = (dayID) => {
     console.log('hello')
     return [...scheduleData.classes].filter(c => c.day_id === dayID)
@@ -109,13 +110,13 @@ const Schedule: React.FC<ScheduleProps> = props => {
   //nb if you click these too quickly after pageload, they don't work...
   const handleTeachersFilter = () => {
     const teachers = scheduleData.teachers.map((t) => t)
-    teachers.push('Teacher')
+    
     setDynamicData(teachers);
   }
 
   const handleDisciplinesFilter = () => {
     const disciplines = scheduleData.disciplines.map((t) => t.name)
-    disciplines.push('Discipline')
+    
     setDynamicData(disciplines);
   }
 
@@ -132,10 +133,15 @@ const Schedule: React.FC<ScheduleProps> = props => {
   }
 
   const handleTypeSelection = (id: number) => {
+    classesForDayHandler(getClassesByDay(selectedDay))
     const teacher = scheduleData.teachers.filter(el => el.id === id)
 
     primaryDataPanelHandler({ title: teacher[0].name, info: teacher[0].bio })
-
+    
+    const newClassesForDay = classesForDay.filter(el => el.teacher_id === teacher[0].id!)
+    console.log(newClassesForDay)
+    // !! need to filter classesForDay
+    classesForDayHandler(newClassesForDay)
   }
 
   return (
@@ -168,6 +174,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
       <div className="Schedule__classSelection">
         {dataLoad && <ClassSelectionPanel
           classesForDay={classesForDay}
+          selectedClassHandler={selectedClassHandler}
         />}
       </div>
 

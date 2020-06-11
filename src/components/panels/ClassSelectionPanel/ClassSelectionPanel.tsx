@@ -2,18 +2,28 @@ import React from 'react'
 import './ClassSelectionPanel.scss'
 
 interface ClassSelectionPanelProps {
-  classesForDay: any
+  classesForDay: any,
+  selectedClassHandler: any
 }
 
 const ClassSelectionPanel: React.FC <ClassSelectionPanelProps> = props => {
 
-  const { classesForDay } = props
+  const { classesForDay, selectedClassHandler } = props
+
+  const handleSelectedClass = (e) => {
+    selectedClassHandler(e.target.id)
+  }
   
   const loopThroughClasses = () => {
     
     if (classesForDay.length) {
       const listItems = classesForDay.map(el => (
-        <li>{el.name}</li>
+        <li 
+        id={el.id}
+        onClick={handleSelectedClass}
+        >
+          {el.name}
+        </li>
       ))
       return listItems
       return <h1>testing</h1>
