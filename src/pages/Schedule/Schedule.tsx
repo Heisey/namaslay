@@ -59,10 +59,8 @@ const Schedule: React.FC<ScheduleProps> = props => {
   const [primaryDataPanel, primaryDataPanelHandler] = useState({ title: null, info: null })
   const [dataLoad, dataLoadHandler] = useState(false)
   const [selectedClass, selectedClassHandler] = useState(-1)
-  const getClassesByDay = (dayID) => {
-    
-    return [...scheduleData.classes].filter(c => c.day_id === dayID)
-  }
+
+  
   useEffect(() => {
     // ?? Set Class Filter to current day
     const getTodayID = () => {
@@ -99,6 +97,10 @@ const Schedule: React.FC<ScheduleProps> = props => {
       })
   }, [selectedMonth])
 
+  const getClassesByDay = (dayID) => {
+    
+    return [...scheduleData.classes].filter(c => c.day_id === dayID)
+  }
  
   const handleCalendarDayChange = date => {
     let day: any = ("0" + date.getDate()).slice(-2)
@@ -137,8 +139,6 @@ const Schedule: React.FC<ScheduleProps> = props => {
   }
 
   const handleTypeSelection = (id: number) => {
-    
-    // classesForDayHandler(getClassesByDay(selectedDay))
 
     const teacher = scheduleData.teachers.filter(el => el.id === id)
 
