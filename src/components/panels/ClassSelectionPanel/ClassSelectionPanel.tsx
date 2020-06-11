@@ -10,7 +10,7 @@ const ClassSelectionPanel: React.FC <ClassSelectionPanelProps> = props => {
   const { classesForDay } = props
   
   const loopThroughClasses = () => {
-    console.log(classesForDay.length)
+    
     if (classesForDay.length) {
       const listItems = classesForDay.map(el => (
         <li>{el.name}</li>
@@ -22,7 +22,6 @@ const ClassSelectionPanel: React.FC <ClassSelectionPanelProps> = props => {
     }
   }
 
-  console.log(classesForDay)
   return (
     <div className="ClassSelectionPanel">
       <ul>

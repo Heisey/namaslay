@@ -16,17 +16,17 @@ const DynamicDataPanel: React.FC<DynamicDataPanelProps> = props => {
   const details = tempData.map((detail, i) => {
     return (
       <TeacherSelectionBox
-        key={i + 1}
+        key={detail.id}
         detail={detail}
-        onClick={handleTypeSelection}
+        handleTypeSelection={handleTypeSelection}
       />
     )
   })
 
   return (
     <div className="DynamicDataPanel">
-      {data.length !== 0 && <h3>Select Your {type}:</h3>}
-      <ul>{details}</ul>
+      {data && <div className="DynamicDataPanel__grid">{details}</div>}
+      {data.length === 0 && <h1>Puppies</h1>}
     </div>
   )
 }

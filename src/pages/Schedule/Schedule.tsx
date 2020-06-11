@@ -13,7 +13,7 @@ import CalendarPanel from '../../components/panels/CalendarPanel/CalendarPanel'
 import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
 import DynamicDataPanel from '../../components/panels/DynamicDataPanel/DynamicDataPanel'
 import ClassSelectionPanel from '../../components/panels/ClassSelectionPanel/ClassSelectionPanel';
-
+import ScheculePrimaryDataPanel from '../../components/panels/ScheculePrimaryDataPanel/ScheculePrimaryDataPanel'
 import axios from 'axios'
 
 import './Schedule.scss';
@@ -30,6 +30,7 @@ interface ScheduleProps {
 
 const Schedule: React.FC<ScheduleProps> = props => {
 
+  // ?? Component Props
   const {
     handleShowLanding,
     handleShowNav,
@@ -39,6 +40,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
     navState
   } = props;
 
+  // ?? Component State
   const [scheduleData, setScheduleData] = useState<{ teachers: any[]; disciplines: any[]; programs: any[]; difficulties: any[]; classes: any[]; daysLegend: any[]; }>({
     teachers: [],
     disciplines: [],
@@ -52,7 +54,8 @@ const Schedule: React.FC<ScheduleProps> = props => {
   const [selectedMonth, selectedMonthHandler] = useState(7)
   // new Date().getMonth() + 1
   const [classesForDay, classesForDayHandler] = useState({})
-
+  const [primaryDataPanel, primaryDataPanelHandler] = useState({ title: null, info: null})
+ 
   useEffect(() => {
     // ?? Set month from calendar
     // const month = new Date().getMonth()
@@ -115,12 +118,9 @@ const Schedule: React.FC<ScheduleProps> = props => {
 
   //nb if you click these too quickly after pageload, they don't work...
   const handleTeachersFilter = () => {
-    // console.log(scheduleData.teachers[0].name);
-
-    const teachers = scheduleData.teachers.map((t) => t.name)
+    const teachers = scheduleData.teachers.map((t) => t)
     teachers.push('Teacher')
     setDynamicData(teachers);
-    console.log('hello')
   }
 
   const handleDisciplinesFilter = () => {
@@ -141,10 +141,10 @@ const Schedule: React.FC<ScheduleProps> = props => {
     setDynamicData(difficulties);
   }
 
-  const handleTypeSelection = () => {
-    console.log('hello');
+  const handleTypeSelection = (id: number) => {
+    const teacher = scheduleData.teachers.filter(el => el.id === id)
 
-
+    primaryDataPanelHandler({title: teacher[0].name, info: teacher[0].bio})
 
   }
 
@@ -216,7 +216,9 @@ const Schedule: React.FC<ScheduleProps> = props => {
       </div>
 
       <div className="Schedule__teacherInfo">
-        Teacher Info
+        <ScheculePrimaryDataPanel 
+          primaryDataPanel={primaryDataPanel}
+        />
       </div>
 
       <div className="Schedule__classInfo">
