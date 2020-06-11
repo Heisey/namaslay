@@ -53,7 +53,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
   });
   const [dynamicData, setDynamicData] = useState<string[]>([]);
   const [selectedDay, selectedDayHandler] = useState(1)
-  const [selectedMonth, selectedMonthHandler] = useState(7)
+  const [selectedMonth, selectedMonthHandler] = useState(6)
   const [classesForDay, classesForDayHandler] = useState<any[]>([])
   const [filteredClassesForDay, filteredClassesForDayHandler] = useState<any[]>([])
   const [primaryDataPanel, primaryDataPanelHandler] = useState({ title: null, info: null })
@@ -73,7 +73,6 @@ const Schedule: React.FC<ScheduleProps> = props => {
     // ^^ Request data for current month
     axios.get(`/api/${selectedMonth}`)
       .then(function (response) {
-
         // ?? Set State with data
         setScheduleData({
           teachers: response.data.teachers,
@@ -87,7 +86,9 @@ const Schedule: React.FC<ScheduleProps> = props => {
       })
       .then((data) => {
         const today = getTodayID()
+        console.log(data.classes.filter(c => c.day_id === today))
         const classesToday = data.classes.filter(c => c.day_id === today)
+        console.log(classesToday)
         classesForDayHandler(classesToday)
         filteredClassesForDayHandler(classesToday)
         dataLoadHandler(true)
