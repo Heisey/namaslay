@@ -1,6 +1,6 @@
 .ClassSelectionPanel {
   background-color: greenyellow;
-
+  
   margin-top: -4%;
   width: 100%;
   min-height: 100%;
@@ -8,9 +8,59 @@
   &__list {
     position: relative;
     width: 100%;
+    padding-inline-start: 0;
   }
 
-  &__item {
+  &__list:nth-child(1) {
+    padding-top: 50px;
+  }
+
+  &__listItem {
     display: flex;
+    padding: 10px 5px;
+    border-top: 2px solid black;
+
+    &--time {
+      width: 15%;
+      text-align: center;
+    }
+
+    &--name {
+      width: 50%;
+    }
+
+    &--spots {
+      width: 10%;
+      text-align: center;
+    }
+
+    &--difficulty {
+      width: 25%;
+      text-align: end;
+      padding-right: 10px;
+    }
+
+    &--timeTitle {
+      width: 15%;
+      text-align: center;
+    }
+
+    &--nameTitle {
+      text-align: center;
+      width: 25%;
+      padding-right: 20%;
+      padding-left: 5%;
+    }
+
+    &--spotsTitle {
+      width: 10%;
+      text-align: center;
+    }
+
+    &--difficultyTitle {
+      width: 25%;
+      text-align: end;
+      padding-right: 10px;
+    }
   }
 }

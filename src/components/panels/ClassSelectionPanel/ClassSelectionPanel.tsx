@@ -24,7 +24,7 @@ const ClassSelectionPanel: React.FC<ClassSelectionPanelProps> = props => {
           onClick={handleSelectedClass}
           className='ClassSelectionPanel__listItem'
         >
-          <span className='ClassSelectionPanel__listItem--time'>{el.start_time}</span>
+          <span className='ClassSelectionPanel__listItem--time'>{el.start_time}:00</span>
           <span className='ClassSelectionPanel__listItem--name'>{el.name}</span>
           <span className='ClassSelectionPanel__listItem--spots'>{el.spotsavailable}</span>
           <span className='ClassSelectionPanel__listItem--difficulty'>{el.difficulty}</span>
@@ -39,6 +39,12 @@ const ClassSelectionPanel: React.FC<ClassSelectionPanelProps> = props => {
   return (
     <div className="ClassSelectionPanel">
       <ul className='ClassSelectionPanel__list'>
+        <li className='ClassSelectionPanel__listItem'>
+          <span className='ClassSelectionPanel__listItem--timeTitle'>Time</span>
+          <span className='ClassSelectionPanel__listItem--nameTitle'>Class Name</span>
+          <span className='ClassSelectionPanel__listItem--spotsTitle'>Spots</span>
+          <span className='ClassSelectionPanel__listItem--difficultyTitle'>Difficulty</span>
+        </li>
         {loopThroughClasses()}
       </ul>
     </div>
