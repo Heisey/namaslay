@@ -8,6 +8,8 @@ import TeacherFilterBox from '../../components/boxes/scheduleBoxes/TeacherFilter
 import DifficultiesFilterBox from '../../components/boxes/scheduleBoxes/DifficultiesFilterBox/DifficultiesFilterBox'
 import DisciplinesFilterBox from '../../components/boxes/scheduleBoxes/DisciplinesFilterBox/DisciplinesFilterBox'
 import ProgramsFilterBox from '../../components/boxes/scheduleBoxes/ProgramsFilterBox/ProgramsFilterBox'
+import ClearFilterBox from '../../components/boxes/scheduleBoxes/ClearFilterBox/ClearFilterBox'
+
 // ?? Panel Components
 import CalendarPanel from '../../components/panels/CalendarPanel/CalendarPanel'
 import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
@@ -58,7 +60,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
   const [selectedClass, selectedClassHandler] = useState(-1)
  
   const getClassesByDay = (dayID) => {
-    console.log('hello')
+    
     return [...scheduleData.classes].filter(c => c.day_id === dayID)
   }
   useEffect(() => {
@@ -137,11 +139,17 @@ const Schedule: React.FC<ScheduleProps> = props => {
     const teacher = scheduleData.teachers.filter(el => el.id === id)
 
     primaryDataPanelHandler({ title: teacher[0].name, info: teacher[0].bio })
-    
-    const newClassesForDay = classesForDay.filter(el => el.teacher_id === teacher[0].id!)
-    console.log(newClassesForDay)
+    console.log(classesForDay)
+    console.log(teacher[0].id)
+    const newClassesForDay = classesForDay.filter(el => el.teacher_id === teacher[0].id)
+    // console.log(newClassesForDay)
     // !! need to filter classesForDay
     classesForDayHandler(newClassesForDay)
+  }
+
+  const clearFilters = () => {
+    const classesForDaySelected = getClassesByDay(selectedDay)
+    classesForDayHandler(classesForDaySelected)
   }
 
   return (
@@ -209,7 +217,9 @@ const Schedule: React.FC<ScheduleProps> = props => {
       </div>
 
       <div className="Schedule__clearFilters">
-        Clear Filters
+        <ClearFilterBox 
+          clearFilters={clearFilters}
+        />
       </div>
 
       <div className="Schedule__teacherInfo">
