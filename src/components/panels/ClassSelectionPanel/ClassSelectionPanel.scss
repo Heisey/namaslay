@@ -63,4 +63,8 @@
       padding-right: 10px;
     }
   }
+
+  &__listItem:nth-child(1) {
+    border-top: none;
+  }
 }
