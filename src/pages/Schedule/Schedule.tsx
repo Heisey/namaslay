@@ -59,9 +59,13 @@ const Schedule: React.FC<ScheduleProps> = props => {
   const [primaryDataPanel, primaryDataPanelHandler] = useState({ title: null, info: null })
   const [dataLoad, dataLoadHandler] = useState(false)
   const [selectedClass, selectedClassHandler] = useState(-1)
-  const getClassesByDay = (dayID) => {
-    
-    return [...scheduleData.classes].filter(c => c.day_id === dayID)
+
+  const getClassesByDay = (dayID, monthNumber) => {
+    return [...scheduleData.classes].filter(c => {
+      if (c.daynumber === dayID && c.monthnumber === monthNumber) {
+        return true;
+      }
+    })
   }
   useEffect(() => {
     // ?? Set Class Filter to current day
@@ -73,22 +77,26 @@ const Schedule: React.FC<ScheduleProps> = props => {
     // ^^ Request data for current month
     axios.get(`/api/${selectedMonth}`)
       .then(function (response) {
+        const { classes, teachers, difficulties, disciplines, programs, daysLegend } = response.data
         // ?? Set State with data
         setScheduleData({
-          teachers: response.data.teachers,
-          difficulties: response.data.difficulties,
-          disciplines: response.data.disciplines,
-          programs: response.data.programs,
-          classes: response.data.classes,
-          daysLegend: response.data.days
+          teachers,
+          difficulties,
+          disciplines,
+          programs,
+          classes,
+          daysLegend
         })
         return response.data
       })
+      // !! refactor to useEffect
       .then((data) => {
         const today = getTodayID()
-        console.log(data.classes.filter(c => c.day_id === today))
-        const classesToday = data.classes.filter(c => c.day_id === today)
-        console.log(classesToday)
+        console.log('before', data.classes);
+
+        const classesToday = data.classes.filter(c => c.daynumber === today && c.monthnumber === selectedMonth
+        )
+        console.log('classesToday on pageload', classesToday)
         classesForDayHandler(classesToday)
         filteredClassesForDayHandler(classesToday)
         dataLoadHandler(true)
@@ -99,12 +107,12 @@ const Schedule: React.FC<ScheduleProps> = props => {
       })
   }, [selectedMonth])
 
- 
   const handleCalendarDayChange = date => {
     let day: any = ("0" + date.getDate()).slice(-2)
     selectedDayHandler(day * 1 - 1)
-    classesForDayHandler(getClassesByDay(day * 1))
-    filteredClassesForDayHandler(getClassesByDay(day * 1))
+    classesForDayHandler(getClassesByDay(day * 1, selectedMonth))
+    console.log('all classes for day:', classesForDay);
+    filteredClassesForDayHandler(getClassesByDay(day * 1, selectedMonth))
   }
 
   const handleCalendarMonthChange = date => {
@@ -114,7 +122,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
   //nb if you click these too quickly after pageload, they don't work...
   const handleTeachersFilter = () => {
     const teachers = scheduleData.teachers.map((t) => t)
-    
+
     setDynamicData(teachers);
   }
 
@@ -137,25 +145,23 @@ const Schedule: React.FC<ScheduleProps> = props => {
   }
 
   const handleTypeSelection = (id: number) => {
-    
+
     // classesForDayHandler(getClassesByDay(selectedDay))
 
     const teacher = scheduleData.teachers.filter(el => el.id === id)
 
     primaryDataPanelHandler({ title: teacher[0].name, info: teacher[0].bio })
- 
+
     const newClassesForDay = classesForDay.filter(el => el.teacher_id === teacher[0].id)
- 
+
     filteredClassesForDayHandler(newClassesForDay)
 
   }
 
   const clearFilters = () => {
-    const classesForDaySelected = getClassesByDay(selectedDay)
-
+    const classesForDaySelected = getClassesByDay(selectedDay, selectedMonth)
     filteredClassesForDayHandler(classesForDaySelected)
   }
-
 
   return (
     <div className="Schedule">
@@ -186,6 +192,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
 
       <div className="Schedule__classSelection">
         {dataLoad && <ClassSelectionPanel
+
           classesForDay={filteredClassesForDay}
           selectedClassHandler={selectedClassHandler}
         />}
@@ -222,7 +229,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
       </div>
 
       <div className="Schedule__clearFilters">
-        <ClearFilterBox 
+        <ClearFilterBox
           clearFilters={clearFilters}
         />
       </div>

@@ -3,22 +3,22 @@ import './ClassSelectionPanel.scss'
 
 interface ClassSelectionPanelProps {
   classesForDay: any,
-  selectedClassHandler: any
+  selectedClassHandler: any,
 }
 
-const ClassSelectionPanel: React.FC <ClassSelectionPanelProps> = props => {
+const ClassSelectionPanel: React.FC<ClassSelectionPanelProps> = props => {
 
   const { classesForDay, selectedClassHandler } = props
 
   const handleSelectedClass = (e) => {
     selectedClassHandler(e.target.id)
   }
-  
+
   const loopThroughClasses = () => {
-    console.log(classesForDay)
     if (classesForDay.length) {
-      const listItems = classesForDay.map(el => (
-        <li 
+      const listItems = classesForDay.map((el, i) => (
+
+        <li
           key={el.id}
           id={el.id}
           onClick={handleSelectedClass}
@@ -32,7 +32,7 @@ const ClassSelectionPanel: React.FC <ClassSelectionPanelProps> = props => {
       ))
       return listItems
     } else {
-      return (<h1>Hello</h1>)
+      return (<h1>Puppies</h1>)
     }
   }
 
