@@ -89,6 +89,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
         const today = getTodayID()
         const classesToday = data.classes.filter(c => c.day_id === today)
         classesForDayHandler(classesToday)
+        filteredClassesForDayHandler(classesToday)
         dataLoadHandler(true)
       }
       )
