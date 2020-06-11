@@ -14,7 +14,7 @@ import ClearFilterBox from '../../components/boxes/scheduleBoxes/ClearFilterBox/
 import CalendarPanel from '../../components/panels/CalendarPanel/CalendarPanel'
 import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
 import DynamicDataPanel from '../../components/panels/DynamicDataPanel/DynamicDataPanel'
-import ClassSelectionPanel from '../../components/panels/ClassSelectionPanel/ClassSelectionPanel';
+import ClassSelectionPanel from '../../components/panels/ClassSelectionPanel/ClassSelectionPanel.js';
 import ScheculePrimaryDataPanel from '../../components/panels/ScheculePrimaryDataPanel/ScheculePrimaryDataPanel'
 import axios from 'axios'
 
@@ -40,8 +40,10 @@ const Schedule = props => {
   const [classesForDay, classesForDayHandler] = useState([])
   const [filteredClassesForDay, filteredClassesForDayHandler] = useState([])
   const [primaryDataPanel, primaryDataPanelHandler] = useState({ title: null, info: null })
+  const [secondaryDataPanel, secondaryDataPanelHandler] = useState({ title: null, info: null })
   const [dataLoad, dataLoadHandler] = useState(false)
   const [selectedClass, selectedClassHandler] = useState(-1)
+  const [renderOverlay, renderOverlayHandler] = useState(false)
 
   const getClassesByDay = (dayID, monthNumber) => {
     return [...scheduleData.classes].filter(c => {
@@ -174,7 +176,8 @@ const Schedule = props => {
 
       <div className="Schedule__classSelection">
         {dataLoad && <ClassSelectionPanel
-
+          renderOverlayHandler={renderOverlayHandler}
+          secondaryDataPanelHandler={secondaryDataPanelHandler}
           classesForDay={filteredClassesForDay}
           selectedClassHandler={selectedClassHandler}
         />}
@@ -218,12 +221,16 @@ const Schedule = props => {
 
       <div className="Schedule__teacherInfo">
         <ScheculePrimaryDataPanel
+        key='primary1'
           primaryDataPanel={primaryDataPanel}
         />
       </div>
 
       <div className="Schedule__classInfo">
-        class info
+        <ScheculePrimaryDataPanel
+          key='primary2'
+          primaryDataPanel={secondaryDataPanel}
+        />
       </div>
     </div>
   )
