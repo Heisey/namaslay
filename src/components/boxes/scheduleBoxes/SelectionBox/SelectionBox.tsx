@@ -1,14 +1,14 @@
 import React from 'react';
 
-import './TeacherSelectionBox.scss'
-interface TeacherSelectionBoxProps {
+import './SelectionBox.scss'
+interface SelectionBoxProps {
   key: number;
   detail: any;
   type: string;
   handleTypeSelection: any;
 }
 
-const TeacherSelectionBox: React.FC<TeacherSelectionBoxProps> = props => {
+const SelectionBox: React.FC<SelectionBoxProps> = props => {
 
   const { detail, handleTypeSelection, type } = props
 
@@ -21,7 +21,7 @@ const TeacherSelectionBox: React.FC<TeacherSelectionBoxProps> = props => {
   return (
     <div
       id={detail.id}
-      className="TeacherSelectionBox"
+      className="SelectionBox"
       style={{
         backgroundImage: `url(${detail.imageurl})`
       }}
@@ -31,4 +31,4 @@ const TeacherSelectionBox: React.FC<TeacherSelectionBoxProps> = props => {
     </div>
   )
 }
-export default TeacherSelectionBox
+export default SelectionBox
