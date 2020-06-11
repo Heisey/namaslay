@@ -136,7 +136,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
 
   const handleTypeSelection = (id: number) => {
     
-    classesForDayHandler(getClassesByDay(selectedDay))
+    // classesForDayHandler(getClassesByDay(selectedDay))
 
     const teacher = scheduleData.teachers.filter(el => el.id === id)
 
@@ -144,14 +144,14 @@ const Schedule: React.FC<ScheduleProps> = props => {
  
     const newClassesForDay = classesForDay.filter(el => el.teacher_id === teacher[0].id)
  
-    classesForDayHandler(newClassesForDay)
+    filteredClassesForDayHandler(newClassesForDay)
 
   }
 
   const clearFilters = () => {
     const classesForDaySelected = getClassesByDay(selectedDay)
 
-    classesForDayHandler(classesForDaySelected)
+    filteredClassesForDayHandler(classesForDaySelected)
   }
 
 
@@ -184,7 +184,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
 
       <div className="Schedule__classSelection">
         {dataLoad && <ClassSelectionPanel
-          classesForDay={classesForDay}
+          classesForDay={filteredClassesForDay}
           selectedClassHandler={selectedClassHandler}
         />}
       </div>
