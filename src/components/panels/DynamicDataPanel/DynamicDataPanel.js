@@ -2,12 +2,7 @@ import React from 'react'
 import './DynamicDataPanel.scss'
 import TeacherSelectionBox from '../../boxes/scheduleBoxes/SelectionBoxes/TeacherSelectionBox'
 
-interface DynamicDataPanelProps {
-  data: any[];
-  handleTypeSelection: any;
-}
-
-const DynamicDataPanel: React.FC<DynamicDataPanelProps> = props => {
+const DynamicDataPanel = props => {
 
   const { data, handleTypeSelection } = props
 
