@@ -52,15 +52,21 @@ const Schedule: React.FC<ScheduleProps> = props => {
   const [dynamicData, setDynamicData] = useState<string[]>([]);
   const [selectedDay, selectedDayHandler] = useState(1)
   const [selectedMonth, selectedMonthHandler] = useState(7)
-  // new Date().getMonth() + 1
   const [classesForDay, classesForDayHandler] = useState({})
-  const [primaryDataPanel, primaryDataPanelHandler] = useState({ title: null, info: null})
- 
-  useEffect(() => {
-    // ?? Set month from calendar
-    // const month = new Date().getMonth()
-    // selectedMonthHandler(month + 1)
+  const [primaryDataPanel, primaryDataPanelHandler] = useState({ title: null, info: null })
+  const [dataLoad, dataLoadHandler] = useState(false)
 
+  const getClassesByDay = (dayID) => {
+    console.log('hello')
+    return [...scheduleData.classes].filter(c => c.day_id === dayID)
+  }
+  useEffect(() => {
+    // ?? Set Class Filter to current day
+    const getTodayID = () => {
+      const today = new Date(Date.now())
+      return today.getDate()
+    }
+    // ?? Set month from calendar
     // ^^ Request data for current month
     axios.get(`/api/${selectedMonth}`)
       .then(function (response) {
@@ -74,47 +80,31 @@ const Schedule: React.FC<ScheduleProps> = props => {
           classes: response.data.classes,
           daysLegend: response.data.days
         })
+        return response.data
       })
+      .then((data) => {
+        const today = getTodayID()
+        const classesToday = data.classes.filter(c => c.day_id === today)
+        classesForDayHandler(classesToday)
+        dataLoadHandler(true)
+      }
+      )
       .catch(function (error) {
         console.log(error);
       })
   }, [])
 
-  const getClassesByDay = (dayID) => {
-    const classesScheduled = [...scheduleData.classes]
-    let classesScheduledByDay: {}[] = [];
 
-    // i used a fucking c-loop because typescript hates me
-    for (let i = 0; i < classesScheduled.length; i++) {
-      if (classesScheduled[i].day_id === dayID) {
-        classesScheduledByDay.push(classesScheduled[i])
-      }
-    }
-
-    console.log(classesScheduledByDay);
-    return classesScheduledByDay;
-  }
 
   const handleCalendarDayChange = date => {
     let day: any = ("0" + date.getDate()).slice(-2)
     selectedDayHandler(day * 1 - 1)
-    let selectedDayId = scheduleData.daysLegend[day * 1 - 1]
     classesForDayHandler(getClassesByDay(day * 1))
-
   }
 
   const handleCalendarMonthChange = date => {
 
   }
-
-  // let month: any = ("0" + (date.getMonth() + 1)).slice(-2);
-  // selectedMonthHandler(month * 1)
-
-
-
-
-
-
 
   //nb if you click these too quickly after pageload, they don't work...
   const handleTeachersFilter = () => {
@@ -144,7 +134,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
   const handleTypeSelection = (id: number) => {
     const teacher = scheduleData.teachers.filter(el => el.id === id)
 
-    primaryDataPanelHandler({title: teacher[0].name, info: teacher[0].bio})
+    primaryDataPanelHandler({ title: teacher[0].name, info: teacher[0].bio })
 
   }
 
@@ -176,9 +166,9 @@ const Schedule: React.FC<ScheduleProps> = props => {
       </div>
 
       <div className="Schedule__classSelection">
-        <ClassSelectionPanel  
+        {dataLoad && <ClassSelectionPanel
           classesForDay={classesForDay}
-        />
+        />}
       </div>
 
       <div className="Schedule__dynamicSelection">
@@ -216,7 +206,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
       </div>
 
       <div className="Schedule__teacherInfo">
-        <ScheculePrimaryDataPanel 
+        <ScheculePrimaryDataPanel
           primaryDataPanel={primaryDataPanel}
         />
       </div>
