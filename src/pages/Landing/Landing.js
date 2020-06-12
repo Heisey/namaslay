@@ -5,6 +5,8 @@ import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
 import ImagePanelBig from '../../components/panels/ImagePanelBig/ImagePanelBig'
 import Nav from '../../components/Nav/Nav'
 
+
+
 import './Landing.scss';
 
 const Landing = props => {

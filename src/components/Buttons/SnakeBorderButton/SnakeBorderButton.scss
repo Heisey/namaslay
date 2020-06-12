@@ -1,0 +1,91 @@
+@keyframes animateSnakeButtonOne {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes animateSnakeButtonTwo {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes animateSnakeButtonThree {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes animateSnakeButtonFour {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.SnakeBorderButton {
+  color: #ef6101;
+  width: 100px;
+  max-width: 100px;
+  padding: 30px 60px;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transform: scale(0.6);
+
+  &--one {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #03161d, #fdac07);
+    animation: animateSnakeButtonOne 2s linear infinite;
+  }
+
+  &--two {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, #03161d, #fdac07);
+    animation: animateSnakeButtonTwo 2s linear infinite;
+    animation-delay: 1s;
+  }
+
+  &--three {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #fdac07, #03161d);
+    animation: animateSnakeButtonThree 2s linear infinite;
+  }
+
+  &--four {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, #fdac07, #03161d);
+    animation: animateSnakeButtonFour 2s linear infinite;
+    animation-delay: 1s;
+  }
+}

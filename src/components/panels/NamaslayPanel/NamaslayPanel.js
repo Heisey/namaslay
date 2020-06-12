@@ -1,5 +1,7 @@
 import React from 'react';
 
+import SnakeBorderButton from '../../Buttons/SnakeBorderButton/SnakeBorderButton'
+
 import './NamaslayPanel.scss'
 
 const NamaslayPanel = props => {
@@ -18,6 +20,17 @@ const NamaslayPanel = props => {
       {panelSize !== 'small' && <p className="NamaslayPanel__quote">
         Happiness is not by chance. its by choice
       </p>}
+      <div className="NamaslayPanel__login">
+        <SnakeBorderButton 
+          text="login"
+        />
+      </div>
+
+      <div className="NamaslayPanel__logout">
+        <SnakeBorderButton 
+          text="logout"
+        />
+      </div>
     </div>
   )
 }

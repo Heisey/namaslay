@@ -49,10 +49,24 @@
   &__quote {
     position: absolute;
     
-    top: 60%;
-    left: 20%;
+    top: 40%;
+    left: 10%;
     color: var(--accent-primary);
     font-family: 'Rock Salt', cursive;
     font-size: 1.5em;
+  }
+
+  &__login {
+    position: absolute;
+    top: 60%;
+    left: 25%;
+    transform: translateX(-50%);
+  }
+
+  &__logout {
+    position: absolute;
+    top: 60%;
+    left: 75%;
+    transform: translateX(-50%);
   }
 }
