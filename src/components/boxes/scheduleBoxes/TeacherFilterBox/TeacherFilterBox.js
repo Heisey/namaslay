@@ -1,10 +1,6 @@
 import React from 'react';
 
-interface TeacherFilterBoxProps {
-  handleTeacherFilter: () => void
-}
-
-const TeacherFilterBox: React.FC<TeacherFilterBoxProps> = props => {
+const TeacherFilterBox = props => {
 
   const { handleTeacherFilter } = props
   return (

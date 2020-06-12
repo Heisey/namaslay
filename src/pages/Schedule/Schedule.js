@@ -23,17 +23,7 @@ import ScheduleScreens from '../../screens/scheduleScreens/ScheculeScreens.js';
 
 import './Schedule.scss';
 
-interface ScheduleProps {
-  handleShowLanding: () => void,
-  handleShowNav: () => void,
-  handleShowPunchCard: () => void,
-  handleShowSchedule: () => void,
-  handleShowUserProfile: () => void,
-  navState: boolean
-  // scheduleData: any
-}
-
-const Schedule: React.FC<ScheduleProps> = props => {
+const Schedule = props => {
 
   // ?? Component Props
   const {
@@ -46,19 +36,12 @@ const Schedule: React.FC<ScheduleProps> = props => {
   } = props;
 
   // ?? Component State
-  const [scheduleData, setScheduleData] = useState<{ teachers: any[]; disciplines: any[]; programs: any[]; difficulties: any[]; classes: any[]; daysLegend: any[]; }>({
-    teachers: [],
-    disciplines: [],
-    programs: [],
-    difficulties: [],
-    classes: [],
-    daysLegend: []
-  });
-  const [dynamicData, setDynamicData] = useState<string[]>([]);
+  const [scheduleData, setScheduleData] = useState();
+  const [dynamicData, setDynamicData] = useState([]);
   const [selectedDay, selectedDayHandler] = useState(1)
   const [selectedMonth, selectedMonthHandler] = useState(6)
-  const [classesForDay, classesForDayHandler] = useState<any[]>([])
-  const [filteredClassesForDay, filteredClassesForDayHandler] = useState<any[]>([])
+  const [classesForDay, classesForDayHandler] = useState([])
+  const [filteredClassesForDay, filteredClassesForDayHandler] = useState([])
   const [primaryDataPanel, primaryDataPanelHandler] = useState({ title: null, info: null })
   const [secondaryDataPanel, secondaryDataPanelHandler] = useState({ title: null, info: null })
   const [dataLoad, dataLoadHandler] = useState(false)
@@ -97,11 +80,8 @@ const Schedule: React.FC<ScheduleProps> = props => {
       // !! refactor to useEffect
       .then((data) => {
         const today = getTodayID()
-        console.log('before', data.classes);
-
         const classesToday = data.classes.filter(c => c.daynumber === today && c.monthnumber === selectedMonth
         )
-        console.log('classesToday on pageload', classesToday)
         classesForDayHandler(classesToday)
         filteredClassesForDayHandler(classesToday)
         dataLoadHandler(true)
@@ -113,7 +93,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
   }, [selectedMonth])
 
   const handleCalendarDayChange = date => {
-    let day: any = ("0" + date.getDate()).slice(-2)
+    let day = ("0" + date.getDate()).slice(-2)
     selectedDayHandler(day * 1 - 1)
     classesForDayHandler(getClassesByDay(day * 1, selectedMonth))
     console.log('all classes for day:', classesForDay);
@@ -127,40 +107,57 @@ const Schedule: React.FC<ScheduleProps> = props => {
   //nb if you click these too quickly after pageload, they don't work...
   const handleTeachersFilter = () => {
     const teachers = scheduleData.teachers.map((t) => t)
-
+    teachers.push('Teacher')
     setDynamicData(teachers);
   }
 
   const handleDisciplinesFilter = () => {
-    const disciplines = scheduleData.disciplines.map((t) => t.name)
-    console.log(disciplines)
+    const disciplines = scheduleData.disciplines.map((t) => t)
+    disciplines.push('Discipline')
     setDynamicData(disciplines);
   }
 
+  // !! CSS is fucked up here
   const handleProgramsFilter = () => {
-    const programs = scheduleData.programs.map((t) => t.name)
+    console.log('programs clicked');
+
+    const programs = scheduleData.programs.map((t) => t)
     programs.push('Program')
     setDynamicData(programs);
   }
 
   const handleDifficultiesFilter = () => {
-    const difficulties = scheduleData.difficulties.map((t) => t.description);
+    const difficulties = scheduleData.difficulties.map((t) => t);
     difficulties.push('Difficulty')
     setDynamicData(difficulties);
   }
 
-  const handleTypeSelection = (id: number) => {
-
-    // classesForDayHandler(getClassesByDay(selectedDay))
-
-    const teacher = scheduleData.teachers.filter(el => el.id === id)
-
-    primaryDataPanelHandler({ title: teacher[0].name, info: teacher[0].bio })
-
-    const newClassesForDay = classesForDay.filter(el => el.teacher_id === teacher[0].id)
-
+  const handleTypeSelection = (id, type) => {
+    let newClassesForDay;
+    if (type === 'Discipline') {
+      const discipline = scheduleData.disciplines.filter(el => el.id === id)
+      console.log(discipline);
+      primaryDataPanelHandler({ title: discipline[0], info: discipline[0].description })
+      newClassesForDay = classesForDay.filter(el => el.discipline_id === discipline[0].id)
+    } else if (type === 'Teacher') {
+      const teacher = scheduleData.teachers.filter(el => el.id === id)
+      console.log(teacher);
+      primaryDataPanelHandler({ title: teacher[0], info: teacher[0].bio })
+      newClassesForDay = classesForDay.filter(el => el.teacher_id === teacher[0].id)
+    } else if (type === 'Program') {
+      const program = scheduleData.programs.filter(el => el.id === id)
+      console.log(program);
+      primaryDataPanelHandler({ title: program[0], info: program[0].description })
+      newClassesForDay = classesForDay.filter(el => el.program_id === program[0].id)
+    } else if (type === 'Difficulty') {
+      const difficulty = scheduleData.difficulties.filter(el => el.id === id)
+      console.log(difficulty);
+      primaryDataPanelHandler({ title: difficulty[0], info: difficulty[0].description })
+      newClassesForDay = classesForDay.filter(el => el.difficulty === difficulty[0].description)
+    } else {
+      return;
+    }
     filteredClassesForDayHandler(newClassesForDay)
-
   }
 
   const clearFilters = () => {
@@ -244,7 +241,7 @@ const Schedule: React.FC<ScheduleProps> = props => {
 
       <div className="Schedule__teacherInfo">
         <ScheculePrimaryDataPanel
-        key='primary1'
+          key='primary1'
           primaryDataPanel={primaryDataPanel}
         />
       </div>
