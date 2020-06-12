@@ -13,19 +13,10 @@ import TwoBox from '../boxes/navBoxes/TwoBox/TwoBox';
 import ThreeBox from '../boxes/navBoxes/ThreeBox/ThreeBox'
 import UserProfileBox from '../boxes/navBoxes/UserProfileBox/UserProfileBox'
 
-interface NavProps {
-  handleShowLanding: () => void,
-  handleShowPunchCard: () => void,
-  handleShowNav: () => void,
-  handleShowSchedule: () => void,
-  handleShowUserProfile: () => void,
-  navState: boolean
-}
-
-const Nav: React.FC<NavProps> = props => {
-  const { 
-    navState, 
-    handleShowLanding, 
+const Nav = props => {
+  const {
+    navState,
+    handleShowLanding,
     handleShowNav,
     handleShowPunchCard,
     handleShowSchedule,
@@ -58,7 +49,7 @@ const Nav: React.FC<NavProps> = props => {
     <div
       className={`Nav Nav--${navState ? 'large' : 'small'}`}
     >
-      <div 
+      <div
         className={`Nav__Home ${!navState && "hidden"}`}
         onClick={goToHome}
       >
@@ -73,28 +64,28 @@ const Nav: React.FC<NavProps> = props => {
       <div className={`Nav__stories ${!navState && "hidden"}`}>
         <StoriesBox navState={navState} />
       </div>
-      <div 
+      <div
         className={`Nav__punchCard C`}
         onClick={goToPunchCard}
       >
         <PunchCardBox navState={navState} />
       </div>
-      <div 
+      <div
         className={`Nav__schedule ${!navState && "hidden"}`}
         onClick={goToSchedule}
       >
-        <ScheduleBox 
+        <ScheduleBox
           navState={navState}
         />
       </div>
 
-      <div 
+      <div
         className={`Nav__userProfile ${!navState && "hidden"}`}
         onClick={goToUserProfile}
       >
         <UserProfileBox />
       </div>
-      
+
       <div className={`Nav__one ${!navState && "hidden"}`}>
         <OneBox />
       </div>
@@ -104,8 +95,8 @@ const Nav: React.FC<NavProps> = props => {
       <div className={`Nav__three ${!navState && "hidden"}`}>
         <ThreeBox />
       </div>
-      
-      
+
+
 
       <div
         className="Nav__button"

@@ -1,7 +1,7 @@
 import React from 'react';
 import './ClassesBox.scss';
 
-const ClassesBox: React.FC = () => {
+const ClassesBox = () => {
 
   return (
     <div className="ClassesBox">

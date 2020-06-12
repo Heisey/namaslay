@@ -2,7 +2,7 @@ import React from 'react';
 import MainButton from '../../Buttons/Main/Main'
 import './PassesPanel.scss'
 
-const PassesPanel: React.FC = props => {
+const PassesPanel = props => {
 
   return (
     <div className="PassesPanel">

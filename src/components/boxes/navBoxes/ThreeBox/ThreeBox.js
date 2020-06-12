@@ -1,7 +1,7 @@
 import React from 'react';
 import './ThreeBox.scss';
 
-const ThreeBox: React.FC = () => {
+const ThreeBox = () => {
 
   return (
     <div className="ThreeBox">

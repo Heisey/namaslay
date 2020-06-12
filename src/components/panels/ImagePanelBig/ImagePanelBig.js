@@ -1,21 +1,17 @@
 import React from 'react';
-
 import './ImagePanelBig.scss'
-interface ImagePanelBigProps {
-  url: string
-}
 
-const ImagePanelBig: React.FC <ImagePanelBigProps> = props => {
+const ImagePanelBig = props => {
   const { url } = props
-  
+
   return (
     <div className={`ImagePanelBig`}>
-      <img 
+      <img
         className="ImagePanelBig__image"
-        src={url} 
+        src={url}
         alt={url}
       />
-      
+
     </div>
   )
 }

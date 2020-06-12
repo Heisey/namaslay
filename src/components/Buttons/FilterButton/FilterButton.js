@@ -2,7 +2,7 @@ import React from 'react';
 
 import './FilterButton.scss'
 
-const FilterButton: React.FC<{ message: string }> = (props) => {
+const FilterButton = (props) => {
   return <button className="btn-filterButton">{props.message}</button>;
 };
 

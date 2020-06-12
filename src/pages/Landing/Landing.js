@@ -7,17 +7,9 @@ import Nav from '../../components/Nav/Nav'
 
 import './Landing.scss';
 
-interface LandingProps {
-  handleShowLanding: () => void,
-  handleShowNav: () => void,
-  handleShowPunchCard: () => void,
-  handleShowSchedule: () => void,
-  handleShowUserProfile: () => void,
-  navState: boolean
-}
-const Landing: React.FC <LandingProps> = props => {
+const Landing = props => {
 
-  const { 
+  const {
     handleShowLanding,
     handleShowNav,
     handleShowPunchCard,
@@ -27,28 +19,28 @@ const Landing: React.FC <LandingProps> = props => {
   } = props;
 
 
-  
+
 
   return (
     <div className="Landing">
-      <Nav 
+      <Nav
         navState={navState}
         handleShowLanding={handleShowLanding}
         handleShowPunchCard={handleShowPunchCard}
-        handleShowNav={handleShowNav} 
+        handleShowNav={handleShowNav}
         handleShowSchedule={handleShowSchedule}
         handleShowUserProfile={handleShowUserProfile}
       />
       <NamaslayPanel
-        panelSize={navState ? 'small' : 'large'} 
+        panelSize={navState ? 'small' : 'large'}
       />
       <div className="Landing__tr">
-        <ImagePanelBig  
+        <ImagePanelBig
           url={'https://s3.amazonaws.com/heisey.namaslay/raw/landscape/balance-rocks.jpeg'}
         />
       </div>
       <div className="Landing__bl">
-        <ImagePanelBig  
+        <ImagePanelBig
           url='https://s3.amazonaws.com/heisey.namaslay/raw/landscape/foggy-shallows.jpeg'
         />
       </div>

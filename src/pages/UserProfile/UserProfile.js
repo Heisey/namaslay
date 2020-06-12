@@ -9,18 +9,9 @@ import PassesPanel from '../../components/panels/PassesPanel/PassesPanel'
 
 import './UserProfile.scss';
 
-interface UserProfileProps {
-  handleShowLanding: () => void,
-  handleShowNav: () => void,
-  handleShowPunchCard: () => void,
-  handleShowSchedule: () => void,
-  handleShowUserProfile: () => void,
-  navState: boolean
-}
+const UserProfile = props => {
 
-const UserProfile: React.FC <UserProfileProps> = props => {
-
-  const { 
+  const {
     handleShowLanding,
     handleShowNav,
     handleShowPunchCard,

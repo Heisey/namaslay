@@ -2,7 +2,7 @@ import React from 'react';
 import MainButton from '../../Buttons/Main/Main'
 import './UserDataPanel.scss'
 
-const UserDataPanel: React.FC = props => {
+const UserDataPanel = props => {
 
   return (
     <div className="UserDataPanel">

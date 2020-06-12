@@ -1,7 +1,7 @@
 import React from 'react';
 import './UserProfileBox.scss';
 
-const UserProfileBox: React.FC = () => {
+const UserProfileBox = () => {
 
   return (
     <div className="UserProfileBox">

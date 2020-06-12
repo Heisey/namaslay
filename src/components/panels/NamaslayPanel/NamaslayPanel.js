@@ -1,13 +1,10 @@
 import React from 'react';
 
 import './NamaslayPanel.scss'
-interface NamaslayPanelProps {
-  panelSize: string
-}
 
-const NamaslayPanel: React.FC <NamaslayPanelProps> = props => {
+const NamaslayPanel = props => {
   const { panelSize } = props
-  
+
   return (
     <div className={`NamaslayPanel NamaslayPanel--${panelSize}`}>
       <h1 className={`NamaslayPanel__title${panelSize === 'small' ? '--turned' : ''}`}>

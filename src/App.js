@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import Landing from './pages/Landing/Landing'
 import PunchCard from './pages/PunchCard/PunchCard'
@@ -6,12 +6,12 @@ import Schedule from './pages/Schedule/Schedule'
 import UserProfile from './pages/UserProfile/UserProfile'
 
 function App() {
-  const [showLanding, showLandingHandler] = useState<boolean>(true)
-  const [showNav, showNavHandler] = useState<boolean>(false)
-  const [showPunchCard, showPunchCardHandler] = useState<boolean>(false)
-  const [showSchedule, showScheduleHandler] = useState<boolean>(false)
-  const [showUserProfile, showUserProfileHandler] = useState<boolean>(false)
-    
+  const [showLanding, showLandingHandler] = useState(true)
+  const [showNav, showNavHandler] = useState(false)
+  const [showPunchCard, showPunchCardHandler] = useState(false)
+  const [showSchedule, showScheduleHandler] = useState(false)
+  const [showUserProfile, showUserProfileHandler] = useState(false)
+
   const handleShowLanding = () => {
     showNavHandler(false)
     showLandingHandler(true)
@@ -52,7 +52,7 @@ function App() {
     <div className="App">
       {showLanding && (
         <Landing
-          handleShowLanding={handleShowLanding} 
+          handleShowLanding={handleShowLanding}
           handleShowNav={handleShowNav}
           handleShowPunchCard={handleShowPunchCard}
           handleShowSchedule={handleShowSchedule}
@@ -61,8 +61,8 @@ function App() {
         />
       )}
       {showPunchCard && (
-        <PunchCard 
-          handleShowLanding={handleShowLanding} 
+        <PunchCard
+          handleShowLanding={handleShowLanding}
           handleShowNav={handleShowNav}
           handleShowPunchCard={handleShowPunchCard}
           handleShowSchedule={handleShowSchedule}
@@ -71,8 +71,8 @@ function App() {
         />
       )}
       {showSchedule && (
-      <Schedule 
-          handleShowLanding={handleShowLanding} 
+        <Schedule
+          handleShowLanding={handleShowLanding}
           handleShowNav={handleShowNav}
           handleShowPunchCard={handleShowPunchCard}
           handleShowSchedule={handleShowSchedule}
@@ -81,8 +81,8 @@ function App() {
         />
       )}
       {showUserProfile && (
-        <UserProfile 
-          handleShowLanding={handleShowLanding} 
+        <UserProfile
+          handleShowLanding={handleShowLanding}
           handleShowNav={handleShowNav}
           handleShowPunchCard={handleShowPunchCard}
           handleShowSchedule={handleShowSchedule}

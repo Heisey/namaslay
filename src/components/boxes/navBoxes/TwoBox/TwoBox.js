@@ -1,7 +1,7 @@
 import React from 'react';
 import './TwoBox.scss';
 
-const TwoBox: React.FC = () => {
+const TwoBox = () => {
 
   return (
     <div className="TwoBox">
