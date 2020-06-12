@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import FiveClass from '../../components/boxes/punchCardBoxes/FiveClass/FiveClass'
 import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
@@ -17,6 +17,7 @@ const PunchCard = props => {
 
 
   const [type, setType] = useState()
+
   const {
     handleShowLanding,
     handleShowNav,
@@ -25,6 +26,10 @@ const PunchCard = props => {
     handleShowUserProfile,
     navState
   } = props
+
+  useEffect(() => {
+
+  })
 
   const showSingleClasses = () => {
     setType('single')
