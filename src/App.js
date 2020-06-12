@@ -11,6 +11,7 @@ function App() {
   const [showPunchCard, showPunchCardHandler] = useState(false)
   const [showSchedule, showScheduleHandler] = useState(false)
   const [showUserProfile, showUserProfileHandler] = useState(false)
+  const [currentUser, currentUserHandler] = useState(null)
 
   const handleShowLanding = () => {
     showNavHandler(false)
@@ -58,6 +59,7 @@ function App() {
           handleShowSchedule={handleShowSchedule}
           handleShowUserProfile={handleShowUserProfile}
           navState={showNav}
+          currentUserHandler={currentUserHandler}
         />
       )}
       {showPunchCard && (
@@ -68,6 +70,7 @@ function App() {
           handleShowSchedule={handleShowSchedule}
           handleShowUserProfile={handleShowUserProfile}
           navState={showNav}
+          currentUser={currentUser}
         />
       )}
       {showSchedule && (
@@ -78,6 +81,7 @@ function App() {
           handleShowSchedule={handleShowSchedule}
           handleShowUserProfile={handleShowUserProfile}
           navState={showNav}
+          currentUser={currentUser}
         />
       )}
       {showUserProfile && (

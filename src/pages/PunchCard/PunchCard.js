@@ -20,7 +20,8 @@ const PunchCard = props => {
     handleShowPunchCard,
     handleShowSchedule,
     handleShowUserProfile,
-    navState
+    navState,
+    currentUser
   } = props
 
   const showSingleClasses = () => {

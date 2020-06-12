@@ -32,7 +32,8 @@ const Schedule = props => {
     handleShowPunchCard,
     handleShowSchedule,
     handleShowUserProfile,
-    navState
+    navState,
+    currentUser
   } = props;
 
   // ?? Component State

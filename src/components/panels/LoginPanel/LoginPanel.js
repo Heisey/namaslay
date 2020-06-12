@@ -14,7 +14,7 @@ const config = {
 
 export default function LoginPanel(props) {
 
-  const { showPanel } = props
+  const { showPanel, currentUserHandler  } = props
 
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
@@ -30,19 +30,15 @@ export default function LoginPanel(props) {
   const handleSubmit = e => {
     e.preventDefault();
     const requestBody = { email, password }
-    console.log(requestBody);
 
 
     axios.post(`/students/login`, qs.stringify(requestBody), config)
       .then((res) => {
-        console.log(res.data);
-        //{
-        // id
-        // email,
-        // first_name,
-        // last_name,
-        // password
-        // }
+        if (res.data.status === 'success') {
+          
+        currentUserHandler(res.data)
+        }
+        console.log(res.data.status)
       })
       .catch((e) => {
         console.log(e);

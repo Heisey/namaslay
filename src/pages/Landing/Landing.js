@@ -18,6 +18,7 @@ const Landing = props => {
     handleShowPunchCard,
     handleShowSchedule,
     handleShowUserProfile,
+    currentUserHandler,
     navState
   } = props;
 
@@ -57,6 +58,7 @@ const Landing = props => {
       <div className="Landing__br">
         <LoginPanel 
           showPanel={showLoginPanel}
+          currentUserHandler={currentUserHandler}
         />
       </div>
     </div>
