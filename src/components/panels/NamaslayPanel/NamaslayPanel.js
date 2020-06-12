@@ -22,22 +22,25 @@ const NamaslayPanel = props => {
         Happiness is not by chance. its by choice
       </p>}
 
-      <div className="NamaslayPanel__buttons">
-        <div className="NamaslayPanel__login">
-          <SnakeBorderButton 
-            text="login"
-            clickHandler={handleShowLoginPanel}
-          />
-        </div>
+      {panelSize !== 'small' && (
+        <div className="NamaslayPanel__buttons">
+          <div className="NamaslayPanel__login">
+            <SnakeBorderButton 
+              text="login"
+              clickHandler={handleShowLoginPanel}
+            />
+          </div>
 
-        <div className="NamaslayPanel__logout">
-          <SnakeBorderButton 
-            text="sign up"
-            clickHandler={handleShowLoginPanel}
-          />
-        </div>
+          <div className="NamaslayPanel__logout">
+            <SnakeBorderButton 
+              text="sign up"
+              clickHandler={handleShowLoginPanel}
+            />
+          </div>
 
-      </div>
+        </div>  
+      )}
+      
     </div>
   )
 }

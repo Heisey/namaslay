@@ -56,7 +56,6 @@
   }
 
   &__card {
-    background-color: darkmagenta;
     grid-row-start: 2;
     grid-row-end: 4;
     grid-column-start: 2;
@@ -64,7 +63,6 @@
   }
 
   &__singleClass {
-    background-color: darkolivegreen;
     grid-row-start: 1;
     grid-row-end: 2;
     grid-column-start: 3;
@@ -72,7 +70,6 @@
   }
 
   &__fiveClasses {
-    background-color: darksalmon;
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column-start: 3;
@@ -80,7 +77,6 @@
   }
 
   &__twentyFiveClasses {
-    background-color: greenyellow;
     grid-row-start: 3;
     grid-row-end: 4;
     grid-column-start: 3;
@@ -88,7 +84,6 @@
   }
 
   &__monthUnlimited {
-    background-color: lavender;
     grid-row-start: 4;
     grid-row-end: 5;
     grid-column-start: 3;

@@ -1,6 +1,5 @@
 .ClassSelectionPanel {
-  background-color: greenyellow;
-  
+  color: var(--accent-secondary);
   margin-top: -4%;
   width: 100%;
   min-height: 100%;
@@ -23,7 +22,7 @@
 
   &__listItem {
     padding: 10px 5px;
-    border-top: 2px solid black;
+    border-top: 2px solid var(--accent-secondary);
     transition: all 0.3s linear;
     list-style: none;
 

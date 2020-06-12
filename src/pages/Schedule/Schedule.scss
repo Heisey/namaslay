@@ -1,5 +1,5 @@
 .Schedule {
-  background-color: plum;
+  background-color: var(--neutral-color);
   height: 100vh;
   width: 100vw;
   display: grid;
@@ -7,7 +7,6 @@
   grid-template-rows: 25vh 25vh 25vh 25vh;
 
   &__namaslay {
-    background-color: blueviolet;
     width: 100%;
     height: 100%;
     grid-row-start: 1;
@@ -17,17 +16,19 @@
   }
 
   &__classesLeft {
-    background-color: brown;
     width: 100%;
     height: 100%;
     grid-row-start: 1;
     grid-row-end: 2;
     grid-column-start: 2;
     grid-column-end: 3;
+    border: 2px solid var(--accent-secondary);
+    border-bottom: 1px solid var(--accent-secondary);
+    color: var(--accent-secondary);
+    z-index: 5;
   }
 
   &__calendar {
-    background-color: navajowhite;
     width: 100%;
     height: 100%;
     grid-row-start: 3;
@@ -37,17 +38,16 @@
   }
 
   &__classSelection {
-    background-color: grey;
     width: 100%;
     height: 100%;
     grid-row-start: 3;
     grid-row-end: 5;
     grid-column-start: 3;
     grid-column-end: 5;
+    border-top: 2px solid var(--accent-secondary);
   }
 
   &__dynamicSelection {
-    background-color: red;
     width: 100%;
     height: 100%;
     grid-row-start: 1;
@@ -57,27 +57,28 @@
   }
 
   &__teacherFilter  {
-    background-color: yellow;
     width: 100%;
     height: 100%;
     grid-row-start: 1;
     grid-row-end: 2;
     grid-column-start: 5;
     grid-column-end: 6;
+    border: 2px solid var(--accent-secondary);
+    color: var(--accent-secondary);
   }
 
   &__disciplineFilter {
-    background-color: purple;
     width: 100%;
     height: 100%;
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column-start: 5;
     grid-column-end: 6;
+    border: 2px solid var(--accent-secondary);
+    color: var(--accent-secondary);
   }
 
   &__eventFilter {
-    background-color: olive;
     width: 100%;
     height: 100%;
     grid-row-start: 3;
@@ -85,45 +86,54 @@
     grid-column-start: 5;
     grid-column-end: 6;
     z-index: 190;
+    border: 2px solid var(--accent-secondary);
+    color: var(--accent-secondary);
   }
   
   &__difficultyFilter {
-    background-color: orangered;
     width: 100%;
     height: 100%;
     grid-row-start: 4;
     grid-row-end: 5;
     grid-column-start: 5;
     grid-column-end: 6;
+    border: 2px solid var(--accent-secondary);
+    color: var(--accent-secondary);
   }
 
   &__clearFilters {
-    background-color: coral;
     width: 100%;
     height: 100%;
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column-start: 2;
     grid-column-end: 3;
+    border: 2px solid var(--accent-secondary);
+    border-top: 1px solid var(--accent-secondary);
+    color: var(--accent-secondary);
   }
 
   &__teacherInfo {
-    background-color: peru;
     width: 100%;
     height: 100%;
     grid-row-start: 1;
     grid-row-end: 3;
     grid-column-start: 6;
     grid-column-end: 7;
+    border: 2px solid var(--accent-secondary);
+    border-top: 1px solid var(--accent-secondary);
+    color: var(--accent-secondary);
   }
 
   &__classInfo {
-    background-color: powderblue;
     width: 100%;
     height: 100%;
     grid-row-start: 3;
     grid-row-end: 5;
     grid-column-start: 6;
     grid-column-end: 7;
+    border: 2px solid var(--accent-secondary);
+    border-top: 1px solid var(--accent-secondary);
+    color: var(--accent-secondary);
   }
 }
