@@ -6,7 +6,8 @@ const ClassSelectionPanelItem = props => {
     program,
     secondaryDataPanelHandler,
     renderOverlayHandler,
-    selectedClassHandler
+    selectedClassHandler,
+    id
   } = props
 
   const [focused, focusedHandler] = useState(false)

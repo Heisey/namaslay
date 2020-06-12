@@ -1,5 +1,12 @@
 import React from 'react';
 
+import FiveClass from '../../components/boxes/punchCardBoxes/FiveClass/FiveClass'
+import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
+import OneClass from '../../components/boxes/punchCardBoxes/OneClass/OneClass'
+import ImagePanelBig from '../../components/panels/ImagePanelBig/ImagePanelBig'
+import TwentyFiveClass from '../../components/boxes/punchCardBoxes/TwentyFiveClass/TwentyFiveClass'
+import Unlimited from '../../components/boxes/punchCardBoxes/Unlimited/Unlimited'
+
 import Nav from '../../components/Nav/Nav'
 
 import './PunchCard.scss';
@@ -14,6 +21,22 @@ const PunchCard = props => {
     navState
   } = props
 
+  const showSingleClasses = () => {
+    console.log('pupp1')
+  }
+
+  const showFiveClasses = () => {
+    console.log('puppy5')
+  }
+
+  const showTwentyFiveClasses = () => {
+    console.log('puppy25')
+  }
+
+  const showUnlimited = () => {
+    console.log('all the puppies')
+  }
+
   return (
     <div className="PunchCard">
       <Nav
@@ -24,15 +47,43 @@ const PunchCard = props => {
         handleShowUserProfile={handleShowUserProfile}
         navState={navState}
       />
-      <div className="PunchCard__namaslay">namaslay</div>
+      <div className="PunchCard__namaslay">
+        <NamaslayPanel
+            panelSize='small'
+          />
+      </div>
       <div className="PunchCard__image--small">image small</div>
-      <div className="PunchCard__image--bigOne">image big</div>
-      <div className="PunchCard__image--bigTwo">image big</div>
+      <div className="PunchCard__image--bigOne">
+        <ImagePanelBig
+          url={'https://s3.amazonaws.com/heisey.namaslay/raw/landscape/balance-rocks.jpeg'}
+        />
+      </div>
+      <div className="PunchCard__image--bigTwo">
+        <ImagePanelBig
+          url='https://s3.amazonaws.com/heisey.namaslay/raw/landscape/foggy-shallows.jpeg'
+        />
+      </div>
       <div className="PunchCard__card">Card</div>
-      <div className="PunchCard__singleClass">One</div>
-      <div className="PunchCard__fiveClasses">Five</div>
-      <div className="PunchCard__twentyFiveClasses">twenty five</div>
-      <div className="PunchCard__monthUnlimited">month unlimited</div>
+      <div className="PunchCard__singleClass">
+        <OneClass 
+          showSingleClasses={showSingleClasses}
+        />
+      </div>
+      <div className="PunchCard__fiveClasses">
+        <FiveClass 
+          showFiveClasses={showFiveClasses}
+        />
+      </div>
+      <div className="PunchCard__twentyFiveClasses">
+        <TwentyFiveClass 
+          showTwentyFiveClasses={showTwentyFiveClasses}
+        />
+      </div>
+      <div className="PunchCard__monthUnlimited">
+        <Unlimited 
+          showUnlimited={showUnlimited}
+        />
+      </div>
     </div>
   )
 }
