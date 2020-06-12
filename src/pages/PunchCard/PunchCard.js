@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 
 import FiveClass from '../../components/boxes/punchCardBoxes/FiveClass/FiveClass'
 import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
@@ -13,7 +14,13 @@ import Nav from '../../components/Nav/Nav'
 
 import './PunchCard.scss';
 
+
 const PunchCard = props => {
+
+
+  const [passType, setPassType] = useState()
+  const [passCount, setPassCount] = useState()
+
   const {
     handleShowLanding,
     handleShowNav,
@@ -24,20 +31,28 @@ const PunchCard = props => {
     currentUser
   } = props
 
+  useEffect(() => {
+    axios.get(`/students/1/passes`)
+      .then((res) => {
+        console.log(res.data);
+        setPassCount(res.data.passCount);
+      })
+  }, [])
+
   const showSingleClasses = () => {
-    console.log('pupp1')
+    setPassType('single')
   }
 
   const showFiveClasses = () => {
-    console.log('puppy5')
+    setPassType('5-pack')
   }
 
   const showTwentyFiveClasses = () => {
-    console.log('puppy25')
+    setPassType('25-pack')
   }
 
   const showUnlimited = () => {
-    console.log('all the puppies')
+    setPassType('monthly')
   }
 
   return (
@@ -52,9 +67,9 @@ const PunchCard = props => {
       />
       <div className="PunchCard__namaslay">
         <NamaslayPanel
-            panelSize='small'
-            turnedClass='2'
-          />
+          panelSize='small'
+          turnedClass='2'
+        />
       </div>
       <div className="PunchCard__image--small">
         <ImagePanelBig
@@ -64,36 +79,38 @@ const PunchCard = props => {
       </div>
       <div className="PunchCard__image--bigOne">
         <ImagePanelBig
-        size="32"
+          size="32"
           url={'https://s3.amazonaws.com/heisey.namaslay/raw/landscape/balance-rocks.jpeg'}
         />
       </div>
       <div className="PunchCard__image--bigTwo">
         <ImagePanelBig
-        size="32"
+          size="32"
           url='https://s3.amazonaws.com/heisey.namaslay/raw/landscape/foggy-shallows.jpeg'
         />
       </div>
       <div className="PunchCard__card">
-        <PunchCardPanel />
+        <PunchCardPanel
+          type={passType}
+        />
       </div>
       <div className="PunchCard__singleClass">
-        <OneClass 
+        <OneClass
           showSingleClasses={showSingleClasses}
         />
       </div>
       <div className="PunchCard__fiveClasses">
-        <FiveClass 
+        <FiveClass
           showFiveClasses={showFiveClasses}
         />
       </div>
       <div className="PunchCard__twentyFiveClasses">
-        <TwentyFiveClass 
+        <TwentyFiveClass
           showTwentyFiveClasses={showTwentyFiveClasses}
         />
       </div>
       <div className="PunchCard__monthUnlimited">
-        <Unlimited 
+        <Unlimited
           showUnlimited={showUnlimited}
         />
       </div>
