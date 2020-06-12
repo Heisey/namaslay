@@ -1,5 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import qs from 'qs'
+
+const config = {
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
+}
 
 const ClassSelectionPanelItem = props => {
   const {
@@ -16,9 +23,11 @@ const ClassSelectionPanelItem = props => {
 
   const handleBooking = async () => {
 
-    axios.post('/students/', {
-      classId: `${program}`
-    })
+    const requestBody = {
+      class_id: `${id}`
+    }
+
+    axios.post(`/classes/${id}/book`, qs.stringify(requestBody), config)
       .then((res) => {
         console.log(res.data);
       })
