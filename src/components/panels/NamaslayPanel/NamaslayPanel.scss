@@ -13,7 +13,7 @@
   &__title {
 
     position: absolute;
-    top: 20%;
+    top: 5%;
     left: 50%;
     color: var(--accent-primary);
     // transform: rotate(-90deg);
@@ -25,7 +25,16 @@
       top: 25%;
       left: -5%;
       color: var(--accent-primary);
-      transform: rotate(-90deg);
+      transform: rotate(-90deg) translateX(0);
+      font-size: 6rem;
+    }
+
+    &--turned2 {
+      position: absolute;
+      top: 25%;
+      left: -15%;
+      color: var(--accent-primary);
+      transform: rotate(-90deg) translateX(0);
       font-size: 6rem;
     }
   

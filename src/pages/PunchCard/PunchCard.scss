@@ -1,5 +1,4 @@
 .PunchCard {
-  background-color: powderblue;
   height: 100vh;
   width: 100vw;
   display: grid;
@@ -7,7 +6,7 @@
   grid-template-rows: 1fr 1fr 1fr 1fr;
 
   &__namaslay {
-    background-color: red;
+    background-color: --color-secondary;
     width: 100%;
     height: 100%;
     grid-row-start: 1;
@@ -21,7 +20,6 @@
     height: 100%;
 
     &--small {
-      background-color: blueviolet;
       grid-row-start: 3;
       grid-row-end: 5;
       grid-column-start: 1;
@@ -29,7 +27,6 @@
     }
 
     &--bigOne {
-      background-color: chartreuse;
       grid-row-start: 1;
       grid-row-end: 3;
       grid-column-start: 4;
@@ -37,7 +34,6 @@
     }
 
     &--bigTwo {
-      background-color: darkgoldenrod;
       grid-row-start: 3;
       grid-row-end: 5;
       grid-column-start: 4;
@@ -45,10 +41,24 @@
     }
   }
 
+  &__topImage {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+
+  &__bottomImage {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+
   &__card {
     background-color: darkmagenta;
-    grid-row-start: 1;
-    grid-row-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 4;
     grid-column-start: 2;
     grid-column-end: 3;
   }
@@ -83,9 +93,5 @@
     grid-row-end: 5;
     grid-column-start: 3;
     grid-column-end: 4;
-  }
-
-  &__monthUnlimited {
-
   }
 }

@@ -2,12 +2,12 @@ import React from 'react';
 import './ImagePanelBig.scss'
 
 const ImagePanelBig = props => {
-  const { url } = props
+  const { size, url } = props
 
   return (
     <div className={`ImagePanelBig`}>
       <img
-        className="ImagePanelBig__image"
+        className={`ImagePanelBig__image--${size}`}
         src={url}
         alt={url}
       />

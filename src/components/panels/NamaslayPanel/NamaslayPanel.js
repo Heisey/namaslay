@@ -3,11 +3,11 @@ import React from 'react';
 import './NamaslayPanel.scss'
 
 const NamaslayPanel = props => {
-  const { panelSize } = props
+  const { panelSize, turnedClass } = props
 
   return (
     <div className={`NamaslayPanel NamaslayPanel--${panelSize}`}>
-      <h1 className={`NamaslayPanel__title${panelSize === 'small' ? '--turned' : ''}`}>
+      <h1 className={`NamaslayPanel__title${panelSize === 'small' ? (turnedClass === '2' ? '--turned2' : '--turned') : ''}`}>
         <span className="NamaslayPanel__title--nama">
           Nama
         </span>

@@ -17,10 +17,7 @@ const Landing = props => {
     handleShowUserProfile,
     navState
   } = props;
-
-
-
-
+  
   return (
     <div className="Landing">
       <Nav
@@ -33,14 +30,17 @@ const Landing = props => {
       />
       <NamaslayPanel
         panelSize={navState ? 'small' : 'large'}
+        turnedClass="1"
       />
       <div className="Landing__tr">
         <ImagePanelBig
+          size="50"
           url={'https://s3.amazonaws.com/heisey.namaslay/raw/landscape/balance-rocks.jpeg'}
         />
       </div>
       <div className="Landing__bl">
         <ImagePanelBig
+          size="50"
           url='https://s3.amazonaws.com/heisey.namaslay/raw/landscape/foggy-shallows.jpeg'
         />
       </div>

@@ -1,0 +1,13 @@
+.ImagePanelHorizontal {
+  background-color: var(--accent-primary);
+  mix-blend-mode: difference;
+
+  &__image{
+    width: (100vw / 6) * 2;
+    height: 25vh;
+    object-fit: cover;
+    overflow: hidden;
+    filter: blur(5px);
+    background-color: transparent;
+  }
+}
