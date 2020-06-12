@@ -15,7 +15,6 @@ export default function PunchCardPanel(props) {
 
   const handlePurchase = () => {
     const requestBody = type
-    console.log(type);
     if (type) {
       //update to add state instead of 1
       axios.post(`/students/1/passes`, qs.stringify(requestBody), config)

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 
 import FiveClass from '../../components/boxes/punchCardBoxes/FiveClass/FiveClass'
 import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
@@ -13,10 +14,12 @@ import Nav from '../../components/Nav/Nav'
 
 import './PunchCard.scss';
 
+
 const PunchCard = props => {
 
 
-  const [type, setType] = useState()
+  const [passType, setPassType] = useState()
+  const [passCount, setPassCount] = useState()
 
   const {
     handleShowLanding,
@@ -28,23 +31,27 @@ const PunchCard = props => {
   } = props
 
   useEffect(() => {
-
-  })
+    axios.get(`/students/1/passes`)
+      .then((res) => {
+        console.log(res.data);
+        setPassCount(res.data.passCount);
+      })
+  }, [])
 
   const showSingleClasses = () => {
-    setType('single')
+    setPassType('single')
   }
 
   const showFiveClasses = () => {
-    setType('5-pack')
+    setPassType('5-pack')
   }
 
   const showTwentyFiveClasses = () => {
-    setType('25-pack')
+    setPassType('25-pack')
   }
 
   const showUnlimited = () => {
-    setType('monthly')
+    setPassType('monthly')
   }
 
   return (
@@ -83,7 +90,7 @@ const PunchCard = props => {
       </div>
       <div className="PunchCard__card">
         <PunchCardPanel
-          type={type}
+          type={passType}
         />
       </div>
       <div className="PunchCard__singleClass">
