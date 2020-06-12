@@ -112,6 +112,7 @@ const Schedule = props => {
   }
 
   const handleDisciplinesFilter = () => {
+    console.log('hello puppies')
     const disciplines = scheduleData.disciplines.map((t) => t)
     disciplines.push('Discipline')
     setDynamicData(disciplines);
