@@ -1,17 +1,29 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
 const ClassSelectionPanelItem = props => {
-  const { 
+  const {
     program,
-    secondaryDataPanelHandler, 
-    renderOverlayHandler, 
-    selectedClassHandler  
+    secondaryDataPanelHandler,
+    renderOverlayHandler,
+    selectedClassHandler
   } = props
 
   const [focused, focusedHandler] = useState(false)
 
   // ?? hook up axios here to book appointment
-  const handleBooking = () => {
+
+  const handleBooking = async () => {
+
+    axios.post('/students/', {
+      classId: `${program}`
+    })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      })
     renderOverlayHandler(true)
   }
 
@@ -21,27 +33,27 @@ const ClassSelectionPanelItem = props => {
   }
 
   return (
-      <li
-        key={program.id}
-        id={program.id}
-        onClick={handleSelectedClass}
-        className={`ClassSelectionPanel__listItem ClassSelectionPanel__listItem--${focused ? 'focused' : 'unfocused'}`}
+    <li
+      key={program.id}
+      id={program.id}
+      onClick={handleSelectedClass}
+      className={`ClassSelectionPanel__listItem ClassSelectionPanel__listItem--${focused ? 'focused' : 'unfocused'}`}
+    >
+      <div className="ClassSelectionPanel__listInfo">
+        <span className='ClassSelectionPanel__listItem--time'>{program.start_time}:00</span>
+        <span className='ClassSelectionPanel__listItem--name'>{program.name}</span>
+        <span className='ClassSelectionPanel__listItem--spots'>{program.spotsavailable}</span>
+        <span className='ClassSelectionPanel__listItem--difficulty'>{program.difficulty}</span>
+      </div>
+
+      <div
+        className={`ClassSelectionPanel__listItem--button ClassSelectionPanel__listItem--${!focused ? 'hideButton' : 'showButton'}`}
+        onClick={handleBooking}
       >
-        <div className="ClassSelectionPanel__listInfo">
-          <span className='ClassSelectionPanel__listItem--time'>{program.start_time}:00</span>
-          <span className='ClassSelectionPanel__listItem--name'>{program.name}</span>
-          <span className='ClassSelectionPanel__listItem--spots'>{program.spotsavailable}</span>
-          <span className='ClassSelectionPanel__listItem--difficulty'>{program.difficulty}</span>
+        Book
         </div>
-        
-        <div 
-          className={`ClassSelectionPanel__listItem--button ClassSelectionPanel__listItem--${!focused ? 'hideButton' : 'showButton'}`}
-          onClick={handleBooking}  
-        >
-          Book
-        </div>
-      </li>
-     
+    </li>
+
   )
 }
 
