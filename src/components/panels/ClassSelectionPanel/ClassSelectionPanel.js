@@ -3,13 +3,6 @@ import React, { useState } from 'react'
 import ClassSelectionPanelItem from './ClassSelectionPanelItem/ClassSelectionPanelItem.js'
 import './ClassSelectionPanel.scss'
 
-// interface ClassSelectionPanelProps {
-//   classesForDay: any,
-//   selectedClassHandler: any,
-//   secondaryDataPanelHandler: any,
-//   renderOverlayHandler: any
-// }
-
 const ClassSelectionPanel = props => {
 
   const { 
@@ -18,6 +11,7 @@ const ClassSelectionPanel = props => {
     renderOverlayHandler, 
     selectedClassHandler 
   } = props
+
   
   
   const loopThroughClasses = () => {

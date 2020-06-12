@@ -16,7 +16,10 @@ import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
 import DynamicDataPanel from '../../components/panels/DynamicDataPanel/DynamicDataPanel'
 import ClassSelectionPanel from '../../components/panels/ClassSelectionPanel/ClassSelectionPanel.js';
 import ScheculePrimaryDataPanel from '../../components/panels/ScheculePrimaryDataPanel/ScheculePrimaryDataPanel'
+
 import axios from 'axios'
+
+import ScheduleScreens from '../../screens/scheduleScreens/ScheculeScreens.js';
 
 import './Schedule.scss';
 
@@ -167,6 +170,8 @@ const Schedule: React.FC<ScheduleProps> = props => {
 
   return (
     <div className="Schedule">
+      {renderOverlay && <ScheduleScreens /> }
+     
       <Nav
         handleShowLanding={handleShowLanding}
         handleShowNav={handleShowNav}

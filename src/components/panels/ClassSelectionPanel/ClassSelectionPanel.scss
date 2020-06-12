@@ -9,16 +9,31 @@
     position: relative;
     width: 100%;
     padding-inline-start: 0;
+    height: 100%;
   }
 
   &__list:nth-child(1) {
     padding-top: 50px;
   }
 
-  &__listItem {
+  &__listInfo {
+
     display: flex;
+  }
+
+  &__listItem {
     padding: 10px 5px;
     border-top: 2px solid black;
+    transition: all 0.3s linear;
+
+
+    &--unfocused {
+      height: 3vh;
+    }
+
+    &--focused {
+      height: 6vh;
+    }
 
     &--time {
       width: 15%;
@@ -61,6 +76,23 @@
       width: 25%;
       text-align: end;
       padding-right: 10px;
+    }
+    &--button {
+      height: 30px;
+      width: 60px;
+      background-color: hotpink;
+      margin: 0 auto;
+      margin-top: 10px;
+      text-align: center;
+      line-height: 30px;
+    }
+
+    &--hideButton {
+      display: none;
+    }
+
+    &--showButton {
+      display: block;
     }
   }
 
