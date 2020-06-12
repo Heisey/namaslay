@@ -36,6 +36,13 @@ export default function LoginPanel(props) {
     axios.post(`/students/login`, qs.stringify(requestBody), config)
       .then((res) => {
         console.log(res.data);
+        //{
+        // id
+        // email,
+        // first_name,
+        // last_name,
+        // password
+        // }
       })
       .catch((e) => {
         console.log(e);
