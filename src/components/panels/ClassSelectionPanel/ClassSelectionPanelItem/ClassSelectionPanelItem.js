@@ -10,6 +10,7 @@ const ClassSelectionPanelItem = props => {
 
   const [focused, focusedHandler] = useState(false)
 
+  // ?? hook up axios here to book appointment
   const handleBooking = () => {
     renderOverlayHandler(true)
   }
