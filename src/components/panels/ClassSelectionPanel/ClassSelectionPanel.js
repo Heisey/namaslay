@@ -19,6 +19,7 @@ const ClassSelectionPanel = props => {
       const listItems = classesForDay.map(el => (
 
         <ClassSelectionPanelItem
+          key={el.id}
           id={el.id}
           secondaryDataPanelHandler={secondaryDataPanelHandler}
           renderOverlayHandler={renderOverlayHandler}

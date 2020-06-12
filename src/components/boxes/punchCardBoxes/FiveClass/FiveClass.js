@@ -4,8 +4,17 @@ import './FiveClass.scss';
 
 export default function FiveClass(props) {
 
+  const { showFiveClasses } = props
+
+  const handleshowFiveClasses = () => {
+    showFiveClasses()
+  }
+
   return (
-    <div className="FiveClass">
+    <div 
+      onClick={handleshowFiveClasses}
+      className="FiveClass"
+    >
       Five Class
     </div>
   )
