@@ -1,0 +1,17 @@
+.ScheduleScreens {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background-color: rgba($color: black, $alpha: 0.7);
+  z-index: 200;
+
+  &__card {
+    height: 50vh;
+    width: 40vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: wheat;
+  }
+}
