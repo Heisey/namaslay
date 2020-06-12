@@ -5,13 +5,9 @@ import Calendar from 'react-calendar';
 
 import './CalendarPanel.scss'
 
-interface CalendarPanelProps {
-  handleCalendarDayChange: (date: any) => void,
-  handleCalendarMonthChange: (date: any) => void
-}
-const CalendarPanel: React.FC <CalendarPanelProps> = props => {
-  
-  const { 
+const CalendarPanel = props => {
+
+  const {
     handleCalendarDayChange,
     handleCalendarMonthChange
   } = props

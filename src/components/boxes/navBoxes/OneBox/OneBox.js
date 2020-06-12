@@ -1,7 +1,7 @@
 import React from 'react';
 import './OneBox.scss';
 
-const OneBox: React.FC = () => {
+const OneBox = () => {
 
   return (
     <div className="OneBox">

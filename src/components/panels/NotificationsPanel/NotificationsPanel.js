@@ -2,7 +2,7 @@ import React from 'react';
 
 import './NotificationsPanel.scss'
 
-const NotificationsPanel: React.FC = props => {
+const NotificationsPanel = props => {
 
   return (
     <div className="NotificationsPanel">

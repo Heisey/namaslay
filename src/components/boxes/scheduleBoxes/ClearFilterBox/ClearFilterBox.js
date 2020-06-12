@@ -1,10 +1,6 @@
 import React from 'react';
 
-interface ClearFilterBoxProps {
-  clearFilters: () => void
-}
-
-const ClearFilterBox: React.FC <ClearFilterBoxProps> = props => {
+const ClearFilterBox = props => {
 
   const { clearFilters } = props
 
@@ -12,7 +8,7 @@ const ClearFilterBox: React.FC <ClearFilterBoxProps> = props => {
     clearFilters()
   }
   return (
-    <div 
+    <div
       className='ClearFilterBox'
       onClick={handleClearFilters}
     >

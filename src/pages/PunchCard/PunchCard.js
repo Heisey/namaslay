@@ -4,16 +4,7 @@ import Nav from '../../components/Nav/Nav'
 
 import './PunchCard.scss';
 
-interface PunchCardProps {
-  handleShowLanding: () => void,
-  handleShowNav: () => void,
-  handleShowPunchCard: () => void,
-  handleShowSchedule: () => void,
-  handleShowUserProfile: () => void,
-  navState: boolean
-}
-
-const PunchCard: React.FC<PunchCardProps> = props => {
+const PunchCard = props => {
   const {
     handleShowLanding,
     handleShowNav,
@@ -25,7 +16,7 @@ const PunchCard: React.FC<PunchCardProps> = props => {
 
   return (
     <div className="PunchCard">
-      <Nav 
+      <Nav
         handleShowLanding={handleShowLanding}
         handleShowNav={handleShowNav}
         handleShowPunchCard={handleShowPunchCard}
