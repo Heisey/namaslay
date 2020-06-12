@@ -1,18 +1,20 @@
 import React from 'react'
 import './DynamicDataPanel.scss'
-import TeacherSelectionBox from '../../boxes/scheduleBoxes/SelectionBoxes/TeacherSelectionBox'
+import SelectionBox from '../../boxes/scheduleBoxes/SelectionBoxes/SelectionBox'
 
 const DynamicDataPanel = props => {
 
   const { data, handleTypeSelection } = props
 
   const tempData = [...data]
+  const type = tempData.pop()
 
-  const details = tempData.map((detail, i) => {
+  const details = tempData.map(detail => {
     return (
-      <TeacherSelectionBox
+      <SelectionBox
         key={detail.id}
         detail={detail}
+        type={type}
         handleTypeSelection={handleTypeSelection}
       />
     )

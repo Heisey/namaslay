@@ -1,10 +1,6 @@
 import React from 'react';
 
-interface DifficultiesFilterBoxProps {
-  handleDifficultiesFilter: () => void
-}
-
-const DifficultiesFilterBox: React.FC<DifficultiesFilterBoxProps> = props => {
+const DifficultiesFilterBox = props => {
 
   const { handleDifficultiesFilter } = props
   return (

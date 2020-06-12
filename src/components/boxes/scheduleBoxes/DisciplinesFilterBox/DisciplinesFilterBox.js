@@ -1,10 +1,6 @@
 import React from 'react';
 
-interface DisciplinesFilterBoxProps {
-  handleDisciplinesFilter: () => void
-}
-
-const DisciplinesFilterBox: React.FC<DisciplinesFilterBoxProps> = props => {
+const DisciplinesFilterBox = props => {
 
   const { handleDisciplinesFilter } = props
   return (

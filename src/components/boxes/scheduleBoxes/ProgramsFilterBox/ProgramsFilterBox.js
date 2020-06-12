@@ -1,10 +1,6 @@
 import React from 'react';
 
-interface ProgramsFilterBoxProps {
-  handleProgramsFilter: () => void
-}
-
-const ProgramsFilterBox: React.FC<ProgramsFilterBoxProps> = props => {
+const ProgramsFilterBox = props => {
 
   const { handleProgramsFilter } = props
   return (

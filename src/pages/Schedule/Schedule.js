@@ -77,11 +77,8 @@ const Schedule = props => {
       // !! refactor to useEffect
       .then((data) => {
         const today = getTodayID()
-        console.log('before', data.classes);
-
         const classesToday = data.classes.filter(c => c.daynumber === today && c.monthnumber === selectedMonth
         )
-        console.log('classesToday on pageload', classesToday)
         classesForDayHandler(classesToday)
         filteredClassesForDayHandler(classesToday)
         dataLoadHandler(true)
@@ -107,39 +104,57 @@ const Schedule = props => {
   //nb if you click these too quickly after pageload, they don't work...
   const handleTeachersFilter = () => {
     const teachers = scheduleData.teachers.map((t) => t)
-    teachers.push('teacher')
+    teachers.push('Teacher')
     setDynamicData(teachers);
   }
 
   const handleDisciplinesFilter = () => {
     const disciplines = scheduleData.disciplines.map((t) => t)
-    disciplines.push('discipline')
+    disciplines.push('Discipline')
     setDynamicData(disciplines);
   }
 
+  // !! CSS is fucked up here
   const handleProgramsFilter = () => {
+    console.log('programs clicked');
+
     const programs = scheduleData.programs.map((t) => t)
     programs.push('Program')
     setDynamicData(programs);
   }
 
   const handleDifficultiesFilter = () => {
-    const difficulties = scheduleData.difficulties.map((t) => t.description);
+    const difficulties = scheduleData.difficulties.map((t) => t);
     difficulties.push('Difficulty')
     setDynamicData(difficulties);
   }
 
-  const handleTypeSelection = (id) => {
-
-
-    const teacher = scheduleData.teachers.filter(el => el.id === id)
-
-    primaryDataPanelHandler({ title: teacher[0], info: teacher[0].bio })
-
-    const newClassesForDay = classesForDay.filter(el => el.teacher_id === teacher[0].id)
-
+  const handleTypeSelection = (id, type) => {
+    let newClassesForDay;
+    if (type === 'Discipline') {
+      const discipline = scheduleData.disciplines.filter(el => el.id === id)
+      console.log(discipline);
+      primaryDataPanelHandler({ title: discipline[0], info: discipline[0].description })
+      newClassesForDay = classesForDay.filter(el => el.discipline_id === discipline[0].id)
+    } else if (type === 'Teacher') {
+      const teacher = scheduleData.teachers.filter(el => el.id === id)
+      console.log(teacher);
+      primaryDataPanelHandler({ title: teacher[0], info: teacher[0].bio })
+      newClassesForDay = classesForDay.filter(el => el.teacher_id === teacher[0].id)
+    } else if (type === 'Program') {
+      const program = scheduleData.programs.filter(el => el.id === id)
+      console.log(program);
+      primaryDataPanelHandler({ title: program[0], info: program[0].description })
+      newClassesForDay = classesForDay.filter(el => el.program_id === program[0].id)
+    } else if (type === 'Difficulty') {
+      const difficulty = scheduleData.difficulties.filter(el => el.id === id)
+      console.log(difficulty);
+      primaryDataPanelHandler({ title: difficulty[0], info: difficulty[0].description })
+      newClassesForDay = classesForDay.filter(el => el.difficulty === difficulty[0].description)
+    } else {
+      return;
+    }
     filteredClassesForDayHandler(newClassesForDay)
-
   }
 
   const clearFilters = () => {
@@ -221,7 +236,7 @@ const Schedule = props => {
 
       <div className="Schedule__teacherInfo">
         <ScheculePrimaryDataPanel
-        key='primary1'
+          key='primary1'
           primaryDataPanel={primaryDataPanel}
         />
       </div>
