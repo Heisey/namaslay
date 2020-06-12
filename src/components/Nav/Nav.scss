@@ -1,6 +1,6 @@
 .Nav {
-  background-color: var(--primary-color);
-  color: rgb(204, 196, 196);
+  background-color: var(--accent-secondary);
+  color: var(--neutral-color);
   z-index: 100;
   position: absolute;
   top: 50%;
@@ -89,7 +89,7 @@
     z-index: 200;
 
   &__button {
-    background-color: var(--primary-color);
+    background-color: var(--accent-secondary);
 
     position: absolute;
     top: 50%;

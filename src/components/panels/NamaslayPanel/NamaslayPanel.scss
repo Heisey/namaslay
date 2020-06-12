@@ -48,25 +48,30 @@
 
   &__quote {
     position: absolute;
-    
+    width: 80%;
     top: 40%;
-    left: 10%;
+    left: 50%;
+    transform: translateX(-50%);
     color: var(--accent-primary);
     font-family: 'Rock Salt', cursive;
     font-size: 1.5em;
+    text-align: center;
+  }
+  &__buttons {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    width: 49%;
+    justify-content: space-between;
   }
 
   &__login {
-    position: absolute;
-    top: 60%;
-    left: 25%;
-    transform: translateX(-50%);
+    
   }
 
   &__logout {
-    position: absolute;
-    top: 60%;
-    left: 75%;
-    transform: translateX(-50%);
+
   }
 }

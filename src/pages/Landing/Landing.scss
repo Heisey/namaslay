@@ -12,5 +12,8 @@
   &__br {
     height: 50vh;
     width: 50vw;
+    position: relative;
+    transition: 1s;
+    // background-color: var(--accent-secondary);
   }
 }

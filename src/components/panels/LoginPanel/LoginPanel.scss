@@ -1,0 +1,52 @@
+.LoginPanel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  &--hidden {
+    visibility: hidden;
+  }
+
+  &--show {
+    visibility: visible;
+  }
+
+  &__form {
+    text-align: center;
+    width: 80%;
+    background-color: var(--accent-secondary);
+    padding: 40px;
+
+    &--title {
+      margin-top: -10%;
+    }
+
+    &--password,
+    &--email {
+      border: 0;
+      background-color: var(--neutral-color);
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+      padding: 14px 10px;
+      width: 80%;
+      outline: none;
+      color: var(--accent-secondary);
+    }
+
+    &--password:focus,
+    &--email:focus {
+
+    }
+
+    &--button {
+      background-color: var(--neutral-color);
+      width: 50%;
+      display: block;
+      margin: 20px auto;
+      padding: 14px 10px;
+      color: var(--accent-secondary);
+    }
+  }
+}
