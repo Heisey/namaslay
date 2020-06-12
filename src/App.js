@@ -6,9 +6,9 @@ import Schedule from './pages/Schedule/Schedule'
 import UserProfile from './pages/UserProfile/UserProfile'
 
 function App() {
-  const [showLanding, showLandingHandler] = useState(true)
+  const [showLanding, showLandingHandler] = useState(false)
   const [showNav, showNavHandler] = useState(false)
-  const [showPunchCard, showPunchCardHandler] = useState(false)
+  const [showPunchCard, showPunchCardHandler] = useState(true)
   const [showSchedule, showScheduleHandler] = useState(false)
   const [showUserProfile, showUserProfileHandler] = useState(false)
 
