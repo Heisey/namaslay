@@ -59,7 +59,9 @@ const Nav = props => {
         <TeacherBox navState={navState} />
       </div>
       <div className={`Nav__classes ${!navState && "hidden"}`}>
-        <ClassesBox />
+        <ClassesBox 
+          navState={navState}
+        />
       </div>
       <div className={`Nav__stories ${!navState && "hidden"}`}>
         <StoriesBox navState={navState} />
@@ -83,17 +85,25 @@ const Nav = props => {
         className={`Nav__userProfile ${!navState && "hidden"}`}
         onClick={goToUserProfile}
       >
-        <UserProfileBox />
+        <UserProfileBox 
+          navState={navState}
+        />
       </div>
 
       <div className={`Nav__one ${!navState && "hidden"}`}>
-        <OneBox />
+        <OneBox 
+          navState={navState}
+        />
       </div>
       <div className={`Nav__two ${!navState && "hidden"}`}>
-        <TwoBox />
+        <TwoBox 
+          navState={navState}
+        />
       </div>
       <div className={`Nav__three ${!navState && "hidden"}`}>
-        <ThreeBox />
+        <ThreeBox 
+          navState={navState}
+        />
       </div>
 
 

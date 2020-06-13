@@ -1,10 +1,11 @@
 import React from 'react';
 import './UserProfileBox.scss';
 
-const UserProfileBox = () => {
+const UserProfileBox = props => {
+  const { navState } = props
 
   return (
-    <div className="UserProfileBox">
+    <div className={`UserProfileBox UserProfileBox--${!navState ? 'small' : 'large'}`}>
       UserProfileBox
     </div>
   )

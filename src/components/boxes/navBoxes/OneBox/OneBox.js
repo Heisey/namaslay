@@ -1,10 +1,12 @@
 import React from 'react';
 import './OneBox.scss';
 
-const OneBox = () => {
+const OneBox = props => {
+
+  const { navState } = props
 
   return (
-    <div className="OneBox">
+    <div className={`OneBox OneBox--${!navState ? 'small' : 'large'}`}>
       OneBox
     </div>
   )

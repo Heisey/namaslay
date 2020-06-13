@@ -1,6 +1,7 @@
 .ScheduleBox {
   background: var(--neutral-color);
-  transition: height 0.7s linear, width 0.1s linear, visibility 0.01s linear;
+  color: var(--accent-secondary);
+  transition: height 0.35s linear, width 0.1s linear, visibility 0.01s linear;
   transition-delay: 0.1s;
   &--small {
     height: 0%;

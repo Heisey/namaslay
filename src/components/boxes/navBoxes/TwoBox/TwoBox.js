@@ -1,10 +1,11 @@
 import React from 'react';
 import './TwoBox.scss';
 
-const TwoBox = () => {
+const TwoBox = props => {
+  const { navState } = props
 
   return (
-    <div className="TwoBox">
+    <div className={`TwoBox TwoBox--${!navState ? 'small' : 'large'}`}>
       two Box
     </div>
   )
