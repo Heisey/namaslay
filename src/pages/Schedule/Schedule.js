@@ -32,6 +32,7 @@ const Schedule = props => {
     handleShowPunchCard,
     handleShowSchedule,
     handleShowUserProfile,
+    handleShowUserDataDash,
     navState,
     currentUser
   } = props;
@@ -169,14 +170,15 @@ const Schedule = props => {
 
   return (
     <div className="Schedule">
-      {renderOverlay && <ScheduleScreens /> }
-     
+      {renderOverlay && <ScheduleScreens />}
+
       <Nav
         handleShowLanding={handleShowLanding}
         handleShowNav={handleShowNav}
         handleShowPunchCard={handleShowPunchCard}
         handleShowSchedule={handleShowSchedule}
         handleShowUserProfile={handleShowUserProfile}
+        handleShowUserDataDash={handleShowUserDataDash}
         navState={navState}
       />
       <div className="Schedule__namaslay">

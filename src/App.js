@@ -4,6 +4,7 @@ import Landing from './pages/Landing/Landing'
 import PunchCard from './pages/PunchCard/PunchCard'
 import Schedule from './pages/Schedule/Schedule'
 import UserProfile from './pages/UserProfile/UserProfile'
+import UserDataDash from './pages/UserDataDash/UserDataDash'
 
 function App() {
   const [showLanding, showLandingHandler] = useState(true)
@@ -11,6 +12,7 @@ function App() {
   const [showPunchCard, showPunchCardHandler] = useState(false)
   const [showSchedule, showScheduleHandler] = useState(false)
   const [showUserProfile, showUserProfileHandler] = useState(false)
+  const [showUserDataDash, showUserDataDashHandler] = useState(false)
   const [currentUser, currentUserHandler] = useState(null)
 
   const handleShowLanding = () => {
@@ -19,6 +21,7 @@ function App() {
     showPunchCardHandler(false)
     showScheduleHandler(false)
     showUserProfileHandler(false)
+    showUserDataDashHandler(false)
   }
 
   const handleShowPunchCard = () => {
@@ -27,6 +30,7 @@ function App() {
     showPunchCardHandler(true)
     showScheduleHandler(false)
     showUserProfileHandler(false)
+    showUserDataDashHandler(false)
   }
 
   const handleShowNav = () => {
@@ -39,6 +43,7 @@ function App() {
     showPunchCardHandler(false)
     showScheduleHandler(true)
     showUserProfileHandler(false)
+    showUserDataDashHandler(false)
   }
 
   const handleShowUserProfile = () => {
@@ -47,6 +52,16 @@ function App() {
     showPunchCardHandler(false)
     showScheduleHandler(false)
     showUserProfileHandler(true)
+    showUserDataDashHandler(false)
+  }
+
+  const handleShowUserDataDash = () => {
+    showNavHandler(false)
+    showLandingHandler(false)
+    showPunchCardHandler(false)
+    showScheduleHandler(false)
+    showUserProfileHandler(false)
+    showUserDataDashHandler(true)
   }
 
   return (
@@ -58,6 +73,7 @@ function App() {
           handleShowPunchCard={handleShowPunchCard}
           handleShowSchedule={handleShowSchedule}
           handleShowUserProfile={handleShowUserProfile}
+          handleShowUserDataDash={handleShowUserDataDash}
           navState={showNav}
           currentUserHandler={currentUserHandler}
         />
@@ -69,6 +85,7 @@ function App() {
           handleShowPunchCard={handleShowPunchCard}
           handleShowSchedule={handleShowSchedule}
           handleShowUserProfile={handleShowUserProfile}
+          handleShowUserDataDash={handleShowUserDataDash}
           navState={showNav}
           currentUser={currentUser}
         />
@@ -80,6 +97,7 @@ function App() {
           handleShowPunchCard={handleShowPunchCard}
           handleShowSchedule={handleShowSchedule}
           handleShowUserProfile={handleShowUserProfile}
+          handleShowUserDataDash={handleShowUserDataDash}
           navState={showNav}
           currentUser={currentUser}
         />
@@ -91,6 +109,18 @@ function App() {
           handleShowPunchCard={handleShowPunchCard}
           handleShowSchedule={handleShowSchedule}
           handleShowUserProfile={handleShowUserProfile}
+          handleShowUserDataDash={handleShowUserDataDash}
+          navState={showNav}
+        />
+      )}
+      {showUserDataDash && (
+        <UserDataDash
+          handleShowLanding={handleShowLanding}
+          handleShowNav={handleShowNav}
+          handleShowPunchCard={handleShowPunchCard}
+          handleShowSchedule={handleShowSchedule}
+          handleShowUserProfile={handleShowUserProfile}
+          handleShowUserDataDash={handleShowUserDataDash}
           navState={showNav}
         />
       )}

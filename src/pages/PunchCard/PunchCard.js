@@ -27,6 +27,7 @@ const PunchCard = props => {
     handleShowPunchCard,
     handleShowSchedule,
     handleShowUserProfile,
+    handleShowUserDataDash,
     navState,
     currentUser
   } = props
@@ -63,6 +64,7 @@ const PunchCard = props => {
         handleShowPunchCard={handleShowPunchCard}
         handleShowSchedule={handleShowSchedule}
         handleShowUserProfile={handleShowUserProfile}
+        handleShowUserDataDash={handleShowUserDataDash}
         navState={navState}
       />
       <div className="PunchCard__namaslay">

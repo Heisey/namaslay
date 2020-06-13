@@ -1,0 +1,75 @@
+.UserDataDash {
+  height: 100vh;
+  width: 100vw;
+  background-color: plum;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 25vh 25vh 25vh 25vh;
+  position: relative;
+
+  &__Namaslay {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: 100%;
+    width: 100%;
+  }
+  &__ChartPanel1 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+  }
+  &__Box2 {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(243, 161, 19);
+  }
+
+  &__Breathe {
+    grid-column-start: 6;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: 100%;
+    width: 100%;
+    background-color: turquoise;
+  }
+
+  &__Box3 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 6;
+    height: 100%;
+    width: 100%;
+    background-color: yellow;
+  }
+  &__ChartPanel2 {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 6;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(131, 122, 95);
+  }
+  &__Box5 {
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 3;
+    grid-row-end: 6;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(108, 95, 131);
+  }
+  
+}

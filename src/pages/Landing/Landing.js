@@ -18,16 +18,17 @@ const Landing = props => {
     handleShowPunchCard,
     handleShowSchedule,
     handleShowUserProfile,
+    handleShowUserDataDash,
     currentUserHandler,
     navState
   } = props;
 
-  const [ showLoginPanel, showLoginPanelhandler ] = useState(false)
+  const [showLoginPanel, showLoginPanelhandler] = useState(false)
 
   const handleShowLoginPanel = () => {
     showLoginPanelhandler(true)
   }
-  
+
   return (
     <div className="Landing">
       <Nav
@@ -36,6 +37,8 @@ const Landing = props => {
         handleShowPunchCard={handleShowPunchCard}
         handleShowNav={handleShowNav}
         handleShowSchedule={handleShowSchedule}
+        handleShowUserProfile={handleShowUserProfile}
+        handleShowUserDataDash={handleShowUserDataDash}
       />
       <NamaslayPanel
         panelSize={navState ? 'small' : 'large'}
@@ -56,7 +59,7 @@ const Landing = props => {
         />
       </div>
       <div className="Landing__br">
-        <LoginPanel 
+        <LoginPanel
           showPanel={showLoginPanel}
           currentUserHandler={currentUserHandler}
         />
