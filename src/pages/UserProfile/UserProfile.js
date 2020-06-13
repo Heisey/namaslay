@@ -17,6 +17,7 @@ const UserProfile = props => {
     handleShowPunchCard,
     handleShowSchedule,
     handleShowUserProfile,
+    handleShowUserDataDash,
     navState
   } = props;
 
@@ -47,7 +48,7 @@ SETTINGS</div>
       <div className="UserProfile__ClassHistory">BROWSE YOUR CLASS HISTORY</div>
       <div className="UserProfile__BrowseReviews">UserProfile__BrowseReviews</div>
       <div className="UserProfile__Breathe">BREATHE</div>
-      <div className="UserProfile__Data"><UserDataPanel
+      <div className="UserProfile__Data"><UserDataPanel handleShowUserDataDash={handleShowUserDataDash}
 
       /></div>
       <div className="UserProfile__ViewPanel">ViewPanel</div>

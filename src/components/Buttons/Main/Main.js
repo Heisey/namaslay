@@ -3,7 +3,11 @@ import React from 'react';
 import './Main.scss'
 
 const MainButton = (props) => {
-  return <button className="btn-main">{props.message}</button>;
+
+  const { message, onClick } = props
+  return <button className="btn-main"
+    onClick={onClick}
+  >{message}</button>;
 };
 
 export default MainButton;

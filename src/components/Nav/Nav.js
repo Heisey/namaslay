@@ -9,7 +9,7 @@ import HomeBox from '../boxes/navBoxes/HomeBox/HomeBox'
 import ScheduleBox from '../boxes/navBoxes/ScheduleBox/ScheduleBox'
 import PunchCardBox from '../boxes/navBoxes/PunchCardBox/PunchCardBox'
 import OneBox from '../boxes/navBoxes/OneBox/OneBox';
-import TwoBox from '../boxes/navBoxes/TwoBox/TwoBox';
+import UserDataDashBox from '../boxes/navBoxes/UserDataDashBox/UserDataDashBox';
 import ThreeBox from '../boxes/navBoxes/ThreeBox/ThreeBox'
 import UserProfileBox from '../boxes/navBoxes/UserProfileBox/UserProfileBox'
 
@@ -21,6 +21,7 @@ const Nav = props => {
     handleShowPunchCard,
     handleShowSchedule,
     handleShowUserProfile,
+    handleShowUserDataDash
   } = props
 
 
@@ -45,6 +46,11 @@ const Nav = props => {
     handleShowUserProfile()
   }
 
+  const goToUserDataDash = () => {
+    console.log('hello')
+    handleShowUserDataDash()
+  }
+
   return (
     <div
       className={`Nav Nav--${navState ? 'large' : 'small'}`}
@@ -59,7 +65,7 @@ const Nav = props => {
         <TeacherBox navState={navState} />
       </div>
       <div className={`Nav__classes ${!navState && "hidden"}`}>
-        <ClassesBox 
+        <ClassesBox
           navState={navState}
         />
       </div>
@@ -85,23 +91,24 @@ const Nav = props => {
         className={`Nav__userProfile ${!navState && "hidden"}`}
         onClick={goToUserProfile}
       >
-        <UserProfileBox 
+        <UserProfileBox
           navState={navState}
         />
       </div>
 
       <div className={`Nav__one ${!navState && "hidden"}`}>
-        <OneBox 
+        <OneBox
           navState={navState}
         />
       </div>
-      <div className={`Nav__two ${!navState && "hidden"}`}>
-        <TwoBox 
+      <div className={`Nav__two ${!navState && "hidden"}`}
+        onClick={goToUserDataDash}>
+        <UserDataDashBox
           navState={navState}
         />
       </div>
       <div className={`Nav__three ${!navState && "hidden"}`}>
-        <ThreeBox 
+        <ThreeBox
           navState={navState}
         />
       </div>
