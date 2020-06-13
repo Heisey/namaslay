@@ -1,15 +1,15 @@
 .CalendarPanel {
   height: 100%;
   width: 100%;
-  background-color: red;
 }
 
 .react-calendar {
   width: 100%;
   height: 100%;
-  background: white;
-  border: 1px solid rgb(160, 160, 150);
+  background: var(--neutral-color);
+  border: 1px solid var(--accent-secondary);
   font-family: Arial, Helvetica, sans-serif;
+  color: var(--accent-secondary);
   line-height: 1.125em;
 
   &--doubleView {
@@ -40,6 +40,7 @@
     &:enabled {
       &:hover {
         cursor: pointer;
+        color: var(--neutral-color);
       }
     }
   }
@@ -51,10 +52,12 @@
     button {
       min-width: 44px;
       background: none;
+      color: var(--accent-secondary);
+      font-size: 1.5rem;
 
       &:enabled {
         &:hover, &:focus {
-          background-color: rgb(230, 230, 230);
+          background-color: var(--accent-primary)
         }
       }
 
@@ -90,8 +93,10 @@
 
     &__days {
       &__day {
+        color: var(--accent-secondary);
+        
         &--weekend {
-          color: rgb(209, 0, 0);
+          color: var(--accent-primary);
         }
 
         &--neighboringMonth {
@@ -106,6 +111,7 @@
   &__century-view {
     .react-calendar__tile {
       padding: 2em .5em;
+      color: var(--accent-secondary);
     }
   }
 
@@ -121,15 +127,15 @@
 
     &:enabled {
       &:hover, &:focus {
-        background-color: rgb(230, 230, 230);
+        background-color: var(--accent-primary);
       }
     }
 
     &--now {
-      // @bgcolor: lighten(rgb(220, 220, 0), 30%);
-      background: rgba(220, 220, 0, 0.3);
+      background: var(--accent-secondary);
 
       &:enabled {
+        color: var(--neutral-color);
         &:hover, &:focus {
           background: rgba(220, 220, 0, 0.1);
         }
@@ -137,7 +143,6 @@
     }
 
     &--hasActive {
-      // @bgcolor: lighten(rgb(0, 110, 220), 30%);
       background: rgba(0, 110, 220, 0.3);
 
       &:enabled {
@@ -148,13 +153,12 @@
     }
 
     &--active {
-      // @bgcolor: rgb(0, 110, 220);
-      background: rgb(0, 110, 220);
-      color: white;
+      background: var(--accent-primary);
+      color: var(--neutral-color);
 
       &:enabled {
         &:hover, &:focus {
-          background: rgba(0, 110, 220, 0.1);
+          background: var(--accent-primary);
         }
       }
     }
