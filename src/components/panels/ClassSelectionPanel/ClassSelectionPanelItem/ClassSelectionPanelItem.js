@@ -37,6 +37,23 @@ const ClassSelectionPanelItem = props => {
     renderOverlayHandler(true)
   }
 
+  // !! needs a button and probably a confirmation thing in the overlay
+  const handleCancellation = async () => {
+
+    const requestBody = {
+      class_id: `${id}`
+    }
+
+    axios.post(`/classes/${id}/cancel`, qs.stringify(requestBody), config)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      })
+    renderOverlayHandler(true)
+  }
+
   const handleSelectedClass = (e) => {
     selectedClassHandler(e.target.id)
     focusedHandler(true)
