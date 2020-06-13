@@ -10,6 +10,7 @@ body {
   --secondary-color: #47802b;
   --accent-primary: #fdac07;
   --accent-secondary: #ef6101;
+  --accent-tertiary: #b50e0e;
   --neutral-color: #03161d;
 
   max-width: 100vw;

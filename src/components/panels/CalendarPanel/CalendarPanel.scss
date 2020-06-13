@@ -56,8 +56,12 @@
       font-size: 1.5rem;
 
       &:enabled {
-        &:hover, &:focus {
-          background-color: var(--accent-primary)
+        &:hover {
+          background-color: var(--accent-primary);
+        }
+        &:focus {
+          background-color: var(--accent-secondary);
+          color: var(--neutral-color)
         }
       }
 
@@ -96,11 +100,11 @@
         color: var(--accent-secondary);
         
         &--weekend {
-          color: var(--accent-primary);
+          color: var(--accent-secondary);
         }
 
         &--neighboringMonth {
-          color: rgb(117, 117, 117)
+          color: var(--accent-tertiary)
         }
       }
     }
@@ -137,13 +141,13 @@
       &:enabled {
         color: var(--neutral-color);
         &:hover, &:focus {
-          background: rgba(220, 220, 0, 0.1);
+          background: var(--accent-tertiary);
         }
       }
     }
 
     &--hasActive {
-      background: rgba(0, 110, 220, 0.3);
+      background: var(--accent-primary);
 
       &:enabled {
         &:hover, &:focus {
@@ -167,7 +171,7 @@
   &--selectRange {
     .react-calendar__tile {
       &--hover {
-        background-color: rgb(230, 230, 230);
+        background-color: var(--accent-tertiary);
       }
     }
   }
