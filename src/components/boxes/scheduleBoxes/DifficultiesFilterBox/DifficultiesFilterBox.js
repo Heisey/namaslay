@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './DifficultiesFilterBox.scss'
+
 const DifficultiesFilterBox = props => {
 
   const { handleDifficultiesFilter } = props
@@ -8,9 +10,8 @@ const DifficultiesFilterBox = props => {
       onClick={handleDifficultiesFilter}
       className="DifficultiesFilterBox"
     >
-      Difficulties
+      <span>Filter By Difficulty</span>
     </div>
-
   )
 }
 

@@ -63,7 +63,6 @@
     grid-row-end: 2;
     grid-column-start: 5;
     grid-column-end: 6;
-    border: 2px solid var(--accent-secondary);
     color: var(--accent-secondary);
   }
 
@@ -74,7 +73,7 @@
     grid-row-end: 3;
     grid-column-start: 5;
     grid-column-end: 6;
-    border: 2px solid var(--accent-secondary);
+    border-top: 2px solid var(--neutral-color);
     color: var(--accent-secondary);
   }
 
@@ -85,8 +84,8 @@
     grid-row-end: 4;
     grid-column-start: 5;
     grid-column-end: 6;
-    z-index: 190;
-    border: 2px solid var(--accent-secondary);
+    // z-index: 190;
+    border-top: 2px solid var(--neutral-color);
     color: var(--accent-secondary);
   }
   
@@ -97,7 +96,7 @@
     grid-row-end: 5;
     grid-column-start: 5;
     grid-column-end: 6;
-    border: 2px solid var(--accent-secondary);
+    border-top: 2px solid var(--neutral-color);
     color: var(--accent-secondary);
   }
 

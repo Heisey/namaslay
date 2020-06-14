@@ -121,16 +121,22 @@ const Nav = props => {
       >
 
         {/* // ?? Closed Nav Menu */}
-        {!navState && <div className="Nav__button--open">
-          <span>---</span>
-          <span>---</span>
-          <span>---</span>
-        </div>}
+        <div className={`Nav__button--icon ${navState && 'Nav__button--open'}`}>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
 
         {/* // ?? Opened Nav Menu */}
-        {navState && <div className="Nav__button--close">
+        {/* {navState && <div className="Nav__button--close">
           <span>x</span>
-        </div>}
+        </div>} */}
       </div>
     </div>
   )
