@@ -20,6 +20,7 @@ export default function LoginPanel(props) {
   const [password, setPassword] = useState()
 
   const onChangeEmail = e => {
+    
     e.preventDefault();
     setEmail(e.target.value)
   }
@@ -28,6 +29,7 @@ export default function LoginPanel(props) {
     setPassword(e.target.value)
   }
   const handleSubmit = e => {
+
     e.preventDefault();
     const requestBody = { email, password }
 
@@ -36,9 +38,9 @@ export default function LoginPanel(props) {
       .then((res) => {
         if (res.data.status === 'success') {
           
-        currentUserHandler(res.data)
+        currentUserHandler(res.data.data)
         }
-        console.log(res.data.status)
+        
       })
       .catch((e) => {
         console.log(e);

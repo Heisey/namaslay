@@ -67,7 +67,7 @@ function App() {
     showUserDataDashHandler(true)
   }
 
-  const stripePromise = loadStripe('pk_test_JJ1eMdKN0Hp4UFJ6kWXWO4ix00jtXzq5XG');
+  const stripePromise = loadStripe('pk_test_ARFSMQqDrvyQqxvrywl50Ndg006KY16zgh');
 
   return (
     <Elements stripe={stripePromise}>
@@ -106,6 +106,7 @@ function App() {
             handleShowUserDataDash={handleShowUserDataDash}
             navState={showNav}
             currentUser={currentUser}
+            currentUserHandler={currentUserHandler}
           />
         )}
         {showUserProfile && (

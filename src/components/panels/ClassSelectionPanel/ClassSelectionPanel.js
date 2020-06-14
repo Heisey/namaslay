@@ -9,7 +9,10 @@ const ClassSelectionPanel = props => {
     classesForDay, 
     secondaryDataPanelHandler, 
     renderOverlayHandler, 
-    selectedClassHandler 
+    selectedClassHandler,
+    selectedClass,
+    renderPaymentHandler,
+    currentUser
   } = props
 
   
@@ -20,10 +23,12 @@ const ClassSelectionPanel = props => {
 
         <ClassSelectionPanelItem
           key={el.id}
-          id={el.id}
+          selectedClass={selectedClass}
           secondaryDataPanelHandler={secondaryDataPanelHandler}
           renderOverlayHandler={renderOverlayHandler}
+          renderPaymentHandler={renderPaymentHandler}
           selectedClassHandler={selectedClassHandler}
+          currentUser={currentUser}
           program={el}
         />
       ))
