@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './TeacherFilterBox.scss'
+
 const TeacherFilterBox = props => {
 
   const { handleTeacherFilter } = props
@@ -8,7 +10,7 @@ const TeacherFilterBox = props => {
       onClick={handleTeacherFilter}
       className="TeacherFilterBox"
     >
-      Teachers
+      <span>Filter By Teachers</span>
     </div>
 
   )

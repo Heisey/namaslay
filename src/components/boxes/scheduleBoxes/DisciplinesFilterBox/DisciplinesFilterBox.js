@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './DisciplinesFilterBox.scss'
+
 const DisciplinesFilterBox = props => {
 
   const { handleDisciplinesFilter } = props
@@ -8,7 +10,9 @@ const DisciplinesFilterBox = props => {
       onClick={handleDisciplinesFilter}
       className="DisciplinesFilterBox"
     >
-      Disciplines
+      <span>
+        Filter By Discipline
+      </span>
     </div>
 
   )

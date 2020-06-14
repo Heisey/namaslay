@@ -1,5 +1,13 @@
 import React from 'react';
 import { CardElement,   useStripe, useElements } from '@stripe/react-stripe-js';
+import axios from 'axios'
+import qs from 'qs'
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+const config = {
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
+}
 
 export default function PaymentPanel(props) {
 
@@ -24,28 +32,41 @@ const handleSubmit = async (event) => {
     const cardElement = elements.getElement(CardElement);
 
     // Use your card Element with other Stripe.js APIs
-    const {error, paymentMethod} = await stripe.createPaymentMethod({
-        type: 'card',
-        card: cardElement,
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card: cardElement,
     });
 
     if (error) {
-        console.log('[error]', error);
+      console.log('[error]', error);
     } else {
-        passCountHandler(1)
-        // ?? need to make request to db to add a pass to the user
-        //  hte user id is userId props
+      passCountHandler(1)
+      console.log(paymentMethod);
+      // ?? need to make request to db to add a pass to the user
+      //  hte user id is userId props
     }
-};
+    if (paymentMethod.created) {
+      const requestBody = { type: 'single' }
+      await axios.post(`/students/${userId}/passes`, qs.stringify(requestBody), config)
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        })
+    }
 
-      
-    return (
-        <div className="PaymentPanel">
-            <form onSubmit={handleSubmit}>
-                <CardElement />
-                <button type="submit" disabled={!stripe} >Pay</button>
-            </form>
 
-        </div>
-    )
+  };
+
+
+  return (
+    <div className="PaymentPanel">
+      <form onSubmit={handleSubmit}>
+        <CardElement />
+        <button type="submit" disabled={!stripe} >Pay</button>
+      </form>
+
+    </div>
+  )
 }

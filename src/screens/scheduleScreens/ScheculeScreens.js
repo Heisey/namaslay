@@ -10,6 +10,8 @@ import './ScheduleScreens.scss'
 export default function ScheduleScreens(props) {
   const [noPassesLeft, noPassesLeftHandler] = useState(false)
   const [buySinglePass, buySinglePassHandler] = useState(false)
+  const [bookingInfo, bookingInfoHandler] = useState(false)
+  
   const [passCount, passCountHandler] = useState(0)
 
   const { currentUser, currentUserHandler, handleShowPunchCard } = props
@@ -31,7 +33,8 @@ export default function ScheduleScreens(props) {
             noPassesLeftHandler={noPassesLeftHandler}
           />
         )}
-        {(currentUser & passCount !== 0) && (
+        {(currentUser & bookingInfo) && (
+          
           <BookingClassInfo 
             currentUser={currentUser}
           />
