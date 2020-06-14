@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 // ?? Components
 import Nav from '../../components/Nav/Nav';
 import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
 import ChartPanel from '../../components/panels/UserDataPanel/ChartPanel/ChartPanel'
-import { totalClassesAttendedByMonth } from '../../dev_data/userData/data'
+import UserInfoPanel from '../../components/panels/UserDataPanel/UserInfoPanel/UserInfoPanel'
+import {
+  totalClassesAttendedByMonth,
+  totalClassesByDayOfWeek,
+  totalClassesByDiscipline,
+  topFiveClasses
+} from '../../dev_data/userData/data'
 
 import './UserDataDash.scss';
 
@@ -19,6 +26,17 @@ const UserDataDash = props => {
     handleShowUserDataDash,
     navState
   } = props;
+
+  const [quote, setQuote] = useState({})
+
+  //pull this into parent later
+  useEffect(async () => {
+    const res = await axios.get('/api/quote')
+    const words = res.data[0].quote
+    const id = res.data[0].id
+    const author = res.data[0].author
+    setQuote({ words, id, author })
+  }, [])
 
   return (
     <div className="UserDataDash">
@@ -35,17 +53,50 @@ const UserDataDash = props => {
         <NamaslayPanel
           panelSize={'small'}
         /></div>
-      <div className="UserDataDash__Box1">Box1</div>
-      <div className="UserDataDash__ChartPanel1"><ChartPanel
-        height={totalClassesAttendedByMonth.height}
-        width={totalClassesAttendedByMonth.width}
-        data={totalClassesAttendedByMonth.data}
-        options={totalClassesAttendedByMonth.options}
-      /></div>
+      <div className="UserDataDash__UserInfo">
+        <UserInfoPanel />
+      </div>
+      <div className="UserDataDash__QuoteBox">
+        <p className="UserDataDash__QuoteBox__Quote">{quote.words}</p>
+        <p className="UserDataDash__QuoteBox__Author">{quote.author}</p>
+      </div>
+      <div className="UserDataDash__ChartPanel1">
+        <ChartPanel
+          type={'Bar'}
+          height={totalClassesByDayOfWeek.height}
+          width={totalClassesByDayOfWeek.width}
+          data={totalClassesByDayOfWeek.data}
+          options={totalClassesByDayOfWeek.options}
+        />
+      </div>
       <div className="UserDataDash__Breathe">BREATHE</div>
-      <div className="UserDataDash__Box3">Box3</div>
-      <div className="UserDataDash__ChartPanel2"><ChartPanel /></div>
-      <div className="UserDataDash__Box5">Box5</div>
+      <div className="UserDataDash__ChartPanel2">
+        <ChartPanel
+          type={'Pie'}
+          height={totalClassesByDiscipline.height}
+          width={totalClassesByDiscipline.width}
+          data={totalClassesByDiscipline.data}
+          options={totalClassesByDiscipline.options}
+        />
+
+      </div>
+      <div className="UserDataDash__ChartPanel3">
+        <ChartPanel
+          type={'Line'}
+          height={totalClassesAttendedByMonth.height}
+          width={totalClassesAttendedByMonth.width}
+          data={totalClassesAttendedByMonth.data}
+          options={totalClassesAttendedByMonth.options}
+        />
+      </div>
+      <div className="UserDataDash__ChartPanel4">
+        <ChartPanel
+          type={'Bar'}
+          height={topFiveClasses.height}
+          width={topFiveClasses.width}
+          data={topFiveClasses.data}
+          options={topFiveClasses.options}
+        /></div>
 
     </div>
   )
