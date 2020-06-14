@@ -4,8 +4,9 @@ import axios from 'axios'
 // ?? Components
 import Nav from '../../components/Nav/Nav';
 import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
-import ChartPanel from '../../components/panels/UserDataPanel/ChartPanel/ChartPanel'
-import UserInfoPanel from '../../components/panels/UserDataPanel/UserInfoPanel/UserInfoPanel'
+import ChartPanel from '../../components/panels/ChartPanel/ChartPanel'
+import UserInfoPanel from '../../components/panels/UserInfoPanel/UserInfoPanel'
+import BreathePanel from '../../components/panels/BreathePanel/BreathePanel'
 import {
   totalClassesAttendedByMonth,
   totalClassesByDayOfWeek,
@@ -46,10 +47,12 @@ const UserDataDash = props => {
   useEffect(() => {
     const getUserData = async () => {
       const res = await axios.get('/userdata/1')
-      console.log(res.data);
+      setAllClasses(res.data.allClasses)
+      setTopClasses(res.data.topClasses)
     }
     getUserData()
   }, [])
+
 
   return (
     <div className="UserDataDash">
@@ -82,7 +85,7 @@ const UserDataDash = props => {
           options={totalClassesByDayOfWeek.options}
         />
       </div>
-      <div className="UserDataDash__Breathe">BREATHE</div>
+      <div className="UserDataDash__Breathe"><BreathePanel /></div>
       <div className="UserDataDash__ChartPanel2">
         <ChartPanel
           type={'Pie'}
