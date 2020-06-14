@@ -291,17 +291,13 @@ const UserDataDash = props => {
           }, {})
           console.log(res.data.topClasses);
           const totalTopClasses = res.data.topClasses.reduce((acc, c) => {
-            console.log(c.class);
+            acc[c.class] = c.count
+            // console.log(c.class);
             return acc;
           }, {})
           // console.log(totalTopClasses);
 
-          // const count = res.data.topClasses.map(c => Number(c.count))
-          // const name = res.data.topClasses.map(c => c.class)
-          const topClassesData = { 2019: topClasses2019, 2020: topClasses2020 }
-          console.log(topClassesData);
-
-
+          const topClassesData = { 'Total': totalTopClasses, 2019: topClasses2019, 2020: topClasses2020 }
           setBarChartData(topClassesData)
         }
         getPieChartData()
@@ -334,11 +330,7 @@ const UserDataDash = props => {
     } else if (filterYear === '2020') {
       return { ...barChartData[2020] }
     } else {
-      const temp = { ...barChartData }
-      const tempAry = Object.values(temp)
-      const year2020 = tempAry.pop()
-      const year2019 = tempAry[0];
-      return sumObjectsByKey(year2020, year2019)
+      return { ...barChartData['Total'] }
     }
   }
 
