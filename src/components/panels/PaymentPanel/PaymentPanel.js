@@ -2,7 +2,6 @@ import React from 'react';
 import { CardElement,   useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios'
 import qs from 'qs'
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 const config = {
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded'
