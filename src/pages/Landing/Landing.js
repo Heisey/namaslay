@@ -62,6 +62,7 @@ const Landing = props => {
         <LoginPanel
           showPanel={showLoginPanel}
           currentUserHandler={currentUserHandler}
+          onSchedule={false}
         />
       </div>
     </div>

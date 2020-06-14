@@ -14,7 +14,9 @@ const ClassSelectionPanelItem = props => {
     secondaryDataPanelHandler,
     renderOverlayHandler,
     selectedClassHandler,
-    id
+    currentUser,
+    renderPaymentHandler,
+    selectedClass
   } = props
 
   const [focused, focusedHandler] = useState(false)
@@ -22,38 +24,42 @@ const ClassSelectionPanelItem = props => {
   // ?? hook up axios here to book appointment
 
   const handleBooking = async () => {
-
-    const requestBody = {
-      class_id: `${id}`
-    }
-
-    axios.post(`/classes/${id}/book`, qs.stringify(requestBody), config)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      })
     renderOverlayHandler(true)
+    renderPaymentHandler(true)
+
+    // const requestBody = {
+    //   class_id: `${selectedClass}`
+    // }
+
+    // axios.post(`/classes/${id}/book`, qs.stringify(requestBody), config)
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch((e) => {
+    //     console.log(e);
+    //   })
+    
+
   }
 
   const handleSelectedClass = (e) => {
-    selectedClassHandler(e.target.id)
+    selectedClassHandler(e.target.id  * 1)
     focusedHandler(true)
   }
 
   return (
     <li
       key={program.id}
-      id={program.id}
       onClick={handleSelectedClass}
+      id={program.id}
       className={`ClassSelectionPanel__listItem ClassSelectionPanel__listItem--${focused ? 'focused' : 'unfocused'}`}
     >
-      <div className="ClassSelectionPanel__listInfo">
-        <span className='ClassSelectionPanel__listItem--time'>{program.start_time}:00</span>
-        <span className='ClassSelectionPanel__listItem--name'>{program.name}</span>
-        <span className='ClassSelectionPanel__listItem--spots'>{program.spotsavailable}</span>
-        <span className='ClassSelectionPanel__listItem--difficulty'>{program.difficulty}</span>
+      <div className="ClassSelectionPanel__listInfo"
+      id={program.id}>
+        <span className='ClassSelectionPanel__listItem--time' id={program.id}>{program.start_time}:00</span>
+        <span className='ClassSelectionPanel__listItem--name' id={program.id}>{program.name}</span>
+        <span className='ClassSelectionPanel__listItem--spots' id={program.id}>{program.spotsavailable}</span>
+        <span className='ClassSelectionPanel__listItem--difficulty' id={program.id}>{program.difficulty}</span>
       </div>
 
       <div
@@ -61,7 +67,7 @@ const ClassSelectionPanelItem = props => {
         onClick={handleBooking}
       >
         Book
-        </div>
+      </div>
     </li>
 
   )
