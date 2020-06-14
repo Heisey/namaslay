@@ -1,4 +1,5 @@
 import React from 'react';
+import { CardElement,   useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios'
 import qs from 'qs'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
@@ -10,19 +11,19 @@ const config = {
 
 export default function PaymentPanel(props) {
 
-  const { passCountHandler, userId } = props
-
+    const {passCountHandler, userId } = props
+    
   const stripe = useStripe();
   const elements = useElements();
 
-  const handleSubmit = async (event) => {
-
+const handleSubmit = async (event) => {
+    
     event.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not loaded yet. Make sure to disable
-      // form submission until Stripe.js has loaded.
-      return;
+        // Stripe.js has not loaded yet. Make sure to disable
+        // form submission until Stripe.js has loaded.
+        return;
     }
 
     // Get a reference to a mounted CardElement. Elements knows how

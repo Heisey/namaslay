@@ -1,7 +1,7 @@
 import React from 'react';
 import MainButton from '../../Buttons/Main/Main'
 import './UserDataPanel.scss'
-import ChartPanel from '../../../components/panels/UserDataPanel/ChartPanel/ChartPanel'
+import ChartPanel from '../ChartPanel/ChartPanel'
 import { totalClassesAttendedByMonth } from '../../../dev_data/userData/data'
 
 const UserDataPanel = props => {
