@@ -34,7 +34,8 @@ const Schedule = props => {
     handleShowUserProfile,
     handleShowUserDataDash,
     navState,
-    currentUser
+    currentUser,
+    currentUserHandler,
   } = props;
 
   // ?? Component State
@@ -49,14 +50,10 @@ const Schedule = props => {
   const [dataLoad, dataLoadHandler] = useState(false)
   const [selectedClass, selectedClassHandler] = useState(-1)
   const [renderOverlay, renderOverlayHandler] = useState(false)
+  const [renderPayment, renderPaymentHandler] = useState(false)
 
-  const getClassesByDay = (dayID, monthNumber) => {
-    return [...scheduleData.classes].filter(c => {
-      if (c.daynumber === dayID && c.monthnumber === monthNumber) {
-        return true;
-      }
-    })
-  }
+  
+
   useEffect(() => {
     // ?? Set Class Filter to current day
     const getTodayID = () => {
@@ -100,6 +97,14 @@ const Schedule = props => {
     classesForDayHandler(getClassesByDay(day * 1, selectedMonth))
     console.log('all classes for day:', classesForDay);
     filteredClassesForDayHandler(getClassesByDay(day * 1, selectedMonth))
+  }
+
+  const getClassesByDay = (dayID, monthNumber) => {
+    return [...scheduleData.classes].filter(c => {
+      if (c.daynumber === dayID && c.monthnumber === monthNumber) {
+        return true;
+      }
+    })
   }
 
   const handleCalendarMonthChange = date => {
@@ -170,7 +175,13 @@ const Schedule = props => {
 
   return (
     <div className="Schedule">
-      {renderOverlay && <ScheduleScreens />}
+      {renderOverlay && (
+        <ScheduleScreens 
+          currentUser={currentUser}
+          currentUserHandler={currentUserHandler}
+          handleShowPunchCard={handleShowPunchCard}
+        />
+      )}
 
       <Nav
         handleShowLanding={handleShowLanding}
@@ -201,9 +212,12 @@ const Schedule = props => {
       <div className="Schedule__classSelection">
         {dataLoad && <ClassSelectionPanel
           renderOverlayHandler={renderOverlayHandler}
+          renderPaymentHandler={renderPaymentHandler}
           secondaryDataPanelHandler={secondaryDataPanelHandler}
           classesForDay={filteredClassesForDay}
+          selectedClass={selectedClass}
           selectedClassHandler={selectedClassHandler}
+          currentUser={currentUser}
         />}
       </div>
 

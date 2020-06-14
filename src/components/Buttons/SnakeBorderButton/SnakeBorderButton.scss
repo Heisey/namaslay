@@ -35,7 +35,7 @@
 }
 
 .SnakeBorderButton {
-  color: var(--neutral-color);
+  color: var(--accent-secondary);
   font-weight: bold;
   width: 150px;
   max-width: 150px;
@@ -48,7 +48,7 @@
   position: relative;
   overflow: hidden;
   transform: scale(0.5);
-  background-color: #ef6101;
+  // background-color: #ef6101;
   &:hover {
 
     .SnakeBorderButton--one {

@@ -6,6 +6,9 @@ import Schedule from './pages/Schedule/Schedule'
 import UserProfile from './pages/UserProfile/UserProfile'
 import UserDataDash from './pages/UserDataDash/UserDataDash'
 
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
+
 function App() {
   const [showLanding, showLandingHandler] = useState(true)
   const [showNav, showNavHandler] = useState(false)
@@ -64,67 +67,73 @@ function App() {
     showUserDataDashHandler(true)
   }
 
+  const stripePromise = loadStripe('pk_test_ARFSMQqDrvyQqxvrywl50Ndg006KY16zgh');
+
   return (
-    <div className="App">
-      {showLanding && (
-        <Landing
-          handleShowLanding={handleShowLanding}
-          handleShowNav={handleShowNav}
-          handleShowPunchCard={handleShowPunchCard}
-          handleShowSchedule={handleShowSchedule}
-          handleShowUserProfile={handleShowUserProfile}
-          handleShowUserDataDash={handleShowUserDataDash}
-          navState={showNav}
-          currentUserHandler={currentUserHandler}
-        />
-      )}
-      {showPunchCard && (
-        <PunchCard
-          handleShowLanding={handleShowLanding}
-          handleShowNav={handleShowNav}
-          handleShowPunchCard={handleShowPunchCard}
-          handleShowSchedule={handleShowSchedule}
-          handleShowUserProfile={handleShowUserProfile}
-          handleShowUserDataDash={handleShowUserDataDash}
-          navState={showNav}
-          currentUser={currentUser}
-        />
-      )}
-      {showSchedule && (
-        <Schedule
-          handleShowLanding={handleShowLanding}
-          handleShowNav={handleShowNav}
-          handleShowPunchCard={handleShowPunchCard}
-          handleShowSchedule={handleShowSchedule}
-          handleShowUserProfile={handleShowUserProfile}
-          handleShowUserDataDash={handleShowUserDataDash}
-          navState={showNav}
-          currentUser={currentUser}
-        />
-      )}
-      {showUserProfile && (
-        <UserProfile
-          handleShowLanding={handleShowLanding}
-          handleShowNav={handleShowNav}
-          handleShowPunchCard={handleShowPunchCard}
-          handleShowSchedule={handleShowSchedule}
-          handleShowUserProfile={handleShowUserProfile}
-          handleShowUserDataDash={handleShowUserDataDash}
-          navState={showNav}
-        />
-      )}
-      {showUserDataDash && (
-        <UserDataDash
-          handleShowLanding={handleShowLanding}
-          handleShowNav={handleShowNav}
-          handleShowPunchCard={handleShowPunchCard}
-          handleShowSchedule={handleShowSchedule}
-          handleShowUserProfile={handleShowUserProfile}
-          handleShowUserDataDash={handleShowUserDataDash}
-          navState={showNav}
-        />
-      )}
-    </div>
+    <Elements stripe={stripePromise}>
+      <div className="App">
+        {showLanding && (
+          <Landing
+            handleShowLanding={handleShowLanding}
+            handleShowNav={handleShowNav}
+            handleShowPunchCard={handleShowPunchCard}
+            handleShowSchedule={handleShowSchedule}
+            handleShowUserProfile={handleShowUserProfile}
+            handleShowUserDataDash={handleShowUserDataDash}
+            navState={showNav}
+            currentUserHandler={currentUserHandler}
+          />
+        )}
+        {showPunchCard && (
+          <PunchCard
+            handleShowLanding={handleShowLanding}
+            handleShowNav={handleShowNav}
+            handleShowPunchCard={handleShowPunchCard}
+            handleShowSchedule={handleShowSchedule}
+            handleShowUserProfile={handleShowUserProfile}
+            handleShowUserDataDash={handleShowUserDataDash}
+            navState={showNav}
+            currentUser={currentUser}
+          />
+        )}
+        {showSchedule && (
+          <Schedule
+            handleShowLanding={handleShowLanding}
+            handleShowNav={handleShowNav}
+            handleShowPunchCard={handleShowPunchCard}
+            handleShowSchedule={handleShowSchedule}
+            handleShowUserProfile={handleShowUserProfile}
+            handleShowUserDataDash={handleShowUserDataDash}
+            navState={showNav}
+            currentUser={currentUser}
+            currentUserHandler={currentUserHandler}
+            handleShowPunchCard={handleShowPunchCard}
+          />
+        )}
+        {showUserProfile && (
+          <UserProfile
+            handleShowLanding={handleShowLanding}
+            handleShowNav={handleShowNav}
+            handleShowPunchCard={handleShowPunchCard}
+            handleShowSchedule={handleShowSchedule}
+            handleShowUserProfile={handleShowUserProfile}
+            handleShowUserDataDash={handleShowUserDataDash}
+            navState={showNav}
+          />
+        )}
+        {showUserDataDash && (
+          <UserDataDash
+            handleShowLanding={handleShowLanding}
+            handleShowNav={handleShowNav}
+            handleShowPunchCard={handleShowPunchCard}
+            handleShowSchedule={handleShowSchedule}
+            handleShowUserProfile={handleShowUserProfile}
+            handleShowUserDataDash={handleShowUserDataDash}
+            navState={showNav}
+          />
+        )}
+      </div>
+    </Elements>
   );
 }
 
