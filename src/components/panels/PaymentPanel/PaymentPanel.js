@@ -2,6 +2,8 @@ import React from 'react';
 import { CardElement,   useStripe, useElements } from '@stripe/react-stripe-js';
 
 export default function PaymentPanel(props) {
+
+    const {passCountHandler, userId } = props
     
   const stripe = useStripe();
   const elements = useElements();
@@ -30,7 +32,9 @@ const handleSubmit = async (event) => {
     if (error) {
         console.log('[error]', error);
     } else {
-        console.log('[PaymentMethod]', paymentMethod);
+        passCountHandler(1)
+        // ?? need to make request to db to add a pass to the user
+        //  hte user id is userId props
     }
 };
 

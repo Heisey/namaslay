@@ -35,7 +35,7 @@ const Schedule = props => {
     handleShowUserDataDash,
     navState,
     currentUser,
-    currentUserHandler
+    currentUserHandler,
   } = props;
 
   // ?? Component State
@@ -179,6 +179,7 @@ const Schedule = props => {
         <ScheduleScreens 
           currentUser={currentUser}
           currentUserHandler={currentUserHandler}
+          handleShowPunchCard={handleShowPunchCard}
         />
       )}
 

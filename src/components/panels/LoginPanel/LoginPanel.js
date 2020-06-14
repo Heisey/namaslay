@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import qs from 'qs'
 import './LoginPanel.scss'
-import { log } from 'util'
-import SnakeBorderButton from '../../Buttons/SnakeBorderButton/SnakeBorderButton'
+// import { log } from 'util'
+// import SnakeBorderButton from '../../Buttons/SnakeBorderButton/SnakeBorderButton'
 
 const config = {
   headers: {
@@ -14,13 +14,13 @@ const config = {
 
 export default function LoginPanel(props) {
 
-  const { showPanel, currentUserHandler  } = props
+  const { showPanel, currentUserHandler, onSchedule, noPassesLeftHandler  } = props
 
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
 
   const onChangeEmail = e => {
-    
+
     e.preventDefault();
     setEmail(e.target.value)
   }
@@ -38,7 +38,13 @@ export default function LoginPanel(props) {
       .then((res) => {
         if (res.data.status === 'success') {
           
-        currentUserHandler(res.data.data)
+          currentUserHandler(res.data.data)
+
+          if (onSchedule) {
+            if (res.data.data.passCount === 0) {
+              noPassesLeftHandler(true)
+            }
+          }
         }
         
       })

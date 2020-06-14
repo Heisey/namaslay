@@ -107,6 +107,7 @@ function App() {
             navState={showNav}
             currentUser={currentUser}
             currentUserHandler={currentUserHandler}
+            handleShowPunchCard={handleShowPunchCard}
           />
         )}
         {showUserProfile && (
