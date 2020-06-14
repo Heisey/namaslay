@@ -28,14 +28,27 @@ const UserDataDash = props => {
   } = props;
 
   const [quote, setQuote] = useState({})
+  const [allClasses, setAllClasses] = useState({})
+  const [topClasses, setTopClasses] = useState({})
 
   //pull this into parent later
-  useEffect(async () => {
-    const res = await axios.get('/api/quote')
-    const words = res.data[0].quote
-    const id = res.data[0].id
-    const author = res.data[0].author
-    setQuote({ words, id, author })
+  useEffect(() => {
+    const getQuote = async () => {
+      const res = await axios.get('/api/quote')
+      const words = res.data[0].quote
+      const id = res.data[0].id
+      const author = res.data[0].author
+      setQuote({ words, id, author })
+    }
+    getQuote()
+  }, [])
+
+  useEffect(() => {
+    const getUserData = async () => {
+      const res = await axios.get('/userdata/1')
+      console.log(res.data);
+    }
+    getUserData()
   }, [])
 
   return (
