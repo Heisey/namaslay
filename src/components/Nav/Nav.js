@@ -8,7 +8,7 @@ import StoriesBox from '../boxes/navBoxes/StoriesBox/StoriesBox'
 import HomeBox from '../boxes/navBoxes/HomeBox/HomeBox'
 import ScheduleBox from '../boxes/navBoxes/ScheduleBox/ScheduleBox'
 import PunchCardBox from '../boxes/navBoxes/PunchCardBox/PunchCardBox'
-import OneBox from '../boxes/navBoxes/OneBox/OneBox';
+import LogoutBox from '../boxes/navBoxes/LogoutBox/LogoutBox';
 import UserDataDashBox from '../boxes/navBoxes/UserDataDashBox/UserDataDashBox';
 import ThreeBox from '../boxes/navBoxes/ThreeBox/ThreeBox'
 import UserProfileBox from '../boxes/navBoxes/UserProfileBox/UserProfileBox'
@@ -96,12 +96,12 @@ const Nav = props => {
         />
       </div>
 
-      <div className={`Nav__one ${!navState && "hidden"}`}>
-        <OneBox
+      <div className={`Nav__logout ${!navState && "hidden"}`}>
+        <LogoutBox
           navState={navState}
         />
       </div>
-      <div className={`Nav__two ${!navState && "hidden"}`}
+      <div className={`Nav__dashboard ${!navState && "hidden"}`}
         onClick={goToUserDataDash}>
         <UserDataDashBox
           navState={navState}
