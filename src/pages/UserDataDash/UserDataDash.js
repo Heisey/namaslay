@@ -290,14 +290,10 @@ const UserDataDash = props => {
             acc[c.class] = Number(c.count)
             return acc;
           }, {})
-          console.log(res.data.topClasses);
           const totalTopClasses = res.data.topClasses.reduce((acc, c) => {
             acc[c.class] = c.count
-            // console.log(c.class);
             return acc;
           }, {})
-          // console.log(totalTopClasses);
-
           const topClassesData = { 'Total': totalTopClasses, 2019: topClasses2019, 2020: topClasses2020 }
           setBarChartData(topClassesData)
         }
