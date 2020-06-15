@@ -1,5 +1,5 @@
 .Schedule {
-  background-color: var(--neutral-color);
+  // background-color: var(--neutral-color);
   height: 100vh;
   width: 100vw;
   display: grid;
@@ -45,6 +45,8 @@
     grid-column-start: 3;
     grid-column-end: 5;
     border-top: 2px solid var(--accent-secondary);
+    position: relative;
+   
   }
 
   &__dynamicSelection {

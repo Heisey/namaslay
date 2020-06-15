@@ -61,7 +61,8 @@ const handleSubmit = async (event) => {
 
   return (
     <div className="PaymentPanel">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}
+      >
         <CardElement />
         <button type="submit" disabled={!stripe} >Pay</button>
       </form>
@@ -69,3 +70,5 @@ const handleSubmit = async (event) => {
     </div>
   )
 }
+
+

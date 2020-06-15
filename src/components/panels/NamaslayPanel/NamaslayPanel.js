@@ -5,7 +5,7 @@ import SnakeBorderButton from '../../Buttons/SnakeBorderButton/SnakeBorderButton
 import './NamaslayPanel.scss'
 
 const NamaslayPanel = props => {
-  const { handleShowLoginPanel, panelSize, turnedClass } = props
+  const { handleShowLoginPanel, panelSize, turnedClass, showLoggedIn } = props
 
   return (
     <div className={`NamaslayPanel NamaslayPanel--${panelSize}`}>
@@ -22,7 +22,7 @@ const NamaslayPanel = props => {
         Happiness is not by chance. its by choice
       </p>}
 
-      {panelSize !== 'small' && (
+      {(panelSize !== 'small' && !showLoggedIn) && (
         <div className="NamaslayPanel__buttons">
           <div className="NamaslayPanel__login">
             <SnakeBorderButton 

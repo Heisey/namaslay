@@ -5,7 +5,8 @@ const HomeBox = props => {
   const { navState } = props
   return (
     <div className={`HomeBox HomeBox--${!navState ? 'small' : 'large'}`}>
-      Home Box
+      <span className="HomeBox__title">HOME</span>
+      <div className="HomeBox__overlay">HOME</div>
     </div>
   )
 }

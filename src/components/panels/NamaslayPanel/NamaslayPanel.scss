@@ -39,10 +39,10 @@
     }
   
     &--nama {
-      font-family: 'Dancing Script', cursive;
+      font-family: var(--font-primary), cursive;
     }
     &--slay {
-      font-family: 'Metal Mania', cursive;
+      font-family: var(--font-secondary), cursive;
     }
   }
 
@@ -53,7 +53,7 @@
     left: 50%;
     transform: translateX(-50%);
     color: var(--accent-primary);
-    font-family: 'Rock Salt', cursive;
+    font-family: var(--font-tertiary), cursive;
     font-size: 1.5em;
     text-align: center;
   }

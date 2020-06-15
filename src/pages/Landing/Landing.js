@@ -9,6 +9,7 @@ import Nav from '../../components/Nav/Nav'
 
 
 import './Landing.scss';
+import PersonLogo from '../../components/logos/PersonLogo/PersonLoop'
 
 const Landing = props => {
 
@@ -20,13 +21,16 @@ const Landing = props => {
     handleShowUserProfile,
     handleShowUserDataDash,
     currentUserHandler,
-    navState
+    navState,
+    showLoggedIn,
+    showLoggedInHandler,
+    currentUser
   } = props;
 
   const [showLoginPanel, showLoginPanelhandler] = useState(false)
 
   const handleShowLoginPanel = () => {
-    showLoginPanelhandler(true)
+    showLoginPanelhandler(!showLoginPanel)
   }
 
   return (
@@ -45,6 +49,7 @@ const Landing = props => {
         turnedClass="1"
         showLoginPanelhandler={showLoginPanelhandler}
         handleShowLoginPanel={handleShowLoginPanel}
+        showLoggedIn={showLoggedIn}
       />
       <div className="Landing__tr">
         <ImagePanelBig
@@ -59,10 +64,35 @@ const Landing = props => {
         />
       </div>
       <div className="Landing__br">
+        {showLoggedIn && (
+          <div className="Landing__welcome">
+            <h3>Welcome</h3>
+            <span>Peaceful</span>
+            <span>{currentUser.first_name || 'someone'}</span>
+          </div>
+        )}
+        {(!showLoggedIn && !showLoginPanel) && (<div className="Landing__breathe">
+          <span>
+            Just
+          </span>
+          <span>
+            Breathe
+          </span>
+        </div>)}
+        <div className="Landing__logos">
+          <div className={`Landing__logo ${showLoginPanel ? 'Landing__logo--menuOne' : 'Landing__logo--one'}`}>
+            <PersonLogo />
+          </div>
+          <div className={`Landing__logo ${showLoginPanel ? 'Landing__logo--menuTwo' : 'Landing__logo--two'}`}>
+            <PersonLogo />
+          </div>
+        </div>
+          
         <LoginPanel
           showPanel={showLoginPanel}
           currentUserHandler={currentUserHandler}
           onSchedule={false}
+          showLoggedInHandler={showLoggedInHandler}
         />
       </div>
     </div>

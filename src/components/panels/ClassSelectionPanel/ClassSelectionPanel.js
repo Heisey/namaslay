@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import ClassSelectionPanelItem from './ClassSelectionPanelItem/ClassSelectionPanelItem.js'
 import './ClassSelectionPanel.scss'
@@ -12,11 +12,13 @@ const ClassSelectionPanel = props => {
     selectedClassHandler,
     selectedClass,
     renderPaymentHandler,
-    currentUser
+    currentUser,
+    showAnimation
   } = props
 
   
-  
+
+
   const loopThroughClasses = () => {
     if (classesForDay.length) {
       const listItems = classesForDay.map(el => (
@@ -40,15 +42,17 @@ const ClassSelectionPanel = props => {
 
   return (
     <div className="ClassSelectionPanel">
-      <ul className='ClassSelectionPanel__list'>
-        <li className='ClassSelectionPanel__listItem'>
-          <span className='ClassSelectionPanel__listItem--timeTitle'>Time</span>
-          <span className='ClassSelectionPanel__listItem--nameTitle'>Class Name</span>
-          <span className='ClassSelectionPanel__listItem--spotsTitle'>Spots</span>
-          <span className='ClassSelectionPanel__listItem--difficultyTitle'>Difficulty</span>
-        </li>
-        {loopThroughClasses()}
-      </ul>
+      {!showAnimation && (
+        <ul className='ClassSelectionPanel__list'>
+          <li className='ClassSelectionPanel__listItem'>
+            <span className='ClassSelectionPanel__listItem--timeTitle'>Time</span>
+            <span className='ClassSelectionPanel__listItem--nameTitle'>Class Name</span>
+            <span className='ClassSelectionPanel__listItem--spotsTitle'>Spots</span>
+            <span className='ClassSelectionPanel__listItem--difficultyTitle'>Difficulty</span>
+          </li>
+          {loopThroughClasses()}
+        </ul>
+      )}
     </div>
   )
 }

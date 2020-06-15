@@ -3,6 +3,8 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
 
   &--hidden {
     visibility: hidden;
@@ -12,20 +14,42 @@
     visibility: visible;
   }
 
-  &__form {
+  &__error {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    width: 80%;
+    width: 25%;
+    height: 45%;
+    background-color: var(--accent-secondary);
+    padding: 40px;
+    color: var(--neutral-color);
+  }
+
+  &__form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 25%;
+    height: 45%;
     background-color: var(--accent-secondary);
     padding: 40px;
 
     &--title {
       margin-top: -10%;
+      font-family: var(--font-tertiary);
+      font-size: 1em;
     }
 
     &--password,
     &--email {
       border: 0;
       background-color: var(--neutral-color);
+      font-family: var(--font-tertiary);
+      font-size: 0.6em;
       display: block;
       margin: 20px auto;
       text-align: center;
@@ -47,6 +71,9 @@
       margin: 20px auto;
       padding: 14px 10px;
       color: var(--accent-secondary);
+      font-family: var(--font-tertiary);
+      font-size: 0.6em;
+      letter-spacing: 2px;
     }
   }
 }

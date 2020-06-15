@@ -12,6 +12,9 @@ body {
   --accent-secondary: #ef6101;
   --accent-tertiary: #b50e0e;
   --neutral-color: #03161d;
+  --font-primary: 'Dancing Script';
+  --font-secondary: 'Metal Mania';
+  --font-tertiary: 'Rock Salt';
 
   max-width: 100vw;
   max-height: 100vh;

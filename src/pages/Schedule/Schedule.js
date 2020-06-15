@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 // ?? Components
 import Nav from '../../components/Nav/Nav';
+import LoadingAnimation from '../../components/LoadingAnimation/LoadingAnimation';
 
 // ?? Box Components
 import TeacherFilterBox from '../../components/boxes/scheduleBoxes/TeacherFilterBox/TeacherFilterBox'
@@ -51,10 +52,11 @@ const Schedule = props => {
   const [selectedClass, selectedClassHandler] = useState(-1)
   const [renderOverlay, renderOverlayHandler] = useState(false)
   const [renderPayment, renderPaymentHandler] = useState(false)
-
+  const [showAnimation, showAnimationHandler] = useState(true)
   
 
   useEffect(() => {
+    showAnimationHandler(true)
     // ?? Set Class Filter to current day
     const getTodayID = () => {
       const today = new Date(Date.now())
@@ -78,13 +80,14 @@ const Schedule = props => {
       })
       // !! refactor to useEffect
       .then((data) => {
-        const today = getTodayID()
-        const classesToday = data.classes.filter(c => c.daynumber === today && c.monthnumber === selectedMonth
+          const today = getTodayID()
+          const classesToday = data.classes.filter(c => c.daynumber === today && c.monthnumber === selectedMonth
         )
-        classesForDayHandler(classesToday)
-        filteredClassesForDayHandler(classesToday)
-        dataLoadHandler(true)
-      }
+          classesForDayHandler(classesToday)
+          filteredClassesForDayHandler(classesToday)
+          dataLoadHandler(true)
+          showAnimationHandler(false)
+        }
       )
       .catch(function (error) {
         console.log(error);
@@ -218,7 +221,13 @@ const Schedule = props => {
           selectedClass={selectedClass}
           selectedClassHandler={selectedClassHandler}
           currentUser={currentUser}
+          showAnimation={showAnimation}
         />}
+        {!dataLoad && (
+          <div className="Schedule__classSelection--animate">
+            <LoadingAnimation />
+          </div>
+        )}
       </div>
 
       <div className="Schedule__dynamicSelection">

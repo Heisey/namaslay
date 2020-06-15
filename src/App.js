@@ -17,6 +17,7 @@ function App() {
   const [showUserProfile, showUserProfileHandler] = useState(false)
   const [showUserDataDash, showUserDataDashHandler] = useState(false)
   const [currentUser, currentUserHandler] = useState(null)
+  const [showLoggedIn, showLoggedInHandler] = useState(false)
 
   const handleShowLanding = () => {
     showNavHandler(false)
@@ -82,6 +83,9 @@ function App() {
             handleShowUserDataDash={handleShowUserDataDash}
             navState={showNav}
             currentUserHandler={currentUserHandler}
+            showLoggedIn={showLoggedIn}
+            showLoggedInHandler={showLoggedInHandler}
+            currentUser={currentUser}
           />
         )}
         {showPunchCard && (
