@@ -18,7 +18,9 @@ export default function BreatheSlider(props) {
     <div className='Slider'>
       <div className='Slider__container'>
         Choose Your Breath Rate
-        <Slider xmax='12'
+        <Slider
+          xmax='12'
+          xstep='2'
           className="Slider__container-slider"
           axis="x" x={sliderValue.x}
           onChange={({ x }) => setSliderValue({ x })}
