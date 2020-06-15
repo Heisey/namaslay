@@ -37,15 +37,12 @@
       z-index: -1;
     }
   
-    #text {
-      animation: size 5s linear forwards;
+    .text1 {
+      animation: size 4s linear forwards;
     }
-    // #text.grow {
-    //   animation: size 3s linear forwards;
-    // }
-    // #text.shrink {
-    //   animation: size 3s linear forwards;
-    // }
+    .text2 {
+      animation: size 4s linear forwards;
+    }
   
     &__pointer-container {
 
