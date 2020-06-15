@@ -3,7 +3,11 @@ import React from 'react';
 import './FilterButton.scss'
 
 const FilterButton = (props) => {
-  return <button className="btn-filterButton">{props.message}</button>;
+  const { message, onClick, filter } = props
+
+  return <button
+    onClick={() => onClick(filter)}
+    className="btn-filterButton">{message}</button>;
 };
 
 export default FilterButton;
