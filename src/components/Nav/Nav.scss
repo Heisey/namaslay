@@ -52,8 +52,8 @@
   }
 
   &__stories {
-    grid-row-start: 3;
-    grid-row-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
     grid-column-start: 3;
     grid-column-end: 4;
     display: flex;
@@ -62,8 +62,8 @@
   }
 
   &__classes {
-    grid-row-start: 1;
-    grid-row-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
     grid-column-start: 3;
     grid-column-end: 4;
     display: flex;
@@ -72,8 +72,8 @@
   }
 
   &__teachers {
-    grid-row-start: 2;
-    grid-row-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
     grid-column-start: 3;
     grid-column-end: 4;
     display: flex;
@@ -83,9 +83,9 @@
 
   &__punchCard {
     grid-row-start: 1;
-    grid-row-end: 3;
-    grid-column-start: 2;
-    grid-column-end: 3;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 4;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -107,10 +107,10 @@
   
 
   &__three {
-    grid-row-start: 4;
-    grid-row-end: 5;
-    grid-column-start: 3;
-    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
     display: flex;
     align-items: center;
     justify-content: flex-end;
