@@ -37,8 +37,16 @@
       z-index: -1;
     }
   
-    #text {
-  
+    .text {
+      transform: scale(1);
+    }
+    .text.growText {
+      animation: growText 3s linear forwards;
+    }
+
+    /* my text animations don't work :( */
+    .text.shrinkText {
+      animation: growText 3s linear backwards;
     }
   
     &__pointer-container {
@@ -66,10 +74,9 @@
       background: conic-gradient(
         #55b7a4 0%,
         #4ca493 40%,
-        #fff 40%,
-        #fff 60%,
-        #336d62 60%,
-        #2a5b52 100%
+        #2a5b52 60%,
+        #336d62 100%
+
       );
       height: 320px;
       width: 320px;
@@ -117,6 +124,25 @@
 @keyframes shrink {
   from {
     transform: scale(1.2);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes growText {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.5);
+  }
+}
+@keyframes shrinkText {
+  from {
+    transform: scale(1.5);
   }
 
   to {
