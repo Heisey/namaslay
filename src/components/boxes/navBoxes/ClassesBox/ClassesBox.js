@@ -1,13 +1,19 @@
 import React from 'react';
 import './ClassesBox.scss';
 
+import SwordLogo from '../../../logos/SwordLogo/SwordLogo'
+
 const ClassesBox = props => {
 
   const { navState } = props;
 
   return (
     <div className={`ClassesBox ClassesBox--${!navState ? 'small' : 'large'}`}>
-      Classes Box
+      <span className="ClassesBox__title--one">CLAS</span>
+      <span className="ClassesBox__title--two">SES</span>
+      <div className="ClassesBox__sword">
+        <SwordLogo />
+      </div>
     </div>
   )
 }
