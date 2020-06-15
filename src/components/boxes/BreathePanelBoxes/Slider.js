@@ -4,8 +4,8 @@ import Slider from 'react-input-slider'
 
 export default function BreatheSlider(props) {
 
-  const { onGary } = props
-  const [sliderValue, setSliderValue] = useState({ x: 4 })
+  const { onGary, xValue } = props
+  const [sliderValue, setSliderValue] = useState({ x: xValue })
 
   const setValueText = (x) => {
     onGary(x)
