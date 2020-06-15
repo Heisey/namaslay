@@ -26,13 +26,11 @@ const UserDataDash = props => {
 
   const [quote, setQuote] = useState({ words: null, id: null, author: null })
   const [breathInterval, setBreathInterval] = useState(4000)
-  const [innerText, setInnerText] = useState()
-  const [textState, setTextState] = useState(true)
   const [pieChartData, setPieChartData] = useState({})
   const [lineGraphData, setLineGraphData] = useState({})
   const [barChartData, setBarChartData] = useState({ count: [], name: [] })
   const [filterYear, setFilterYear] = useState(null)
-  const [reRenderBreather, setRerenderBreather] = useState(true)
+  const [reRenderer, setReRenderer] = useState(true)
 
   // !! pull this into other components later
   useEffect(() => {
@@ -367,23 +365,14 @@ const UserDataDash = props => {
   }
 
   let totalTime = breathInterval * 2;
-  let breatheTime = (totalTime / 5) * 2;
-  let holdTime = totalTime / 5;
-
-  function breathAnimation() {
-    setInnerText('Breathe In...');
-    setTextState(true)
-
-    setTimeout(() => {
-      setTextState(false)
-      setInnerText('Breathe Out...');
-    }, breatheTime + holdTime);
-  }
-
 
   const handleBreathInterval = (input) => {
     setBreathInterval(input * 1000)
   }
+
+  useEffect(() => {
+    setReRenderer(!reRenderer)
+  }, [breathInterval])
 
 
   const chart1 = {
@@ -659,26 +648,22 @@ const UserDataDash = props => {
         />
       </div>
       <div className="UserDataDash__Breathe">
-        {reRenderBreather &&
+
+        {reRenderer &&
           <BreathePanel
-            innerText={innerText}
-            textState={textState}
             totalTime={totalTime}
-            breathAnimation={breathAnimation}
             breathInterval={breathInterval}
             handleBreathInterval={handleBreathInterval}
           />
         }
-        {!reRenderBreather &&
+        {!reRenderer &&
           <BreathePanel
-            innerText={innerText}
-            textState={textState}
             totalTime={totalTime}
-            breathAnimation={breathAnimation}
             breathInterval={breathInterval}
             handleBreathInterval={handleBreathInterval}
           />
         }
+
 
       </div>
       <div className="UserDataDash__ChartPanel2">
