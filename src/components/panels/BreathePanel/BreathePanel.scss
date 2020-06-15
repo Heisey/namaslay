@@ -3,6 +3,7 @@
 
 .BreathePanel {
 
+
   background: #224941 url('../../../dev_data/images/breatheBackground.jpeg') no-repeat center center/cover;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
@@ -15,6 +16,7 @@
   margin: 0;
 
   &__container {
+    animation: fadein 800ms linear;
 
     display: flex;
     align-items: center;
@@ -26,6 +28,8 @@
     transform: scale(0.75);
 
     &__circle {
+
+      // animation: fadein 100ms linear;
 
       background-color: #010f1c;
       height: 100%;
@@ -73,14 +77,15 @@
 
 
     .text1 {
-      animation: asdasd 2s linear forwards;
+      animation: asdasd 3s linear forwards;
     }
     .text2 {
-      animation: asdasda 2s linear backwards;
+      animation: asdasda 3s linear backwards;
     }
   
     &__pointer-container {
 
+      // animation: fadein 100ms linear;
       position: absolute;
       top: -40px;
       left: 140px;
@@ -90,6 +95,7 @@
       transform-origin: bottom center;
   
       &-pointer {
+        // animation: fadein 100ms linear;
   
         background-color: #fff;
         border-radius: 50%;
@@ -101,6 +107,7 @@
   
     &__gradient-circle {
 
+      // animation: fadein 100ms linear;
       background: conic-gradient(
         #55b7a4 0%,
         #4ca493 40%,
@@ -146,5 +153,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+100% {
+  opacity: 1;
+}
 }
 
