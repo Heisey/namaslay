@@ -9,6 +9,7 @@ import UserInfoPanel from '../../components/panels/UserInfoPanel/UserInfoPanel'
 import BreathePanel from '../../components/panels/BreathePanel/BreathePanel'
 import FilterButton from '../../components/Buttons/FilterButton/FilterButton'
 
+
 import './UserDataDash.scss';
 
 const UserDataDash = props => {
@@ -30,7 +31,7 @@ const UserDataDash = props => {
   const [barChartData, setBarChartData] = useState({ count: [], name: [] })
   const [filterYear, setFilterYear] = useState(null)
 
-  //pull this into parent later
+  // !! pull this into parent later
   useEffect(() => {
     const getQuote = async () => {
       try {
@@ -323,7 +324,6 @@ const UserDataDash = props => {
       return a;
     }, {});
   }
-
   const applyBarChartFilter = () => {
     if (filterYear === '2019') {
       return { ...barChartData[2019] }
@@ -333,7 +333,6 @@ const UserDataDash = props => {
       return { ...barChartData['Total'] }
     }
   }
-
   const applyLineGraphFilter = () => {
     if (filterYear === '2019') {
       return { ...lineGraphData[2019] }
@@ -367,8 +366,6 @@ const UserDataDash = props => {
       return [2, 2, 4, 3, 1, 5, 5]
     } else return [5, 9, 11, 7, 5, 13, 12]
   }
-
-
 
   const chart1 = {
     height: 450,
@@ -421,7 +418,6 @@ const UserDataDash = props => {
       }
     }
   }
-
   const pieChart = {
     height: 400,
     width: 100,
@@ -481,7 +477,6 @@ const UserDataDash = props => {
       }
     }
   }
-
   const lineGraph = {
     height: 425,
     width: 200,
@@ -542,7 +537,6 @@ const UserDataDash = props => {
       }
     }
   }
-
   const barChart = {
     height: 400,
     width: 100,
@@ -619,6 +613,18 @@ const UserDataDash = props => {
         /></div>
       <div className="UserDataDash__UserInfo">
         <UserInfoPanel />
+        <FilterButton
+          onClick={handleFilterYear}
+          filter='2019'
+          message='2019' />
+        <FilterButton
+          onClick={handleFilterYear}
+          filter='2020'
+          message='2020' />
+        <FilterButton
+          onClick={handleFilterYear}
+          filter={null}
+          message='Clear Filters' />
       </div>
       <div className="UserDataDash__QuoteBox">
         <p className="UserDataDash__QuoteBox__Quote">{quote.words}</p>
@@ -633,7 +639,9 @@ const UserDataDash = props => {
           options={chart1.options}
         />
       </div>
-      <div className="UserDataDash__Breathe"><BreathePanel /></div>
+      <div className="UserDataDash__Breathe">
+        <BreathePanel />
+      </div>
       <div className="UserDataDash__ChartPanel2">
         <ChartPanel
           type={'Pie'}
@@ -652,18 +660,6 @@ const UserDataDash = props => {
           data={lineGraph.data}
           options={lineGraph.options}
         />
-        <FilterButton
-          onClick={handleFilterYear}
-          filter='2019'
-          message='2019' />
-        <FilterButton
-          onClick={handleFilterYear}
-          filter='2020'
-          message='2020' />
-        <FilterButton
-          onClick={handleFilterYear}
-          filter={null}
-          message='Clear Filters' />
       </div>
       <div className="UserDataDash__ChartPanel4">
         <ChartPanel

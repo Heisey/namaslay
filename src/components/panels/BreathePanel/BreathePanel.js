@@ -1,11 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import './BreathePanel.scss'
+import BreatheSlider from '../../boxes/Slider/Slider'
 
 export default function BreathePanel(props) {
 
-  const breatheInterval = 4000;
-
   const [innerText, setInnerText] = useState('Just Breathe...')
+  const [breathInterval, setBreathInterval] = useState(4000)
+
+  const handleBreathInterval = (input) => {
+    setBreathInterval(input * 1000)
+  }
+
+  useEffect(() => {
+    const initTimer = setTimeout(() => {
+      setInnerText('Breathe In...');
+    }, breathInterval);
+    return clearTimeout(initTimer)
+  }, [])
 
   useEffect(() => {
     let breatheOutTimer;
@@ -13,9 +24,8 @@ export default function BreathePanel(props) {
       setInnerText('Breathe In...');
       breatheOutTimer = setInterval(() => {
         setInnerText('Breathe Out...');
-      }, breatheInterval);
-
-    }, breatheInterval);
+      }, breathInterval);
+    }, breathInterval);
     return () => {
       clearInterval(timer)
       clearInterval(breatheOutTimer)
@@ -28,7 +38,7 @@ export default function BreathePanel(props) {
       <div className="BreathePanel__container">
         <div className="BreathePanel__container__circle"
         ></div>
-        <p id="text"
+        <p className="text" style={{ transition: breathInterval }}
         >{innerText}</p>
         <div className="BreathePanel__container__pointer-container">
           <div className="BreathePanel__container__pointer-container-pointer">
@@ -36,6 +46,11 @@ export default function BreathePanel(props) {
         </div>
         <div className="BreathePanel__container__gradient-circle"></div>
       </div>
+
+
+      <BreatheSlider
+        onGary={handleBreathInterval}
+      />
     </div>
   )
 }
