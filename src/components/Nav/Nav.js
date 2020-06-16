@@ -61,7 +61,7 @@ const Nav = props => {
       >
         <HomeBox navState={navState} />
       </div>
-      <div className={`Nav__teachers Nav__teachers--${navState ? 'show' : 'hidden'} ${!navState && "hidden"}`}>
+      <div className={`Nav__teachers ${!navState && "hidden"}`}>
         <TeacherBox navState={navState} />
       </div>
       <div className={`Nav__classes ${!navState && "hidden"}`}>

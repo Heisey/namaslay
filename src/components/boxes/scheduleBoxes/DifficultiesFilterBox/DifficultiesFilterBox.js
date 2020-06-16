@@ -2,6 +2,8 @@ import React from 'react';
 
 import './DifficultiesFilterBox.scss'
 
+import SwordLogo from '../../../logos/SwordLogo/SwordLogo'
+
 const DifficultiesFilterBox = props => {
 
   const { handleDifficultiesFilter } = props
@@ -10,7 +12,13 @@ const DifficultiesFilterBox = props => {
       onClick={handleDifficultiesFilter}
       className="DifficultiesFilterBox"
     >
-      <span>Filter By Difficulty</span>
+      <span>DIFFICULTY</span>
+      <div className="DifficultiesFilterBox__sword--one">
+        <SwordLogo />
+      </div>
+      <div className="DifficultiesFilterBox__sword--two">
+        <SwordLogo />
+      </div>
     </div>
   )
 }

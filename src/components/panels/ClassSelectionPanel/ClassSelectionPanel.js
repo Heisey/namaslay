@@ -47,7 +47,7 @@ const ClassSelectionPanel = props => {
           <li className='ClassSelectionPanel__listItem'>
             <span className='ClassSelectionPanel__listItem--timeTitle'>Time</span>
             <span className='ClassSelectionPanel__listItem--nameTitle'>Class Name</span>
-            <span className='ClassSelectionPanel__listItem--spotsTitle'>Spots</span>
+            <span className='ClassSelectionPanel__listItem--bookTitle'>Book</span>
             <span className='ClassSelectionPanel__listItem--difficultyTitle'>Difficulty</span>
           </li>
           {loopThroughClasses()}

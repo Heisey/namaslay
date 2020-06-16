@@ -26,20 +26,6 @@ const ClassSelectionPanelItem = props => {
   const handleBooking = async () => {
     renderOverlayHandler(true)
     renderPaymentHandler(true)
-
-    // const requestBody = {
-    //   class_id: `${selectedClass}`
-    // }
-
-    // axios.post(`/classes/${id}/book`, qs.stringify(requestBody), config)
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   })
-    //   .catch((e) => {
-    //     console.log(e);
-    //   })
-    
-
   }
 
   const handleSelectedClass = (e) => {
@@ -52,21 +38,21 @@ const ClassSelectionPanelItem = props => {
       key={program.id}
       onClick={handleSelectedClass}
       id={program.id}
-      className={`ClassSelectionPanel__listItem ClassSelectionPanel__listItem--${focused ? 'focused' : 'unfocused'}`}
+      className={`ClassSelectionPanel__listItem`}
     >
       <div className="ClassSelectionPanel__listInfo"
-      id={program.id}>
-        <span className='ClassSelectionPanel__listItem--time' id={program.id}>{program.start_time}:00</span>
-        <span className='ClassSelectionPanel__listItem--name' id={program.id}>{program.name}</span>
-        <span className='ClassSelectionPanel__listItem--spots' id={program.id}>{program.spotsavailable}</span>
-        <span className='ClassSelectionPanel__listItem--difficulty' id={program.id}>{program.difficulty}</span>
-      </div>
-
-      <div
-        className={`ClassSelectionPanel__listItem--button ClassSelectionPanel__listItem--${!focused ? 'hideButton' : 'showButton'}`}
-        onClick={handleBooking}
+        id={program.id}
       >
-        Book
+        <span className='ClassSelectionPanel__listItem--time'>{program.start_time}:00</span>
+        <span className='ClassSelectionPanel__listItem--name'>{program.name}</span>
+        {/* <span className='ClassSelectionPanel__listItem--book'>{program.spotsavailable}</span> */}
+        <span className='ClassSelectionPanel__listItem--difficulty'>{program.difficulty}</span>
+        <span 
+          className='ClassSelectionPanel__listItem--book' 
+          onClick={handleBooking}
+        >
+          <div className="ClassSelectionPanel--button">BOOK</div>
+        </span>
       </div>
     </li>
 

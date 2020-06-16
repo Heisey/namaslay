@@ -11,7 +11,7 @@ const PunchCardBox = props => {
       <span className="PunchCardBox__title--one">PUNC</span>
       <span className="PunchCardBox__title--two">HCARD</span>
       <div className="PunchCardBox__sword">
-        <SwordLogo />
+        <SwordLogo navState={navState} />
       </div>
     </div>
   )

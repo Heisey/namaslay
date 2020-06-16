@@ -12,7 +12,7 @@ const StoriesBox = props => {
       <span className="StoriesBox__title--one">STOR</span>
       <span className="StoriesBox__title--two">IES</span>
       <div className="StoriesBox__sword">
-        <SwordLogo />
+        <SwordLogo navState={navState} />
       </div>
     </div>
   )

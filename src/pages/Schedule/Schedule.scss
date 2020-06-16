@@ -3,7 +3,7 @@
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr 2fr 2fr 1fr 3fr;
   grid-template-rows: 25vh 25vh 25vh 25vh;
 
   &__namaslay {
@@ -26,6 +26,11 @@
     border-bottom: 1px solid var(--accent-secondary);
     color: var(--accent-secondary);
     z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-secondary);
+    font-size: 3em;
   }
 
   &__calendar {
@@ -89,6 +94,7 @@
     // z-index: 190;
     border-top: 2px solid var(--neutral-color);
     color: var(--accent-secondary);
+    z-index: 20;
   }
   
   &__difficultyFilter {
@@ -100,6 +106,7 @@
     grid-column-end: 6;
     border-top: 2px solid var(--neutral-color);
     color: var(--accent-secondary);
+    z-index: 20;
   }
 
   &__clearFilters {

@@ -12,7 +12,7 @@ const TeacherBox = props => {
       <span className="TeacherBox__title--one">TEAC</span>
       <span className="TeacherBox__title--two">HERS</span>
       <div className="TeacherBox__sword">
-        <SwordLogo />
+        <SwordLogo navState={navState} />
       </div>
     </div>
   )

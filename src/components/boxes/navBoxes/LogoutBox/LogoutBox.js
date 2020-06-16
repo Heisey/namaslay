@@ -12,7 +12,7 @@ const LogoutBox = props => {
       <span className="LogoutBox__title--one">LOG</span>
       <span className="LogoutBox__title--two">OUT</span>
       <div className="LogoutBox__sword">
-        <SwordLogo />
+        <SwordLogo navState={navState} />
       </div>
     </div>
   )

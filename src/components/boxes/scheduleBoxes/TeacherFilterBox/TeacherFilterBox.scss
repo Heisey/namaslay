@@ -6,13 +6,60 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s linear;
+  position: relative;
+  z-index: 20;
+
+  &:before {
+    content: '';
+    background-color: var(--accent-primary);
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    bottom: 50%;
+    position: absolute;
+    z-index: -1;
+    transition: 0.2s linear;
+  }
+
+  &__sword {
+    &--one {
+      position: absolute;
+      transform: rotateZ(90deg) rotateY(180deg);
+      top: -20%;
+      transition: 0.5s linear;
+      // left: 80%;
+    }
+
+    &--two {
+      position: absolute;
+      transform: rotateZ(90deg) rotateX(180deg) rotateY(0deg);
+      top: 35%;
+      transition: 0.5s linear;
+    }
+  }
 
   span {
-    font-size: 2em;
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    font-family: var(--font-secondary);
   }
 }
 
+.TeacherFilterBox:hover .TeacherFilterBox__sword--one {
+  transform: rotateZ(90deg) rotateX(180deg) rotateY(0deg);
+  top: 35%;
+}
+
+.TeacherFilterBox:hover .TeacherFilterBox__sword--two {
+  transform: rotateZ(90deg) rotateY(180deg);
+  top: -20%;
+}
+
 .TeacherFilterBox:hover {
-  background-color: var(--accent-primary);
+  &:before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }

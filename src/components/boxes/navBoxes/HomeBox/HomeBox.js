@@ -10,7 +10,7 @@ const HomeBox = props => {
       <span className="HomeBox__title--one">HO</span>
       <span className="HomeBox__title--two">ME</span>
       <div className="HomeBox__sword">
-        <SwordLogo />
+        <SwordLogo navState={navState} />
       </div>
     </div>
   )

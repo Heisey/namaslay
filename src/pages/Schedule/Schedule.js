@@ -202,7 +202,7 @@ const Schedule = props => {
       </div>
 
       <div className="Schedule__classesLeft">
-        Classes Left
+        {currentUser === null ? 'button' : `Passes Left ${currentUser.passCount}`}
       </div>
 
       <div className="Schedule__calendar">

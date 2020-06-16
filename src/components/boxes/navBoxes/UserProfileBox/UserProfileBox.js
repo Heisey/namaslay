@@ -11,7 +11,7 @@ const UserProfileBox = props => {
       <span className="UserProfileBox__title--one">PRO</span>
       <span className="UserProfileBox__title--two">FILE</span>
       <div className="UserProfileBox__sword">
-        <SwordLogo />
+        <SwordLogo navState={navState} />
       </div>
     </div>
   )
