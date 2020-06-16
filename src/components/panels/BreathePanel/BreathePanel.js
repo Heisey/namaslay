@@ -7,29 +7,24 @@ export default function BreathePanel(props) {
 
   const {
     breathInterval,
-    handleBreathInterval,
-    totalTime
+    handleBreathInterval
   } = props
 
   const [innerText, setInnerText] = useState()
   const [textState, setTextState] = useState(true)
 
-  let breatheTime = (totalTime / 5) * 2;
-  let holdTime = totalTime / 5;
-
   function breathAnimation() {
     setInnerText('Breathe In...');
     setTextState(true)
-
     setTimeout(() => {
       setTextState(false)
       setInnerText('Breathe Out...');
-    }, breatheTime + holdTime);
+    }, breathInterval);
   }
 
   useEffect(() => {
     breathAnimation();
-    setInterval(breathAnimation, totalTime);
+    setInterval(breathAnimation, breathInterval * 2);
   }, [])
 
   return (
@@ -55,7 +50,6 @@ export default function BreathePanel(props) {
         </div>
         <div className="BreathePanel__container__gradient-circle"></div>
       </div>
-
       <BreatheSlider
         xValue={breathInterval / 1000}
         onGary={handleBreathInterval}

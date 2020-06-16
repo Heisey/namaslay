@@ -364,8 +364,6 @@ const UserDataDash = props => {
     } else return [5, 9, 11, 7, 5, 13, 12]
   }
 
-  let totalTime = breathInterval * 2;
-
   const handleBreathInterval = (input) => {
     setBreathInterval(input * 1000)
   }
@@ -651,14 +649,12 @@ const UserDataDash = props => {
 
         {reRenderer &&
           <BreathePanel
-            totalTime={totalTime}
             breathInterval={breathInterval}
             handleBreathInterval={handleBreathInterval}
           />
         }
         {!reRenderer &&
           <BreathePanel
-            totalTime={totalTime}
             breathInterval={breathInterval}
             handleBreathInterval={handleBreathInterval}
           />
