@@ -12,7 +12,7 @@ export default function SnakeBorderButton(props) {
   return (
     <div
       className="SnakeBorderButton"
-      onClick={onClick}
+      onClick={handleClick}
     >
       <span className="SnakeBorderButton--one"></span>
       <span className="SnakeBorderButton--two"></span>

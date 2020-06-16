@@ -30,6 +30,7 @@ const Landing = props => {
   const [showLoginPanel, showLoginPanelhandler] = useState(false)
 
   const handleShowLoginPanel = () => {
+    console.log('loggin in')
     showLoginPanelhandler(!showLoginPanel)
   }
 
