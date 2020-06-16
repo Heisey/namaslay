@@ -5,7 +5,6 @@ import axios from 'axios'
 import Nav from '../../components/Nav/Nav';
 import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
 import ChartPanel from '../../components/panels/ChartPanel/ChartPanel'
-import UserInfoPanel from '../../components/panels/UserInfoPanel/UserInfoPanel'
 import BreathePanel from '../../components/panels/BreathePanel/BreathePanel'
 import FilterButton from '../../components/Buttons/FilterButton/FilterButton'
 
@@ -382,16 +381,16 @@ const UserDataDash = props => {
         label: 'Classes',
         data: applyFavouriteDaysFilter(),
         backgroundColor: [
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
-          'rgba(255, 206, 86, 0.6)',
-          'rgba(75, 192, 192, 0.6)',
-          'rgba(153, 102, 255, 0.6)',
-          'rgba(255, 159, 64, 0.6)',
-          'rgba(255, 99, 132, 0.6)'
+          '#B50E0E',
+          '#C22B0D',
+          '#CF470B',
+          '#DC640A',
+          '#E3730A',
+          '#F08F08',
+          '#fdac07'
         ],
         borderWidth: 1,
-        borderColor: '#777',
+        borderColor: '#ef6101',
         hoverBorderWidth: 3,
         hoverBorderColor: '#000'
       }]
@@ -402,13 +401,15 @@ const UserDataDash = props => {
       title: {
         display: true,
         text: 'Your Favourite Yoga Days',
-        fontSize: 25
+        fontSize: 25,
+        fontColor: '#ef6101',
+        fontFamily: 'Metal Mania',
       },
       legend: {
         display: false,
         position: 'bottom',
         labels: {
-          fontColor: '#000'
+          fontColor: '#ef6101'
         },
         layout: {
           padding: {
@@ -436,16 +437,16 @@ const UserDataDash = props => {
         // data: Object.values(pieChartData),
         data: Object.values(applyPieChartFilter()),
         backgroundColor: [
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
-          'rgba(255, 206, 86, 0.6)',
-          'rgba(75, 192, 192, 0.6)',
-          'rgba(153, 102, 255, 0.6)',
-          'rgba(255, 159, 64, 0.6)',
-          'rgba(255, 99, 132, 0.6)'
+          '#B50E0E',
+          '#C22B0D',
+          '#CF470B',
+          '#DC640A',
+          '#E3730A',
+          '#F08F08',
+          '#fdac07'
         ],
         borderWidth: 1,
-        borderColor: '#777',
+        borderColor: '#ef6101',
         hoverBorderWidth: 3,
         hoverBorderColor: '#000'
       }]
@@ -461,13 +462,15 @@ const UserDataDash = props => {
       title: {
         display: true,
         text: 'Your Favourite Disciplines',
-        fontSize: 25
+        fontSize: 25,
+        fontColor: '#ef6101',
+        fontFamily: 'Metal Mania',
       },
       legend: {
         display: true,
         position: 'bottom',
         labels: {
-          fontColor: '#000'
+          fontColor: '#ef6101'
         },
         layout: {
           padding: {
@@ -495,16 +498,16 @@ const UserDataDash = props => {
         // data: Object.values(lineGraphData),
         data: Object.values(applyLineGraphFilter()),
         backgroundColor: [
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
-          'rgba(255, 206, 86, 0.6)',
-          'rgba(75, 192, 192, 0.6)',
-          'rgba(153, 102, 255, 0.6)',
-          'rgba(255, 159, 64, 0.6)',
-          'rgba(255, 99, 132, 0.6)'
+          '#B50E0E',
+          '#C22B0D',
+          '#CF470B',
+          '#DC640A',
+          '#E3730A',
+          '#F08F08',
+          '#fdac07'
         ],
         borderWidth: 1,
-        borderColor: '#777',
+        borderColor: '#ef6101',
         hoverBorderWidth: 3,
         hoverBorderColor: '#000'
       }]
@@ -521,13 +524,15 @@ const UserDataDash = props => {
         display: true,
         padding: 50,
         text: 'Monthly Attendance',
-        fontSize: 25
+        fontSize: 25,
+        fontColor: '#ef6101',
+        fontFamily: 'Metal Mania',
       },
       legend: {
         display: false,
         position: 'bottom',
         labels: {
-          fontColor: '#000'
+          fontColor: '#ef6101'
         },
         layout: {
           padding: {
@@ -554,16 +559,16 @@ const UserDataDash = props => {
         // data: [...barChartData.count],
         data: Object.values(applyBarChartFilter()),
         backgroundColor: [
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
-          'rgba(255, 206, 86, 0.6)',
-          'rgba(75, 192, 192, 0.6)',
-          'rgba(153, 102, 255, 0.6)',
-          'rgba(255, 159, 64, 0.6)',
-          'rgba(255, 99, 132, 0.6)'
+          '#B50E0E',
+          '#C22B0D',
+          '#CF470B',
+          '#DC640A',
+          '#E3730A',
+          '#F08F08',
+          '#fdac07'
         ],
         borderWidth: 1,
-        borderColor: '#777',
+        borderColor: '#ef6101',
         hoverBorderWidth: 3,
         hoverBorderColor: '#000'
       }]
@@ -579,13 +584,15 @@ const UserDataDash = props => {
       title: {
         display: true,
         text: 'Your Top 5 Classes',
-        fontSize: 25
+        fontSize: 25,
+        fontColor: '#ef6101',
+        fontFamily: 'Metal Mania',
       },
       legend: {
         display: false,
         position: 'bottom',
         labels: {
-          fontColor: '#000'
+          fontColor: '#ef6101'
         },
         layout: {
           padding: {
@@ -618,19 +625,25 @@ const UserDataDash = props => {
           panelSize={'small'}
         /></div>
       <div className="UserDataDash__UserInfo">
-        <UserInfoPanel />
-        <FilterButton
-          onClick={handleFilterYear}
-          filter='2019'
-          message='2019' />
-        <FilterButton
-          onClick={handleFilterYear}
-          filter='2020'
-          message='2020' />
-        <FilterButton
-          onClick={handleFilterYear}
-          filter={null}
-          message='Clear Filters' />
+        <p className="UserDataDash__UserInfo-username">Hey, Astro Domine</p>
+        <p className="UserDataDash__UserInfo-email">piper@thegatesofdawn.com</p>
+
+        <div className="UserDataDash__UserInfo-buttons">
+          <FilterButton
+            onClick={handleFilterYear}
+            filter='2019'
+            message='2019' />
+          <FilterButton
+            onClick={handleFilterYear}
+            filter='2020'
+            message='2020' />
+          <FilterButton
+            onClick={handleFilterYear}
+            filter={null}
+            message='Clear' />
+
+        </div>
+        <span className="UserDataDash__UserInfo-filterbuttontext">Data Filters</span>
       </div>
       <div className="UserDataDash__QuoteBox">
         <p className="UserDataDash__QuoteBox__Quote">{quote.words}</p>
@@ -659,8 +672,6 @@ const UserDataDash = props => {
             handleBreathInterval={handleBreathInterval}
           />
         }
-
-
       </div>
       <div className="UserDataDash__ChartPanel2">
         <ChartPanel

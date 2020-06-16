@@ -6,16 +6,16 @@ import Schedule from './pages/Schedule/Schedule'
 import UserProfile from './pages/UserProfile/UserProfile'
 import UserDataDash from './pages/UserDataDash/UserDataDash'
 
-import {Elements} from '@stripe/react-stripe-js';
-import {loadStripe} from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
 function App() {
   const [showLanding, showLandingHandler] = useState(false)
   const [showNav, showNavHandler] = useState(false)
-  const [showPunchCard, showPunchCardHandler] = useState(true)
+  const [showPunchCard, showPunchCardHandler] = useState(false)
   const [showSchedule, showScheduleHandler] = useState(false)
   const [showUserProfile, showUserProfileHandler] = useState(false)
-  const [showUserDataDash, showUserDataDashHandler] = useState(false)
+  const [showUserDataDash, showUserDataDashHandler] = useState(true)
   const [currentUser, currentUserHandler] = useState(null)
   const [showLoggedIn, showLoggedInHandler] = useState(false)
 
