@@ -1,32 +1,43 @@
 import React, { useState } from 'react'
 import './Slider.scss'
-import Slider from 'react-input-slider'
+import Slider from 'react-slider'
 
 export default function BreatheSlider(props) {
 
   const { onGary, xValue } = props
-  const [sliderValue, setSliderValue] = useState({ x: xValue })
 
-  const setValueText = (x) => {
-    onGary(x)
-    if (sliderValue.x === 1) {
-      return `${sliderValue.x} second`
-    } else return `${sliderValue.x} seconds`
+  const [sliderValue, setSliderValue] = useState(xValue)
+
+  const handleSetValueText = () => {
+    if (sliderValue === 1) {
+      return `${sliderValue} second`
+    } else return `${sliderValue} seconds`
   }
+
+  const handleTouchEnd = () => {
+    onGary(sliderValue)
+  }
+
+  function handleSetSliderValue(x) {
+    setSliderValue(x)
+  }
+
 
   return (
     <div className='Slider'>
       <div className='Slider__container'>
         Choose Your Breath Rate
-        <Slider xmax='12'
+        <Slider
           className="Slider__container-slider"
-          axis="x" x={sliderValue.x}
-          onChange={({ x }) => setSliderValue({ x })}
+          defaultValue={sliderValue}
+          min={1}
+          max={12}
+          onAfterChange={handleTouchEnd}
+          onChange={handleSetSliderValue}
         />
         <div className='Slider__container-value'>
-          {setValueText(sliderValue.x)}</div>
+          {handleSetValueText(sliderValue)}</div>
       </div>
     </div>
   )
 }
-
