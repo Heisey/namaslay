@@ -1,19 +1,22 @@
 .PassesPanel {  
+  position: relative;
   &__title {
     text-align: center;
-
+    font-size: 3em;
+    font-family: var(--font-secondary);
   }
   
   &__content {
     text-align: center;
-
+    font-family: var(--font-tertiary);
   }
   
   &__line {
 
   }
   &__button {
-    text-align: center;
+    display: flex;
+    justify-content: center;
   }
 }
 
