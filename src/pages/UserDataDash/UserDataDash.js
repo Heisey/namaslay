@@ -25,13 +25,14 @@ const UserDataDash = props => {
   } = props;
 
   const [quote, setQuote] = useState({ words: null, id: null, author: null })
-
+  const [breathInterval, setBreathInterval] = useState(4000)
   const [pieChartData, setPieChartData] = useState({})
   const [lineGraphData, setLineGraphData] = useState({})
   const [barChartData, setBarChartData] = useState({ count: [], name: [] })
   const [filterYear, setFilterYear] = useState(null)
+  const [reRenderer, setReRenderer] = useState(true)
 
-  // !! pull this into parent later
+  // !! pull this into other components later
   useEffect(() => {
     const getQuote = async () => {
       try {
@@ -363,6 +364,15 @@ const UserDataDash = props => {
     } else return [5, 9, 11, 7, 5, 13, 12]
   }
 
+  const handleBreathInterval = (input) => {
+    setBreathInterval(input * 1000)
+  }
+
+  useEffect(() => {
+    setReRenderer(!reRenderer)
+  }, [breathInterval])
+
+
   const chart1 = {
     height: 450,
     width: 100,
@@ -636,7 +646,21 @@ const UserDataDash = props => {
         />
       </div>
       <div className="UserDataDash__Breathe">
-        <BreathePanel />
+
+        {reRenderer &&
+          <BreathePanel
+            breathInterval={breathInterval}
+            handleBreathInterval={handleBreathInterval}
+          />
+        }
+        {!reRenderer &&
+          <BreathePanel
+            breathInterval={breathInterval}
+            handleBreathInterval={handleBreathInterval}
+          />
+        }
+
+
       </div>
       <div className="UserDataDash__ChartPanel2">
         <ChartPanel

@@ -1,5 +1,4 @@
 import React from 'react'
-import './Text.scss'
 
 export default function Text(props) {
 

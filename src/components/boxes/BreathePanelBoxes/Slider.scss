@@ -9,7 +9,6 @@
  &__container {
    width: 75%;
    
-
   &-slider {
     -webkit-appearance: none;
     width: 100%;
@@ -31,15 +30,16 @@
     opacity: 0.8;
   }
 
-  input[type=range]::-webkit-slider-thumb {
+  .thumb {
     -webkit-appearance: none;
+    outline: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     background: white;
     border-radius: 50%;
   }
-    /* why is this not changing */
+
   input[type=range]::-webkit-slider-runnable-track {
     -webkit-appearance: none;
     background: linear-gradient(
@@ -48,12 +48,7 @@
       #336d62 40%,
       #4ca493 60%,
       #55b7a4 100%
-
     );
-  }
-
-  &-value {
-
   }
  }
 }
