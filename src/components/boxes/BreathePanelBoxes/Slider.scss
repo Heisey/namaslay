@@ -8,6 +8,10 @@
 
  &__container {
    width: 75%;
+
+   &-toptext {
+
+   }
    
   &-slider {
     -webkit-appearance: none;
@@ -16,10 +20,10 @@
     outline: none;
     background: linear-gradient(
       45deg,
-      #336d62 0%,
-      #4ca493 40%,
-      #55b7a4 60%,
-      #2a5b52 100%
+      #CF470B 0%,
+      #E3730A 40%,
+      #F08F08 60%,
+      #B50E0E 100%
     );
     opacity: 0.4;
     transition: opacity 0.2s;
@@ -28,6 +32,10 @@
   }
   &-slider:hover {
     opacity: 0.8;
+  }
+
+  &-value {
+    color: #B50E0E;
   }
 
   .thumb {
@@ -44,10 +52,10 @@
     -webkit-appearance: none;
     background: linear-gradient(
       45deg,
-      #2a5b52 0%,
-      #336d62 40%,
-      #4ca493 60%,
-      #55b7a4 100%
+      #B50E0E  0%,
+      #CF470B 40%,
+      #E3730A 60%,
+      #F08F08 100%
     );
   }
  }

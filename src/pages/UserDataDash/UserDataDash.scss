@@ -1,11 +1,12 @@
 .UserDataDash {
   height: 100vh;
   width: 100vw;
-  background-color: plum;
+  background-color: var(--neutral-color);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 25vh 25vh 25vh 25vh;
   position: relative;
+  font-family: var(--font-secondary);
 
   &__Namaslay {
     grid-column-start: 1;
@@ -20,35 +21,58 @@
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 3;
-    height: 100%;
     width: 100%;
-    background-color: #ffffff;
+    color: var(--accent-secondary);
   }
   &__UserInfo {
+    text-align: center;
+    // font-size: 2em;
     grid-column-start: 4;
     grid-column-end: 6;
     grid-row-start: 1;
     grid-row-end: 2;
     height: 100%;
     width: 100%;
-    background-color: lightblue;
+    background-color: var(--accent-primary);
+    // font-family: var(--font-secondary);
+
+    &-username {
+      font-size: 2em;
+      font-family: var(--font-secondary);
+    }
+    &-email {
+      font-size: 1em;
+      font-family: var(--font-tertiary);
+    }
+    &-filterbuttontext {
+      
+    }
+    &-buttons {
+      display: flex;
+      justify-content: space-evenly;
+    }
   }
   &__QuoteBox {
+
+    text-align: center;
     grid-column-start: 4;
     grid-column-end: 6;
     grid-row-start: 2;
     grid-row-end: 3;
     height: 100%;
     width: 100%;
-    background-color: rgb(243, 161, 19);
+
 
     &__Quote {
-      font-size: 60;
-      font-style: italic;
+      color: var(--accent-primary);
+      font-size: 1em;
+      font-family: var(--font-tertiary);
     }
 
     &__Author {
-
+      color: var(--accent-tertiary);
+      font-size: 1.5em;
+      font-family: var(--font-secondary);
     }
   }
 
@@ -59,7 +83,6 @@
     grid-row-end: 3;
     height: 100%;
     width: 100%;
-    background-color: turquoise;
   }
 
   &__ChartPanel2 {
@@ -69,7 +92,7 @@
     grid-row-end: 6;
     height: 100%;
     width: 100%;
-    background-color: yellow;
+    color: var(--accent-secondary);
   }
   &__ChartPanel3 {
     grid-column-start: 2;
@@ -78,7 +101,7 @@
     grid-row-end: 6;
     height: 100%;
     width: 100%;
-    background-color: white;
+    color: var(--accent-secondary);
   }
   &__ChartPanel4 {
     grid-column-start: 5;
@@ -87,7 +110,7 @@
     grid-row-end: 6;
     height: 100%;
     width: 100%;
-    background-color: white;
+    color: var(--accent-secondary);
   }
   
 }
