@@ -3,7 +3,7 @@ import React from 'react';
 import './SnakeBorderButton.scss'
 
 export default function SnakeBorderButton(props) {
-  const { clickHandler, onClick, text } = props
+  const { clickHandler, text } = props
 
   const handleClick = () => {
     clickHandler()

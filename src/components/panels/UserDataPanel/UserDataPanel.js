@@ -65,7 +65,7 @@ const UserDataPanel = props => {
       <div className="UserDataPanel__button">
         <SnakeBorderButton
           text='More'
-          onClick={handleShowUserDataDash}
+          clickHandler={handleShowUserDataDash}
         />
         {/* <MainButton
           onClick={handleShowUserDataDash}
