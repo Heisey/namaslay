@@ -35,18 +35,35 @@ const UserProfile = props => {
         <NamaslayPanel
           panelSize={'small'}
         /></div>
-      <div className="UserProfile__NextClass">
-        NEXT CLASS:
-        12pm Tues Jun 11
-        Lukewarm Hatha
-        Boba Fett
+      <div className="UserProfile__nextClass">
+        <span className="UserProfile__nextClass--title">
+          NEXT CLASS
+        </span>
+        <span className="UserProfile__nextClass--time">
+          12pm Tues Jun 11
+        </span>
+        <span className="UserProfile__nextClass--class">
+          Lukewarm Hatha
+        </span>
+        <span className="UserProfile__nextClass--teacher">
+          Boba Fett
+        </span>
+        
       </div>
-      <div className="UserProfile__AccountSettings">MANAGE
-      ACCOUNT &
-SETTINGS</div>
+      <div className="UserProfile__AccountSettings">
+        <i class="fas fa-cogs"></i>
+      </div>
       <div className="UserProfile__SubscriptionDetails"><PassesPanel /></div>
-      <div className="UserProfile__ClassHistory">BROWSE YOUR CLASS HISTORY</div>
-      <div className="UserProfile__BrowseReviews">UserProfile__BrowseReviews</div>
+      <div className="UserProfile__ClassHistory">
+        <span>Class</span>
+        <i class="fas fa-history"></i>
+        <span>History</span>
+      </div>
+      <div className="UserProfile__BrowseReviews">
+        <span>Browse</span>
+        <i class="fas fa-bahai"></i>
+        <span>Reviews</span>
+      </div>
       <div className="UserProfile__Breathe">BREATHE</div>
       <div className="UserProfile__Data"><UserDataPanel handleShowUserDataDash={handleShowUserDataDash}
 

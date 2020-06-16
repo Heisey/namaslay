@@ -1,7 +1,7 @@
 import React from 'react';
-import MainButton from '../../Buttons/Main/Main'
 import './UserDataPanel.scss'
 import ChartPanel from '../ChartPanel/ChartPanel'
+import SnakeBorderButton from '../../Buttons/SnakeBorderButton/SnakeBorderButton'
 
 const UserDataPanel = props => {
 
@@ -16,16 +16,16 @@ const UserDataPanel = props => {
         label: 'Classes',
         data: [5, 9, 11, 7, 5, 13, 12],
         backgroundColor: [
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
-          'rgba(255, 206, 86, 0.6)',
-          'rgba(75, 192, 192, 0.6)',
-          'rgba(153, 102, 255, 0.6)',
-          'rgba(255, 159, 64, 0.6)',
-          'rgba(255, 99, 132, 0.6)'
+          '#B50E0E',
+          '#C22B0D',
+          '#CF470B',
+          '#DC640A',
+          '#E3730A',
+          '#F08F08',
+          '#fdac07'
         ],
         borderWidth: 1,
-        borderColor: '#777',
+        borderColor: '#ef6101',
         hoverBorderWidth: 3,
         hoverBorderColor: '#000'
       }]
@@ -36,13 +36,15 @@ const UserDataPanel = props => {
       title: {
         display: true,
         text: 'Your Favourite Yoga Days',
-        fontSize: 25
+        fontSize: 30,
+        fontColor: '#ef6101', 
+        fontFamily: 'Metal Mania',
       },
       legend: {
         display: false,
         position: 'bottom',
         labels: {
-          fontColor: '#000'
+          fontColor: '#ef6101'
         },
         layout: {
           padding: {
@@ -61,10 +63,14 @@ const UserDataPanel = props => {
   return (
     <div className="UserDataPanel">
       <div className="UserDataPanel__button">
-        <MainButton
+        <SnakeBorderButton 
+          text='More'
+        />
+        {/* <MainButton
           onClick={handleShowUserDataDash}
           message='View All Your Data'
-        /></div>
+        /> */}
+      </div>
       <h3 className="UserDataPanel__title"><ChartPanel
         type={'Bar'}
         height={chart1.height}
