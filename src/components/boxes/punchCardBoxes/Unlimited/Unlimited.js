@@ -6,10 +6,11 @@ import './Unlimited.scss';
 
 export default function Unlimited(props) {
 
-  const { showUnlimited } = props
+  const { showUnlimited, priceHandler } = props
 
   const handleshowUnlimited = () => {
     showUnlimited()
+    priceHandler(199.99)
   }
 
   return (

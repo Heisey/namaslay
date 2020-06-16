@@ -6,10 +6,11 @@ import './FiveClass.scss';
 
 export default function FiveClass(props) {
 
-  const { showFiveClasses } = props
+  const { showFiveClasses, priceHandler } = props
 
   const handleshowFiveClasses = () => {
     showFiveClasses()
+    priceHandler(44.99)
   }
 
   return (

@@ -7,11 +7,18 @@
 
   &__card {
     height: 50vh;
-    width: 40vh;
+    width: 70vh;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: wheat;
+    
+  }
+
+  &__classInfo {
+    height: 100%;
+    width: 100%;
+    background-color: var(--neutral-color);
+    border: 2px solid var(--accent-secondary);
   }
 }

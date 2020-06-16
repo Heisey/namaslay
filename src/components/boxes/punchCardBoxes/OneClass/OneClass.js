@@ -6,10 +6,11 @@ import './OneClass.scss';
 
 export default function OneClass(props) {
 
-  const { showSingleClasses } = props
+  const { showSingleClasses, priceHandler } = props
 
   const handlwShowSingClass = () => {
     showSingleClasses()
+    priceHandler(9.99)
   }
   return (
     <div 

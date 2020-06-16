@@ -6,10 +6,11 @@ import './TwentyFiveClass.scss';
 
 export default function TwentyFiveClass(props) {
 
-  const { showTwentyFiveClasses } = props
+  const { showTwentyFiveClasses, priceHandler } = props
 
   const handleshowTwentyFiveClasses = () => {
     showTwentyFiveClasses()
+    priceHandler(149.99)
   }
 
   return (

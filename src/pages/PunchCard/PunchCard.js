@@ -9,6 +9,7 @@ import ImagePanelHorizontal from '../../components/panels/ImagePanelHorizontal/I
 import PunchCardPanel from '../../components/panels/PunchCardPanel/PunchCardPanel'
 import TwentyFiveClass from '../../components/boxes/punchCardBoxes/TwentyFiveClass/TwentyFiveClass'
 import Unlimited from '../../components/boxes/punchCardBoxes/Unlimited/Unlimited'
+import PersonLogo2 from '../../components/logos/PersonLogo2/PersonLoop2';
 
 import Nav from '../../components/Nav/Nav'
 
@@ -20,6 +21,7 @@ const PunchCard = props => {
 
   const [passType, setPassType] = useState()
   const [passCount, setPassCount] = useState()
+  const [price, priceHandler] = useState(0)
 
   const {
     handleShowLanding,
@@ -81,42 +83,50 @@ const PunchCard = props => {
       </div>
       <div className="PunchCard__image--bigOne">
         <ImagePanelBig
-          size="32"
+          size="16"
           url={'https://s3.amazonaws.com/heisey.namaslay/raw/landscape/balance-rocks.jpeg'}
         />
       </div>
       <div className="PunchCard__image--bigTwo">
         <ImagePanelBig
-          size="32"
+          size="16"
           url='https://s3.amazonaws.com/heisey.namaslay/raw/landscape/foggy-shallows.jpeg'
         />
       </div>
       <div className="PunchCard__card">
         <PunchCardPanel
           type={passType}
+          setPassCount={setPassCount}
+          price={price}
         />
       </div>
       <div className="PunchCard__singleClass">
         <OneClass
           showSingleClasses={showSingleClasses}
+          priceHandler={priceHandler}
         />
       </div>
       <div className="PunchCard__fiveClasses">
         <FiveClass
           showFiveClasses={showFiveClasses}
+          priceHandler={priceHandler}
         />
       </div>
       <div className="PunchCard__twentyFiveClasses">
         <TwentyFiveClass
           showTwentyFiveClasses={showTwentyFiveClasses}
+          priceHandler={priceHandler}
         />
       </div>
       <div className="PunchCard__monthUnlimited">
         <Unlimited
           showUnlimited={showUnlimited}
+          priceHandler={priceHandler}
         />
       </div>
       <div className="PunchCard__topImage">
+        
+      
         <ImagePanelHorizontal
           url='https://s3.amazonaws.com/heisey.namaslay/raw/landscape/foggy-shallows.jpeg'
         />
@@ -125,6 +135,20 @@ const PunchCard = props => {
         <ImagePanelHorizontal
           url='https://s3.amazonaws.com/heisey.namaslay/raw/landscape/foggy-shallows.jpeg'
         />
+      </div>
+
+      <div className="PunchCard__sword1">
+        <PersonLogo2 />
+      </div>
+
+      <div className="PunchCard__sword2">
+        <PersonLogo2 />
+      </div>
+      <div className="PunchCard__sword3">
+        <PersonLogo2 />
+      </div>
+      <div className="PunchCard__sword4">
+        <PersonLogo2 />
       </div>
     </div>
   )

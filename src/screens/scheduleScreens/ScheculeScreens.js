@@ -52,6 +52,11 @@ export default function ScheduleScreens(props) {
             userId={currentUser.id}
           />
         )}
+        {(currentUser !== null && !noPassesLeft) && (
+          <div className='ScheduleScreens__classInfo'>
+            hello
+          </div>
+        )}
       </div>
     </div>
   )

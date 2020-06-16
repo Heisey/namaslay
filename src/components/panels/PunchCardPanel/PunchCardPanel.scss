@@ -1,12 +1,75 @@
 .PunchCardPanel {
   width: 100%;
   height: 100%;
-  display: flex;
+  position: relative;
+  color: var(--accent-secondary);
+
+  &__title {
+    font-family: var(--font-secondary);
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    span {
+      font-family: var(--font-tertiary);
+      font-size: 1.3rem;
+      color: (--accent-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+  }
+
+  &__word {
+    font-family: var(--font-secondary);
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+
+  }
+
+  &__price {
+    font-family: var(--font-tertiary);
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--accent-tertiary)
+  }
+
 
   &__button {
-    width: 100px;
-    height: 60px;
-    line-height: 60px;
-    background-color: palevioletred;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
   }
-}
+
+  &__author {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-secondary);
+    font-size: 3rem;
+    color: var(--accent-tertiary);
+    text-align: center;
+  }
+
+  &__quote {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-tertiary);
+    font-size: 1.2rem;
+    text-align: center;
+  }
+};
