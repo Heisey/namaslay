@@ -37,7 +37,7 @@ const UserDataPanel = props => {
         display: true,
         text: 'Your Favourite Yoga Days',
         fontSize: 30,
-        fontColor: '#ef6101', 
+        fontColor: '#ef6101',
         fontFamily: 'Metal Mania',
       },
       legend: {
@@ -63,8 +63,9 @@ const UserDataPanel = props => {
   return (
     <div className="UserDataPanel">
       <div className="UserDataPanel__button">
-        <SnakeBorderButton 
+        <SnakeBorderButton
           text='More'
+          onClick={handleShowUserDataDash}
         />
         {/* <MainButton
           onClick={handleShowUserDataDash}
