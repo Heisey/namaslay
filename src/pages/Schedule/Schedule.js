@@ -200,10 +200,12 @@ const Schedule = props => {
           panelSize='small'
         />
       </div>
-
-      <div className="Schedule__classesLeft">
-        {currentUser === null ? 'button' : `Passes Left ${currentUser.passCount}`}
-      </div>
+      {currentUser &&
+        <div className="Schedule__classesLeft">Passes Left: {currentUser.passCount}
+        </div>}
+      {!currentUser &&
+        <div className="Schedule__classesLeft">home
+      </div>}
 
       <div className="Schedule__calendar">
         <CalendarPanel
