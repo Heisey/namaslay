@@ -4,9 +4,8 @@
 .BreathePanel {
 
 
-  background: #224941 url('../../../dev_data/images/breatheBackground.jpeg') no-repeat center center/cover;
+  background: var(--neutral-color);
   color: #fff;
-  font-family: 'Montserrat', sans-serif;
   min-height: 100%;
   overflow: hidden;
   display: flex;
@@ -28,10 +27,7 @@
     transform: scale(0.75);
 
     &__circle {
-
-      // animation: fadein 100ms linear;
-
-      background-color: #010f1c;
+      background-color: var(--neutral-color);
       height: 100%;
       width: 100%;
       border-radius: 50%;
@@ -41,51 +37,18 @@
       z-index: -1;
     }
   
-    // .text-appear {
-    //   opacity: 0;
-    //   color: blue
-    // }
-    // .text-appear.text-appear-active {
-    //   opacity: 1;
-    //   transition: opacity 3000ms linear;
-    //   color: red
-    // }
-
-
-    // .text-enter {
-    //   opacity: 0;
-    //   z-index: 1;
-    // }
-
-    // .text-enter.text-enter-active {
-    //   opacity: 1;
-    //   transition: opacity 3000ms linear;
-    // }
-    // .text-exit {
-    //   opacity: 0;
-    //   color: yellow
-    // }
-    // .text-exit.text-exit-active {
-    //   color: green
-    // }
-    // .text-exit-done {
-    //   color: white
-    // }
-
-
-
-
-
     .text1 {
+      font-size: 1.5rem;
+      font-family: var(--font-primary);
       animation: asdasd 3s linear forwards;
     }
     .text2 {
+      font-size: 1.5rem;
+      font-family: var(--font-primary);
       animation: asdasda 3s linear backwards;
     }
   
     &__pointer-container {
-
-      // animation: fadein 100ms linear;
       position: absolute;
       top: -40px;
       left: 140px;
@@ -109,10 +72,11 @@
 
       // animation: fadein 100ms linear;
       background: conic-gradient(
-        #55b7a4 0%,
-        #4ca493 40%,
-        #2a5b52 60%,
-        #336d62 100%
+
+        #F08F08 0%,
+        #E3730A 40%,
+        #B50E0E 60%,
+        #CF470B 100%
 
       );
       height: 320px;

@@ -53,7 +53,7 @@ const Schedule = props => {
   const [renderOverlay, renderOverlayHandler] = useState(false)
   const [renderPayment, renderPaymentHandler] = useState(false)
   const [showAnimation, showAnimationHandler] = useState(true)
-  
+
 
   useEffect(() => {
     showAnimationHandler(true)
@@ -80,14 +80,15 @@ const Schedule = props => {
       })
       // !! refactor to useEffect
       .then((data) => {
-          const today = getTodayID()
-          const classesToday = data.classes.filter(c => c.daynumber === today && c.monthnumber === selectedMonth
+        const today = getTodayID()
+        const classesToday = data.classes.filter(c => c.daynumber === today && c.monthnumber === selectedMonth
         )
-          classesForDayHandler(classesToday)
-          filteredClassesForDayHandler(classesToday)
-          dataLoadHandler(true)
-          showAnimationHandler(false)
-        }
+        classesForDayHandler(classesToday)
+        filteredClassesForDayHandler(classesToday)
+        dataLoadHandler(true)
+        showAnimationHandler(false)
+        selectedDayHandler(today)
+      }
       )
       .catch(function (error) {
         console.log(error);
@@ -96,7 +97,7 @@ const Schedule = props => {
 
   const handleCalendarDayChange = date => {
     let day = ("0" + date.getDate()).slice(-2)
-    selectedDayHandler(day * 1 - 1)
+    selectedDayHandler(day * 1)
     classesForDayHandler(getClassesByDay(day * 1, selectedMonth))
     console.log('all classes for day:', classesForDay);
     filteredClassesForDayHandler(getClassesByDay(day * 1, selectedMonth))
@@ -114,7 +115,6 @@ const Schedule = props => {
 
   }
 
-  //nb if you click these too quickly after pageload, they don't work...
   const handleTeachersFilter = () => {
     const teachers = scheduleData.teachers.map((t) => t)
     teachers.push('Teacher')
@@ -179,7 +179,7 @@ const Schedule = props => {
   return (
     <div className="Schedule">
       {renderOverlay && (
-        <ScheduleScreens 
+        <ScheduleScreens
           currentUser={currentUser}
           currentUserHandler={currentUserHandler}
           handleShowPunchCard={handleShowPunchCard}
@@ -200,10 +200,12 @@ const Schedule = props => {
           panelSize='small'
         />
       </div>
-
-      <div className="Schedule__classesLeft">
-        {currentUser === null ? 'button' : `Passes Left ${currentUser.passCount}`}
-      </div>
+      {currentUser &&
+        <div className="Schedule__classesLeft">Passes Left: {currentUser.passCount}
+        </div>}
+      {!currentUser &&
+        <div className="Schedule__classesLeft">home
+      </div>}
 
       <div className="Schedule__calendar">
         <CalendarPanel

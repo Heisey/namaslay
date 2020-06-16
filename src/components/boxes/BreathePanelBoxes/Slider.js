@@ -26,7 +26,7 @@ export default function BreatheSlider(props) {
   return (
     <div className='Slider'>
       <div className='Slider__container'>
-        Choose Your Breath Rate
+        <span className="Slider__container-toptext">Choose Your Breath Rate</span>
         <Slider
           className="Slider__container-slider"
           defaultValue={sliderValue}

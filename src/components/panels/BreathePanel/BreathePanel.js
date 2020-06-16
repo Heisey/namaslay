@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { CSSTransition, transit } from 'react-css-transition'
 import './BreathePanel.scss'
 import BreatheSlider from '../../boxes/BreathePanelBoxes/Slider'
 import Text from '../../boxes/BreathePanelBoxes/Text'
