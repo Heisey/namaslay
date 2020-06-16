@@ -1,5 +1,7 @@
 import React from 'react';
 
+import SwordLogo from '../../../logos/SwordLogo/SwordLogo'
+
 import './FiveClass.scss';
 
 export default function FiveClass(props) {
@@ -15,7 +17,13 @@ export default function FiveClass(props) {
       onClick={handleshowFiveClasses}
       className="FiveClass"
     >
-      Five Class
+    <span>FIVE PASSES</span>
+    <div className="FiveClass__sword--one">
+      <SwordLogo />
+    </div>
+    <div className="FiveClass__sword--two">
+      <SwordLogo />
+    </div>
     </div>
   )
 }

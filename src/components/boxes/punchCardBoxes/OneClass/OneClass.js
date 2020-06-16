@@ -1,5 +1,7 @@
 import React from 'react';
 
+import SwordLogo from '../../../logos/SwordLogo/SwordLogo'
+
 import './OneClass.scss';
 
 export default function OneClass(props) {
@@ -14,7 +16,13 @@ export default function OneClass(props) {
       className="OneClass"
       onClick={handlwShowSingClass}
     >
-      One Class
+      <span>SINGLE PASS</span>
+      <div className="OneClass__sword--one">
+        <SwordLogo />
+      </div>
+      <div className="OneClass__sword--two">
+        <SwordLogo />
+      </div>
     </div>
   )
 }

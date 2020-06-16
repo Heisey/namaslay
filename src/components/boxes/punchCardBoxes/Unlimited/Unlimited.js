@@ -1,5 +1,7 @@
 import React from 'react';
 
+import SwordLogo from '../../../logos/SwordLogo/SwordLogo'
+
 import './Unlimited.scss';
 
 export default function Unlimited(props) {
@@ -15,7 +17,13 @@ export default function Unlimited(props) {
       className="Unlimited"
       onClick={handleshowUnlimited}
     >
-      Unlimited
+      <span>UNLIMITED</span>
+      <div className="Unlimited__sword--one">
+        <SwordLogo />
+      </div>
+      <div className="Unlimited__sword--two">
+        <SwordLogo />
+      </div>
     </div>
   )
 }

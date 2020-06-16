@@ -1,5 +1,7 @@
 import React from 'react';
 
+import SwordLogo from '../../../logos/SwordLogo/SwordLogo'
+
 import './TwentyFiveClass.scss';
 
 export default function TwentyFiveClass(props) {
@@ -15,7 +17,13 @@ export default function TwentyFiveClass(props) {
       className="TwentyFiveClass"
       onClick={handleshowTwentyFiveClasses}
     >
-      Twenty Five Classes
+      <span>TWENTY FIVE PASSES</span>
+      <div className="TwentyFiveClass__sword--one">
+        <SwordLogo />
+      </div>
+      <div className="TwentyFiveClass__sword--two">
+        <SwordLogo />
+      </div>
     </div>
   )
 }
