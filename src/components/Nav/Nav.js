@@ -102,7 +102,7 @@ const Nav = props => {
         />
       </div>
       <div className={`Nav__dashboard ${!navState && "hidden"}`}
-        onClick={goToUserDataDash}>
+      >
         <UserDataDashBox
           navState={navState}
         />
