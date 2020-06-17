@@ -5,6 +5,19 @@
   background-color: rgba($color: black, $alpha: 0.7);
   z-index: 200;
 
+  &__close {
+    position: absolute;
+    color: var(--accent-tertiary);
+    font-size: 2.5em;
+    right: 30%;
+    top: 20%;
+    transition: color 0.2s linear; 
+  }
+
+  &__close:hover {
+    color: var(--accent-primary);
+  }
+
   &__card {
     height: 50vh;
     width: 70vh;

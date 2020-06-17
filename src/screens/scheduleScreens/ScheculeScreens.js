@@ -37,8 +37,18 @@ export default function ScheduleScreens(props) {
     }
   }, [])
 
+  const handleCloseOverlay = () => {
+    renderOverlayHandler(false)
+  }
+
   return (
     <div className="ScheduleScreens">
+      <span 
+        onClick={handleCloseOverlay}
+        className='ScheduleScreens__close'
+      >
+      <i class="fas fa-times"></i>
+      </span>
       <div className="ScheduleScreens__card">
         {currentUser === null && (
           <LoginPanel 
