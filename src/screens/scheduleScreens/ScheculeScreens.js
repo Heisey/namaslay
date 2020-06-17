@@ -11,16 +11,16 @@ import './ScheduleScreens.scss'
 export default function ScheduleScreens(props) {
   const [noPassesLeft, noPassesLeftHandler] = useState(false)
   const [buySinglePass, buySinglePassHandler] = useState(false)
-  
+
   const [passCount, passCountHandler] = useState(0)
   const [overlayMenu, overlayMenuHandler] = useState(true)
 
-  const { 
-    secondaryDataPanel, 
-    selectedClass, 
-    bookingInfo, 
-    currentUser, 
-    currentUserHandler, 
+  const {
+    secondaryDataPanel,
+    selectedClass,
+    bookingInfo,
+    currentUser,
+    currentUserHandler,
     handleShowPunchCard,
     renderOverlayHandler,
     renderPayment
@@ -51,7 +51,7 @@ export default function ScheduleScreens(props) {
       </span>
       <div className="ScheduleScreens__card">
         {currentUser === null && (
-          <LoginPanel 
+          <LoginPanel
             currentUserHandler={currentUserHandler}
             showPanel={true}
             onSchedule={true}
@@ -61,14 +61,15 @@ export default function ScheduleScreens(props) {
           />
         )}
         {(currentUser && !noPassesLeft && bookingInfo !== null) && (
-          
-          <BookingClassInfo 
+
+          <BookingClassInfo
             currentUser={currentUser}
             renderOverlayHandler={renderOverlayHandler}
           />
         )}
-        {(currentUser !== null & noPassesLeft && passCount === 0) && (
-          <NoPasses 
+
+        {(currentUser !== null & noPassesLeft) && (
+          <NoPasses
             buySinglePassHandler={buySinglePassHandler}
             noPassesLeftHandler={noPassesLeftHandler}
             handleShowPunchCard={handleShowPunchCard}
@@ -76,8 +77,9 @@ export default function ScheduleScreens(props) {
             renderOverlayHandler={renderOverlayHandler}
           />
         )}
-        {(currentUser && passCount > 0 && !buySinglePass) && (
-          <ConfirmClass 
+        {(currentUser && !noPassesLeft && !buySinglePass) && (
+          <ConfirmClass
+            selectedClass={selectedClass}
             secondaryDataPanel={secondaryDataPanel}
             renderOverlayHandler={renderOverlayHandler}
             currentUserHandler={currentUserHandler}
@@ -86,7 +88,7 @@ export default function ScheduleScreens(props) {
           />
         )}
         {(currentUser !== null && buySinglePass && passCount === 0) && (
-          <PaymentPanel 
+          <PaymentPanel
             passCountHandler={passCountHandler}
             userId={currentUser.id}
             selectedClass={selectedClass}
