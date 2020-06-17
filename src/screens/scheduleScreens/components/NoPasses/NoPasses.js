@@ -21,7 +21,7 @@ export default function NoPasses(props) {
   return (
     <div className="NoPasses">
       <p className="NoPasses__title">Sorry you dont have any classes</p>
-      
+
       <p className='NoPasses__text--one'>Would you like to buy a class</p>
 
       <div className='NoPasses__button1'>
@@ -30,12 +30,12 @@ export default function NoPasses(props) {
           clickHandler={handleBuySinglePass}
         />
       </div>
-      
+
       <p className='NoPasses__text--two'>Would you like to by a pass</p>
 
       <div className='NoPasses__button2'>
         <SnakeBorderButton
-          text='Buy Class'
+          text='Buy a Pass'
           clickHandler={changePage}
         />
       </div>

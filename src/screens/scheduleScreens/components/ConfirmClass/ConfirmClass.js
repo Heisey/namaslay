@@ -1,21 +1,43 @@
 import React from 'react'
+import axios from 'axios'
+import qs from 'qs'
 
 import SnakeBprderButton from '../../../../components/Buttons/SnakeBorderButton/SnakeBorderButton'
 
 import './ConfirmClass.scss'
 
+const config = {
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
+}
 export default function ConfirmClass(props) {
 
-  const { 
+  const {
     secondaryDataPanel,
     renderOverlayHandler,
     currentUserHandler,
-    currentUser
+    currentUser,
+    selectedClass
   } = props
 
-  const handleBookingClass = () => {
-    renderOverlayHandler(false)
-    currentUserHandler({...currentUser, passCount: currentUser.passCount - 1})
+  const handleBookingClass = async () => {
+    try {
+      console.log(selectedClass);
+
+      const requestBody = { class_id: selectedClass, student_id: currentUser.id }
+      let response = await axios.post(`/classes/${selectedClass}/book`, qs.stringify(requestBody), config)
+      console.log(response.data);
+
+      currentUserHandler({ ...currentUser, passCount: response.data.passCount })
+      renderOverlayHandler(false)
+
+    }
+    catch (e) {
+      throw e
+    }
+
+
   }
 
   return (
@@ -33,9 +55,9 @@ export default function ConfirmClass(props) {
         {secondaryDataPanel.start_time}
       </span>
       <div className='ConfirmClass__button'>
-        <SnakeBprderButton 
+        <SnakeBprderButton
           text="CONFIRM"
-          clickHandler={handleBookingClass}    
+          clickHandler={handleBookingClass}
         />
       </div>
     </div>
