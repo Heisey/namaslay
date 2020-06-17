@@ -78,20 +78,25 @@ const PunchCard = props => {
       </div>
       <div className="PunchCard__image--small">
         <ImagePanelBig
-          size="16"
-          url={'https://s3.amazonaws.com/heisey.namaslay/raw/landscape/balance-rocks.jpeg'}
+          size="19"
+          //heart
+          url='https://images.unsplash.com/photo-1535615615570-3b839f4359be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
         />
       </div>
       <div className="PunchCard__image--bigOne">
         <ImagePanelBig
-          size="16"
-          url={'https://s3.amazonaws.com/heisey.namaslay/raw/landscape/balance-rocks.jpeg'}
+          size="17"
+          //buddha
+          url='https://images.unsplash.com/photo-1538024333176-f25f63f873ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=633&q=80'
         />
       </div>
       <div className="PunchCard__image--bigTwo">
         <ImagePanelBig
           size="16"
-          url='https://s3.amazonaws.com/heisey.namaslay/raw/landscape/foggy-shallows.jpeg'
+          // balancing rocks and sun
+          url='https://images.unsplash.com/photo-1587711008785-3c3cbcdbddaa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=677&q=80'
+        //balancing rocks
+        // url='https://images.unsplash.com/photo-1528800546314-a085ed1931e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
         />
       </div>
       <div className="PunchCard__card">
@@ -128,15 +133,19 @@ const PunchCard = props => {
         />
       </div>
       <div className="PunchCard__topImage">
-
-
         <ImagePanelHorizontal
-          url='https://s3.amazonaws.com/heisey.namaslay/raw/landscape/foggy-shallows.jpeg'
+          //cherry blossom
+          url='https://images.unsplash.com/photo-1553137686-316a8f052cce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
+          size='2'
         />
+
       </div>
       <div className="PunchCard__bottomImage">
+
         <ImagePanelHorizontal
-          url='https://s3.amazonaws.com/heisey.namaslay/raw/landscape/foggy-shallows.jpeg'
+          //forest buddha
+          url='https://images.unsplash.com/photo-1571039599810-ef84c452707f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
+          size='2'
         />
       </div>
 
