@@ -11,7 +11,7 @@ const config = {
 
 export default function PunchCardPanel(props) {
 
-  const { type, setPassCount, price, currentUser } = props
+  const { type, setPassCount, price, currentUser, currentUserHandler } = props
 
   const [quote, setQuote] = useState({ words: null, id: null, author: null })
 
@@ -47,6 +47,9 @@ export default function PunchCardPanel(props) {
       //update to add state instead of 1
       axios.post(`/students/1/passes`, qs.stringify(requestBody), config)
         .then((res) => {
+          let temp = { ...currentUser }
+          temp.passCount = res.data.passCount
+          currentUserHandler(temp)
           console.log(res.data);
         })
         .catch((e) => {
@@ -54,6 +57,14 @@ export default function PunchCardPanel(props) {
         })
     }
   }
+
+  useEffect(() => {
+    const logCurrentuser = () => {
+      let temp = { ...currentUser }
+      console.log(temp);
+    }
+    logCurrentuser()
+  }, [])
 
   return (
     <div className="PunchCardPanel">

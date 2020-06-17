@@ -98,6 +98,7 @@ function App() {
             handleShowUserDataDash={handleShowUserDataDash}
             navState={showNav}
             currentUser={currentUser}
+            currentUserHandler={currentUserHandler}
           />
         )}
         {showSchedule && (
