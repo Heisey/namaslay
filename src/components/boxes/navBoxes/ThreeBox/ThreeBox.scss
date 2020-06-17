@@ -1,5 +1,6 @@
 .ThreeBox {
   background: var(--neutral-color);
+  // position: absolute;
   color: var(--accent-secondary);
   transition: height 0.01s linear, width 0.35s linear, visibility 0.01s linear;
   transition-delay: 0.2s;
@@ -14,4 +15,26 @@
     width: 100%;
     visibility: visible;
   }
+  &__QuoteBox {
+    position: relative;
+    top: 40%;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+  
+    &__Quote {
+      color: var(--accent-primary);
+      font-size: 1em;
+      font-family: var(--font-tertiary);
+    }
+  
+    &__Author {
+      color: var(--accent-tertiary);
+      font-size: 1.5em;
+      font-family: var(--font-secondary);
+    }
+
+}
+
+
 }

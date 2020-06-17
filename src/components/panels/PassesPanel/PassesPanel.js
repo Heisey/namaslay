@@ -17,8 +17,6 @@ const PassesPanel = props => {
 
   const determinePassType = () => {
     if (passes.length) {
-      console.log(passes);
-
       const passIDs = [...passes].map(pass => pass.id)
       const lastPassID = Math.max(...passIDs)
       const lastPass = [...passes].find(pass => pass.id === lastPassID)
@@ -31,8 +29,6 @@ const PassesPanel = props => {
       } else return 'Monthly Unlimited'
     } else return 'No recently purchased punchards.'
   }
-
-
 
   return (
     <div className="PassesPanel">

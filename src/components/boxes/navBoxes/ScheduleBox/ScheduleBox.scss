@@ -14,4 +14,13 @@
     width: 100%;
     visibility: visible;
   }
+  &__TextBox {
+    text-align: center;
+    position: relative;
+    top: 25%;
+    &-text {
+      font-size: 3rem;
+      font-family: var(--font-secondary);
+    }
+  }
 }

@@ -8,6 +8,7 @@ import NotificationsPanel from '../../components/panels/NotificationsPanel/Notif
 import UserDataPanel from '../../components/panels/UserDataPanel/UserDataPanel'
 import PassesPanel from '../../components/panels/PassesPanel/PassesPanel'
 import BreathePanel from '../../components/panels/BreathePanel/BreathePanel'
+import ImagePanelBig from '../../components/panels/ImagePanelBig/ImagePanelBig'
 
 import './UserProfile.scss';
 
@@ -136,7 +137,12 @@ const UserProfile = props => {
           handleShowUserDataDash={handleShowUserDataDash}
         />
       </div>
-      <div className="UserProfile__ViewPanel">ViewPanel</div>
+      <div className="UserProfile__ViewPanel">
+        <ImagePanelBig
+          size="32"
+          url='https://s3.amazonaws.com/heisey.namaslay/raw/landscape/foggy-shallows.jpeg'
+        />
+      </div>
       <div className="UserProfile__Notifications">
         <NotificationsPanel
         /></div>
