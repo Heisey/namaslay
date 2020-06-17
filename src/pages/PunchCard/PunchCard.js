@@ -98,6 +98,7 @@ const PunchCard = props => {
           type={passType}
           setPassCount={setPassCount}
           price={price}
+          currentUser={currentUser}
         />
       </div>
       <div className="PunchCard__singleClass">
@@ -125,8 +126,8 @@ const PunchCard = props => {
         />
       </div>
       <div className="PunchCard__topImage">
-        
-      
+
+
         <ImagePanelHorizontal
           url='https://s3.amazonaws.com/heisey.namaslay/raw/landscape/foggy-shallows.jpeg'
         />
