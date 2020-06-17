@@ -10,17 +10,18 @@ import './ScheduleScreens.scss'
 export default function ScheduleScreens(props) {
   const [noPassesLeft, noPassesLeftHandler] = useState(false)
   const [buySinglePass, buySinglePassHandler] = useState(false)
-  const [bookingInfo, bookingInfoHandler] = useState(false)
   
   const [passCount, passCountHandler] = useState(0)
+  const [overlayMenu, overlayMenuHandler] = useState(true)
 
-  const { currentUser, currentUserHandler, handleShowPunchCard } = props
+  const { bookingInfo, currentUser, currentUserHandler, handleShowPunchCard } = props
 
-  // useEffect(() => {
-  //   if (currentUser) {
-  //     noPassesLeftHandler(currentUser.passCount)
-  //   }
-  // })
+  useEffect(() => {
+    if (currentUser) {
+      passCountHandler(currentUser.passCount)
+      // overlayMenuHandler(true)
+    }
+  }, [])
 
   return (
     <div className="ScheduleScreens">
@@ -31,9 +32,10 @@ export default function ScheduleScreens(props) {
             showPanel={true}
             onSchedule={true}
             noPassesLeftHandler={noPassesLeftHandler}
+            showLoggedInHandler={() => console.log('dummy func')}
           />
         )}
-        {(currentUser & bookingInfo) && (
+        {(currentUser & bookingInfo !== null) && (
           
           <BookingClassInfo 
             currentUser={currentUser}
@@ -44,6 +46,7 @@ export default function ScheduleScreens(props) {
             buySinglePassHandler={buySinglePassHandler}
             noPassesLeftHandler={noPassesLeftHandler}
             handleShowPunchCard={handleShowPunchCard}
+            overlayMenuHandler={overlayMenuHandler}
           />
         )}
         {(currentUser !== null && buySinglePass) && (
@@ -52,11 +55,11 @@ export default function ScheduleScreens(props) {
             userId={currentUser.id}
           />
         )}
-        {(currentUser !== null && !noPassesLeft) && (
+        {/* {(currentUser !== null && !classInfo) && (
           <div className='ScheduleScreens__classInfo'>
             hello
           </div>
-        )}
+        )} */}
       </div>
     </div>
   )

@@ -13,7 +13,8 @@ const ClassSelectionPanel = props => {
     selectedClass,
     renderPaymentHandler,
     currentUser,
-    showAnimation
+    showAnimation,
+    bookingInfoHandler
   } = props
 
   
@@ -32,6 +33,7 @@ const ClassSelectionPanel = props => {
           selectedClassHandler={selectedClassHandler}
           currentUser={currentUser}
           program={el}
+          bookingInfoHandler={bookingInfoHandler}
         />
       ))
       return listItems

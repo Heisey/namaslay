@@ -53,6 +53,7 @@ const Schedule = props => {
   const [renderOverlay, renderOverlayHandler] = useState(false)
   const [renderPayment, renderPaymentHandler] = useState(false)
   const [showAnimation, showAnimationHandler] = useState(true)
+  const [bookingInfo, bookingInfoHandler] = useState(null)
 
 
   useEffect(() => {
@@ -130,7 +131,6 @@ const Schedule = props => {
 
   // !! CSS is fucked up here
   const handleProgramsFilter = () => {
-    console.log('programs clicked');
 
     const programs = scheduleData.programs.map((t) => t)
     programs.push('Program')
@@ -183,6 +183,7 @@ const Schedule = props => {
           currentUser={currentUser}
           currentUserHandler={currentUserHandler}
           handleShowPunchCard={handleShowPunchCard}
+          bookingInfo={bookingInfo}
         />
       )}
 
@@ -224,6 +225,7 @@ const Schedule = props => {
           selectedClassHandler={selectedClassHandler}
           currentUser={currentUser}
           showAnimation={showAnimation}
+          bookingInfoHandler={bookingInfoHandler}
         />}
         {!dataLoad && (
           <div className="Schedule__classSelection--animate">

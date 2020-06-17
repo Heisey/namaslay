@@ -1,12 +1,17 @@
 import React from 'react';
 
+import SnakeBorderButton from '../../../../components/Buttons/SnakeBorderButton/SnakeBorderButton'
+
+import './NoPasses.scss'
+
 export default function NoPasses(props) {
 
-  const { buySinglePassHandler, noPassesLeftHandler, handleShowPunchCard } = props
+  const { overlayMenuHandler, buySinglePassHandler, noPassesLeftHandler, handleShowPunchCard } = props
 
   const handleBuySinglePass = () => {
     noPassesLeftHandler(false)
     buySinglePassHandler(true)
+    overlayMenuHandler(false)
   }
 
   const changePage = () => {
@@ -15,19 +20,35 @@ export default function NoPasses(props) {
 
   return (
     <div className="NoPasses">
-      <p>Sorry you dont have any classes</p>
-      <p>Would you like to buy a class</p>
-      <button
+      <p className="NoPasses__title">Sorry you dont have any classes</p>
+      
+      <p className='NoPasses__text--one'>Would you like to buy a class</p>
+
+      <div className='NoPasses__button1'>
+        <SnakeBorderButton
+          text='Buy Class'
+          clickHandler={handleBuySinglePass}
+        />
+      </div>
+      
+      <p className='NoPasses__text--two'>Would you like to by a pass</p>
+
+      <div className='NoPasses__button2'>
+        <SnakeBorderButton
+          text='Buy Class'
+          clickHandler={changePage}
+        />
+      </div>
+      {/* <button
         onClick={handleBuySinglePass}
       >
         buy class
-      </button>
-      <p>Would you like to by a pass</p>
-      <button
+      </button> */}
+      {/* <button
         onClick={changePage}
       >
         but Pass
-      </button>
+      </button> */}
     </div>
   )
 }

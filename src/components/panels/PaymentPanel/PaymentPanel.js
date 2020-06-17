@@ -1,12 +1,15 @@
 import React from 'react';
 import { CardElement,   useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios'
+import './PayemntPanel.scss'
 import qs from 'qs'
 const config = {
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded'
   }
 }
+
+
 
 export default function PaymentPanel(props) {
 
