@@ -5,10 +5,10 @@ import './ClassSelectionPanel.scss'
 
 const ClassSelectionPanel = props => {
 
-  const { 
-    classesForDay, 
-    secondaryDataPanelHandler, 
-    renderOverlayHandler, 
+  const {
+    classesForDay,
+    secondaryDataPanelHandler,
+    renderOverlayHandler,
     selectedClassHandler,
     selectedClass,
     renderPaymentHandler,
@@ -18,7 +18,7 @@ const ClassSelectionPanel = props => {
     scheduleData
   } = props
 
-  
+
 
 
   const loopThroughClasses = () => {
@@ -41,7 +41,11 @@ const ClassSelectionPanel = props => {
       ))
       return listItems
     } else {
-      return (<h1>Puppies</h1>)
+      return (
+        <div className='ClassSelectionPanel__no-classes'>
+          <h1>No Classes for that Filter</h1>
+        </div>
+      )
     }
   }
 
