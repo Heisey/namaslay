@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 // ?? Components
 import Nav from '../../components/Nav/Nav';
@@ -19,11 +20,16 @@ const UserProfile = props => {
     handleShowSchedule,
     handleShowUserProfile,
     handleShowUserDataDash,
-    navState
+    navState,
+    currentUser
   } = props;
 
   const [breathInterval, setBreathInterval] = useState(4000)
   const [reRenderer, setReRenderer] = useState(true)
+  const [classSessions, setClassSessions] = useState()
+  const [passCount, setPassCount] = useState()
+  const [passes, setPasses] = useState()
+  const [nextClass, setNextClass] = useState()
 
   const handleBreathInterval = (input) => {
     setBreathInterval(input * 1000)
@@ -32,6 +38,33 @@ const UserProfile = props => {
   useEffect(() => {
     setReRenderer(!reRenderer)
   }, [breathInterval])
+
+  const getTodayID = () => {
+    const today = new Date(Date.now())
+    return today.getDate()
+  }
+
+  useEffect(() => {
+    const getUserData = async () => {
+      try {
+        if (currentUser) {
+          const today = getTodayID()
+          let response = await axios.get(`/students/${currentUser.id}`)
+          setClassSessions(response.data.classSessions)
+          setPassCount(response.data.passCount)
+          setPasses(response.data.passes)
+          setNextClass(response.data.classSessions.find(c => c.daynumber > today))
+
+
+        }
+      }
+      catch (e) {
+        throw e
+      }
+    }
+    getUserData()
+
+  }, [])
 
 
 
@@ -49,25 +82,30 @@ const UserProfile = props => {
         <NamaslayPanel
           panelSize={'small'}
         /></div>
-      <div className="UserProfile__nextClass">
+      {nextClass && <div className="UserProfile__nextClass">
         <span className="UserProfile__nextClass--title">
           NEXT CLASS
         </span>
         <span className="UserProfile__nextClass--time">
-          12pm Tues Jun 11
+          {nextClass.start_time}:00
+          June {nextClass.daynumber}
         </span>
         <span className="UserProfile__nextClass--class">
-          Lukewarm Hatha
+          {nextClass.name}
         </span>
         <span className="UserProfile__nextClass--teacher">
-          Boba Fett
+          {nextClass.teacher}
         </span>
 
-      </div>
+      </div>}
       <div className="UserProfile__AccountSettings">
         <i class="fas fa-cogs"></i>
       </div>
-      <div className="UserProfile__SubscriptionDetails"><PassesPanel /></div>
+      <div className="UserProfile__SubscriptionDetails">
+        <PassesPanel
+          passes={passes}
+          passCount={passCount}
+        /></div>
       <div className="UserProfile__ClassHistory">
         <span>Class</span>
         <i class="fas fa-history"></i>
