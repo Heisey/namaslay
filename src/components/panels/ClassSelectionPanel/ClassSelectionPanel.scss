@@ -6,6 +6,10 @@
   position: relative;
   // background-color: white;
 
+  &__no-classes {
+    top: 100%;
+    text-align: center;
+  }
   &__list {
     position: relative;
     width: 100%;
