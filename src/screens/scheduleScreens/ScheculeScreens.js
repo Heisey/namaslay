@@ -45,7 +45,7 @@ export default function ScheduleScreens(props) {
             renderOverlayHandler={renderOverlayHandler}
           />
         )}
-        {(currentUser & bookingInfo !== null) && (
+        {(currentUser && !noPassesLeft && bookingInfo !== null) && (
           
           <BookingClassInfo 
             currentUser={currentUser}
