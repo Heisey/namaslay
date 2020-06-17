@@ -14,7 +14,7 @@ export default function ScheduleScreens(props) {
   const [passCount, passCountHandler] = useState(0)
   const [overlayMenu, overlayMenuHandler] = useState(true)
 
-  const { bookingInfo, currentUser, currentUserHandler, handleShowPunchCard } = props
+  const { selectedClass, bookingInfo, currentUser, currentUserHandler, handleShowPunchCard } = props
 
   useEffect(() => {
     if (currentUser) {
@@ -53,6 +53,7 @@ export default function ScheduleScreens(props) {
           <PaymentPanel 
             passCountHandler={passCountHandler}
             userId={currentUser.id}
+            selectedClass={selectedClass}
           />
         )}
         {/* {(currentUser !== null && !classInfo) && (
