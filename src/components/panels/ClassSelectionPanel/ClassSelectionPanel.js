@@ -14,7 +14,8 @@ const ClassSelectionPanel = props => {
     renderPaymentHandler,
     currentUser,
     showAnimation,
-    bookingInfoHandler
+    bookingInfoHandler,
+    scheduleData
   } = props
 
   
@@ -35,6 +36,7 @@ const ClassSelectionPanel = props => {
           program={el}
           bookingInfoHandler={bookingInfoHandler}
           classesForDay={classesForDay}
+          scheduleData={scheduleData}
         />
       ))
       return listItems

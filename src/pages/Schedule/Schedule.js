@@ -153,7 +153,7 @@ const Schedule = props => {
     } else if (type === 'Teacher') {
       const teacher = scheduleData.teachers.filter(el => el.id === id)
       console.log(teacher);
-      primaryDataPanelHandler({ title: teacher[0], info: teacher[0].bio })
+      primaryDataPanelHandler({ title: teacher[0], info: teacher[0].bio, img: teacher[0].imageurlcutout })
       newClassesForDay = classesForDay.filter(el => el.teacher_id === teacher[0].id)
     } else if (type === 'Program') {
       const program = scheduleData.programs.filter(el => el.id === id)
@@ -186,6 +186,7 @@ const Schedule = props => {
           bookingInfo={bookingInfo}
           selectedClass={selectedClass}
           secondaryDataPanel={secondaryDataPanel}
+          renderOverlayHandler={renderOverlayHandler}
         />
       )}
 
@@ -218,18 +219,20 @@ const Schedule = props => {
       </div>
 
       <div className="Schedule__classSelection">
-        {dataLoad && <ClassSelectionPanel
-          renderOverlayHandler={renderOverlayHandler}
-          renderPaymentHandler={renderPaymentHandler}
-          secondaryDataPanelHandler={secondaryDataPanelHandler}
-          classesForDay={filteredClassesForDay}
-          selectedClass={selectedClass}
-          selectedClassHandler={selectedClassHandler}
-          currentUser={currentUser}
-          showAnimation={showAnimation}
-          bookingInfoHandler={bookingInfoHandler}
-          
-        />}
+        {dataLoad && 
+          <ClassSelectionPanel
+            renderOverlayHandler={renderOverlayHandler}
+            renderPaymentHandler={renderPaymentHandler}
+            secondaryDataPanelHandler={secondaryDataPanelHandler}
+            classesForDay={filteredClassesForDay}
+            selectedClass={selectedClass}
+            selectedClassHandler={selectedClassHandler}
+            currentUser={currentUser}
+            showAnimation={showAnimation}
+            bookingInfoHandler={bookingInfoHandler}
+            scheduleData={scheduleData}
+          />
+        }
         {!dataLoad && (
           <div className="Schedule__classSelection--animate">
             <LoadingAnimation />
@@ -281,10 +284,10 @@ const Schedule = props => {
       </div>
 
       <div className="Schedule__classInfo">
-        <ScheculePrimaryDataPanel
+        {/* <ScheculePrimaryDataPanel
           key='primary2'
           primaryDataPanel={secondaryDataPanel}
-        />
+        /> */}
       </div>
     </div>
   )

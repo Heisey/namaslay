@@ -14,12 +14,12 @@ const SelectionBox = props => {
     <div
       id={detail.id}
       className="SelectionBox"
-      style={{
-        backgroundImage: `url(${detail.imageurlsquare})`
-      }}
+      // style={{
+      //   backgroundImage: `url(${detail.imageurlsquare})`
+      // }}
       onClick={handleSelected}
     >
-
+      <img src={detail.imageurlsquare} alt={detail.imageurlsquare} />
     </div>
   )
 }

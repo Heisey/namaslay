@@ -1,7 +1,8 @@
 import React from 'react'
 import './DynamicDataPanel.scss'
 import SelectionBox from '../../boxes/scheduleBoxes/SelectionBoxes/SelectionBox'
-
+import SwordLogo from '../../logos/SwordLogo/SwordLogo'
+import PersonLogo from '../../logos/PersonLogo3/PersonLoop3'
 const DynamicDataPanel = props => {
 
   const { data, handleTypeSelection } = props
@@ -20,10 +21,33 @@ const DynamicDataPanel = props => {
     )
   })
 
+  console.log(tempData)
+
   return (
     <div className="DynamicDataPanel">
-      {data && <div className="DynamicDataPanel__grid">{details}</div>}
-      {data.length === 0 && <h1></h1>}
+      {tempData.length === 9 && <div className="DynamicDataPanel__grid--one">{details}</div>}
+      {(data.length < 9 && data.length !== 0) &&  (
+        <div className='DynamicDataPanel__grid--two'>
+          {details}
+          <div className='DynamicDataPanel__sword--one'>
+            <PersonLogo />
+          </div>
+
+          <div className='DynamicDataPanel__sword--two'>
+            <PersonLogo />
+            
+          </div>
+
+          <div className='DynamicDataPanel__personLogo--one'>
+            <PersonLogo />
+          </div>
+
+          <div className='DynamicDataPanel__personLogo--two'>
+            <PersonLogo />
+          </div>
+        </div>
+      )}
+      {tempData.length === 0 && <h1>something</h1>}
     </div>
   )
 }

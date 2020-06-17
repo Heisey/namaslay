@@ -21,7 +21,8 @@ export default function ScheduleScreens(props) {
     bookingInfo, 
     currentUser, 
     currentUserHandler, 
-    handleShowPunchCard 
+    handleShowPunchCard,
+    renderOverlayHandler,
   } = props
 
   useEffect(() => {
@@ -41,12 +42,14 @@ export default function ScheduleScreens(props) {
             onSchedule={true}
             noPassesLeftHandler={noPassesLeftHandler}
             showLoggedInHandler={() => console.log('dummy func')}
+            renderOverlayHandler={renderOverlayHandler}
           />
         )}
         {(currentUser & bookingInfo !== null) && (
           
           <BookingClassInfo 
             currentUser={currentUser}
+            renderOverlayHandler={renderOverlayHandler}
           />
         )}
         {(currentUser !== null & noPassesLeft) && (
@@ -55,11 +58,16 @@ export default function ScheduleScreens(props) {
             noPassesLeftHandler={noPassesLeftHandler}
             handleShowPunchCard={handleShowPunchCard}
             overlayMenuHandler={overlayMenuHandler}
+            renderOverlayHandler={renderOverlayHandler}
           />
         )}
         {(currentUser && !noPassesLeft) && (
           <ConfirmClass 
             secondaryDataPanel={secondaryDataPanel}
+            renderOverlayHandler={renderOverlayHandler}
+            currentUserHandler={currentUserHandler}
+            currentUser={currentUser}
+            renderOverlayHandler={renderOverlayHandler}
           />
         )}
         {(currentUser !== null && buySinglePass) && (
@@ -67,6 +75,7 @@ export default function ScheduleScreens(props) {
             passCountHandler={passCountHandler}
             userId={currentUser.id}
             selectedClass={selectedClass}
+            renderOverlayHandler={renderOverlayHandler}
           />
         )}
         {/* {(currentUser !== null && !classInfo) && (
