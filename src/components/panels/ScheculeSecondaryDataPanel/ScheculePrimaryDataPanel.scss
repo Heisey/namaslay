@@ -1,0 +1,144 @@
+.ScheculePrimaryDataPanel {
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  &__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__container {
+    
+  height: 100%;
+  width: 100%;
+  position: relative;
+  // background-color: red;
+  }
+
+  &__container--forward:before {
+    content: '';
+    position: absolute;
+    background-color: var(--accent-tertiary);
+    bottom: 0;
+    top: 75%;
+    left: -12.5%;
+    right: -12%;
+    // transition: 1s linear;
+
+  }
+
+  &__container--reverse:before {
+    content: '';
+    position: absolute;
+    background-color: var(--accent-tertiary);
+    bottom: 0;
+    top: 75%;
+    left: -12.5%;
+    right: -12%;
+    transition: 1s linear;
+
+  }
+
+  &__info {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+
+    &--img {
+      position: absolute;
+      height: 80%;
+      bottom: 5%;
+      left: 30%;
+    }
+
+    &--bio {
+      mix-blend-mode: difference;
+      color: var(--accent-tertiary);
+      font-size: 1.3em;
+      padding: 30px;
+      display: block;
+      // margin-top: 10px;
+    }
+  }
+}
+
+.ScheculePrimaryDataPanel__info:hover {
+  .ScheculePrimaryDataPanel__container--forward:before {
+    
+    animation: animateBackground;
+    animation-duration: 1s;
+    content: '';
+    position: absolute;
+    background-color: var(--accent-tertiary);
+    bottom: 73%;
+    top: 0%;
+    left: -12.5%;
+    right: -12%;
+  }
+
+  .ScheculePrimaryDataPanel__container--reverse:before {
+    
+    // animation: animateBackground2;
+    // animation-duration: 1s;
+    content: '';
+    position: absolute;
+    background-color: var(--accent-tertiary);
+    bottom: 75%;
+    top: 0%;
+    left: -12.5%;
+    right: -12%;
+  }
+}
+
+@keyframes animateBackground {
+  0% {
+    
+    bottom: 0;
+    top: 75%;
+    left: -12.5%;
+    right: -12%;
+  }
+  50% {
+    
+    bottom: 0;
+    top: 0;
+    left: -12.5%;
+    right: -12%;
+  }
+
+  100% {
+    
+    bottom: 75%;
+    top: 0%;
+    left: -12.5%;
+    right: -12%;
+  }
+}
+
+@keyframes animateBackground2 {
+  0% {
+    
+    bottom: 75%;
+    top: 0%;
+    left: -12.5%;
+    right: -12%;
+    
+  }
+  50% {
+    
+    bottom: 0;
+    top: 0;
+    left: -12.5%;
+    right: -12%;
+  }
+
+  100% {
+    bottom: 0;
+    top: 75%;
+    left: -12.5%;
+    right: -12%;
+  }
+}
