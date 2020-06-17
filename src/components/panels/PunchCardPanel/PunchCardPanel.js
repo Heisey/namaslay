@@ -11,9 +11,9 @@ const config = {
 
 export default function PunchCardPanel(props) {
 
-  const { type, setPassCount, price } = props
-  
-const [quote, setQuote] = useState({ words: null, id: null, author: null })
+  const { type, setPassCount, price, currentUser } = props
+
+  const [quote, setQuote] = useState({ words: null, id: null, author: null })
 
   useEffect(() => {
     const getQuote = async () => {
@@ -31,14 +31,15 @@ const [quote, setQuote] = useState({ words: null, id: null, author: null })
     getQuote()
   }, [])
 
+  // !! update to use current User if there is one logged in
   const handlePurchase = () => {
-    const requestBody = type
+    const requestBody = { type: type }
     if (type) {
       if (type === 'single') {
         setPassCount(prev => prev + 1);
-      } else if ( type === '5-pack') {
+      } else if (type === '5-pack') {
         setPassCount(prev => prev + 5)
-      } else if ( type === '25-pack') {
+      } else if (type === '25-pack') {
         setPassCount(prev => prev + 25)
       } else if (type === 'monthly') {
         setPassCount(prev => prev + 9999)
@@ -72,7 +73,7 @@ const [quote, setQuote] = useState({ words: null, id: null, author: null })
           <div
             className="PunchCardPanel__button"
           >
-            <SnakeBorderButton 
+            <SnakeBorderButton
               text='BUY'
               clickHandler={handlePurchase}
             />
