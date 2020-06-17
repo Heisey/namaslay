@@ -31,7 +31,8 @@ const PunchCard = props => {
     handleShowUserProfile,
     handleShowUserDataDash,
     navState,
-    currentUser
+    currentUser,
+    currentUserHandler
   } = props
 
   useEffect(() => {
@@ -98,6 +99,7 @@ const PunchCard = props => {
           type={passType}
           setPassCount={setPassCount}
           price={price}
+          currentUserHandler={currentUserHandler}
           currentUser={currentUser}
         />
       </div>
