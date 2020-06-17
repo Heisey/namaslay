@@ -4,14 +4,14 @@ import './ImagePanelHorizontal.scss';
 
 export default function imagePanelHorizontal(props) {
 
-  const { url } = props
+  const { url, size } = props
 
   return (
     <div className="ImagePanelHorizontal">
-      <img 
-        src={url} 
+      <img
+        src={url}
         alt={url}
-        className="ImagePanelHorizontal__image"
+        className={`ImagePanelHorizontal__image--${size}`}
       />
     </div>
   )

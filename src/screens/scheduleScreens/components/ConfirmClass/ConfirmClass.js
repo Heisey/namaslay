@@ -49,10 +49,10 @@ export default function ConfirmClass(props) {
         {secondaryDataPanel.difficulty}
       </span>
       <span className='ConfirmClass__day'>
-        {secondaryDataPanel.day_id}
+        June {secondaryDataPanel.day_id}
       </span>
       <span className='ConfirmClass__time'>
-        {secondaryDataPanel.start_time}
+        {secondaryDataPanel.start_time}:00
       </span>
       <div className='ConfirmClass__button'>
         <SnakeBprderButton

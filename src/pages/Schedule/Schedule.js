@@ -17,6 +17,8 @@ import NamaslayPanel from '../../components/panels/NamaslayPanel/NamaslayPanel'
 import DynamicDataPanel from '../../components/panels/DynamicDataPanel/DynamicDataPanel'
 import ClassSelectionPanel from '../../components/panels/ClassSelectionPanel/ClassSelectionPanel.js';
 import ScheculePrimaryDataPanel from '../../components/panels/ScheculePrimaryDataPanel/ScheculePrimaryDataPanel'
+import ImagePanelBig from '../../components/panels/ImagePanelBig/ImagePanelBig'
+
 
 import axios from 'axios'
 
@@ -302,10 +304,11 @@ const Schedule = props => {
       </div>
 
       <div className="Schedule__classInfo">
-        {/* <ScheculePrimaryDataPanel
-          key='primary2'
-          primaryDataPanel={secondaryDataPanel}
-        /> */}
+        <ImagePanelBig
+          size="18"
+          //girl-meditating
+          url='https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=862&q=80'
+        />
       </div>
     </div>
   )

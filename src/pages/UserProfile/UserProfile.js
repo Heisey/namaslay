@@ -63,8 +63,6 @@ const UserProfile = props => {
           setPassCount(response.data.passCount)
           setPasses(response.data.passes)
           setNextClass(response.data.classSessions.find(c => c.daynumber > today))
-
-
         }
       }
       catch (e) {
@@ -104,6 +102,19 @@ const UserProfile = props => {
         </span>
         <span className="UserProfile__nextClass--teacher">
           {nextClass.teacher}
+        </span>
+
+      </div>}
+
+      {!nextClass && <div className="UserProfile__nextClass">
+        <span className="UserProfile__nextClass--title">
+          NEXT CLASS...
+        </span>
+        <span className="UserProfile__nextClass--time">
+        </span>
+        <span className="UserProfile__nextClass--class">
+        </span>
+        <span className="UserProfile__nextClass--teacher">
         </span>
 
       </div>}
@@ -147,8 +158,9 @@ const UserProfile = props => {
       </div>
       <div className="UserProfile__ViewPanel">
         <ImagePanelBig
-          size="32"
-          url='https://s3.amazonaws.com/heisey.namaslay/raw/landscape/foggy-shallows.jpeg'
+          size="33"
+          //peace
+          url='https://images.unsplash.com/photo-1502159212845-f31a19546a5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
         />
       </div>
       <div className="UserProfile__Notifications">
