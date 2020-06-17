@@ -54,7 +54,23 @@ const Schedule = props => {
   const [renderPayment, renderPaymentHandler] = useState(false)
   const [showAnimation, showAnimationHandler] = useState(true)
   const [bookingInfo, bookingInfoHandler] = useState(null)
+  const [quote, setQuote] = useState({ words: null, id: null, author: null })
 
+  useEffect(() => {
+    const getQuote = async () => {
+      try {
+        const res = await axios.get('/api/quote')
+        const words = res.data[0].quote
+        const id = res.data[0].id
+        const author = res.data[0].author
+        setQuote({ words, id, author })
+      }
+      catch (e) {
+        throw e
+      }
+    }
+    getQuote()
+  }, [])
 
   useEffect(() => {
     showAnimationHandler(true)
@@ -219,7 +235,7 @@ const Schedule = props => {
       </div>
 
       <div className="Schedule__classSelection">
-        {dataLoad && 
+        {dataLoad &&
           <ClassSelectionPanel
             renderOverlayHandler={renderOverlayHandler}
             renderPaymentHandler={renderPaymentHandler}
@@ -242,6 +258,7 @@ const Schedule = props => {
 
       <div className="Schedule__dynamicSelection">
         <DynamicDataPanel
+          quote={quote}
           handleTypeSelection={handleTypeSelection}
           data={dynamicData} />
       </div>

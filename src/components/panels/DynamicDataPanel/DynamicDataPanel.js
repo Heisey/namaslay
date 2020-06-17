@@ -5,7 +5,7 @@ import SwordLogo from '../../logos/SwordLogo/SwordLogo'
 import PersonLogo from '../../logos/PersonLogo3/PersonLoop3'
 const DynamicDataPanel = props => {
 
-  const { data, handleTypeSelection } = props
+  const { data, handleTypeSelection, quote } = props
 
   const tempData = [...data]
   const type = tempData.pop()
@@ -26,7 +26,7 @@ const DynamicDataPanel = props => {
   return (
     <div className="DynamicDataPanel">
       {tempData.length === 9 && <div className="DynamicDataPanel__grid--one">{details}</div>}
-      {(data.length < 9 && data.length !== 0) &&  (
+      {(data.length < 9 && data.length !== 0) && (
         <div className='DynamicDataPanel__grid--two'>
           {details}
           <div className='DynamicDataPanel__sword--one'>
@@ -35,7 +35,7 @@ const DynamicDataPanel = props => {
 
           <div className='DynamicDataPanel__sword--two'>
             <PersonLogo />
-            
+
           </div>
 
           <div className='DynamicDataPanel__personLogo--one'>
@@ -47,7 +47,11 @@ const DynamicDataPanel = props => {
           </div>
         </div>
       )}
-      {tempData.length === 0 && <h1>something</h1>}
+      {tempData.length === 0 &&
+        <div className="DynamicDataPanel__QuoteBox">
+          <p className="DynamicDataPanel__QuoteBox__Quote">{quote.words}</p>
+          <p className="DynamicDataPanel__QuoteBox__Author">{quote.author}</p>
+        </div>}
     </div>
   )
 }
