@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardElement,   useStripe, useElements } from '@stripe/react-stripe-js';
+import { CardElement,   useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement, PaymentRequestButtonElement } from '@stripe/react-stripe-js';
 import axios from 'axios'
 import './PayemntPanel.scss'
 import qs from 'qs'
@@ -66,7 +66,9 @@ const handleSubmit = async (event) => {
     <div className="PaymentPanel">
       <form onSubmit={handleSubmit}
       >
-        <CardElement />
+        <CardNumberElement />
+         <CardExpiryElement />
+        <CardCvcElement />
         <button type="submit" disabled={!stripe} >Pay</button>
       </form>
 
