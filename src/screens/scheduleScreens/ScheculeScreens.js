@@ -61,7 +61,7 @@ export default function ScheduleScreens(props) {
             renderOverlayHandler={renderOverlayHandler}
           />
         )}
-        {(currentUser && !noPassesLeft) && (
+        {(currentUser && !noPassesLeft && !buySinglePass) && (
           <ConfirmClass 
             secondaryDataPanel={secondaryDataPanel}
             renderOverlayHandler={renderOverlayHandler}
