@@ -55,6 +55,14 @@ const UserProfile = props => {
           setPassCount(response.data.passCount)
           setPasses(response.data.passes)
           setNextClass(response.data.classSessions.find(c => c.daynumber > today))
+        }
+        else {
+          const today = getTodayID()
+          let response = await axios.get(`/students/1`)
+          setClassSessions(response.data.classSessions)
+          setPassCount(response.data.passCount)
+          setPasses(response.data.passes)
+          setNextClass(response.data.classSessions.find(c => c.daynumber > today))
 
 
         }
