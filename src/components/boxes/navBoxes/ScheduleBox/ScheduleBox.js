@@ -7,7 +7,10 @@ const ScheduleBox = props => {
 
   return (
     <div className={`ScheduleBox ScheduleBox--${!navState ? 'small' : 'large'}`}>
-      ScheduleBox
+      {navState && <div className="ScheduleBox__TextBox">
+        <p className="ScheduleBox__TextBox-text">Class</p>
+        <p className="ScheduleBox__TextBox-text">Schedule</p>
+      </div>}
     </div>
   )
 }
