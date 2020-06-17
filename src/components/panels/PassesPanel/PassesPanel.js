@@ -16,7 +16,9 @@ const PassesPanel = props => {
   }
 
   const determinePassType = () => {
-    if (passes) {
+    if (passes.length) {
+      console.log(passes);
+
       const passIDs = [...passes].map(pass => pass.id)
       const lastPassID = Math.max(...passIDs)
       const lastPass = [...passes].find(pass => pass.id === lastPassID)
@@ -27,8 +29,9 @@ const PassesPanel = props => {
       } else if (lastPass.type === '25-pack') {
         return '25-Pack Punchcard'
       } else return 'Monthly Unlimited'
-    }
+    } else return 'No recently purchased punchards.'
   }
+
 
 
   return (
@@ -41,7 +44,6 @@ const PassesPanel = props => {
         <p className="PassesPanel__line"> {determinePassType()}</p>
         <p className="PassesPanel__line">{displayClassesRemaining()}</p>
       </div>
-
       <div className="PassesPanel__button">
         <SnakeBorderButton
           text="MANAGE"
@@ -49,6 +51,6 @@ const PassesPanel = props => {
       </div>
     </div>
   )
-}
 
+}
 export default PassesPanel

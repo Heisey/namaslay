@@ -28,7 +28,7 @@ const UserProfile = props => {
   const [reRenderer, setReRenderer] = useState(true)
   const [classSessions, setClassSessions] = useState()
   const [passCount, setPassCount] = useState()
-  const [passes, setPasses] = useState()
+  const [passes, setPasses] = useState([])
   const [nextClass, setNextClass] = useState()
 
   const handleBreathInterval = (input) => {
