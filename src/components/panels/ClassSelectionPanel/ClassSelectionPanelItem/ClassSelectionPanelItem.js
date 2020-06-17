@@ -21,7 +21,12 @@ const ClassSelectionPanelItem = props => {
     selectedClassHandler(e.target.id * 1)
     focusedHandler(true)
     renderOverlayHandler(true)
-    renderPaymentHandler(true)
+    if (currentUser.passCount <= 0) {
+      renderPaymentHandler(true)
+    } else {
+      renderPaymentHandler(false)
+    }
+    
     //this needs to move out of here and into the overlay
     setIsBooked(true)
     const classInfo = classesForDay.filter(curClass => curClass.id === e.target.id * 1)

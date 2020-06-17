@@ -203,6 +203,7 @@ const Schedule = props => {
           selectedClass={selectedClass}
           secondaryDataPanel={secondaryDataPanel}
           renderOverlayHandler={renderOverlayHandler}
+          renderPayment={renderPayment}
         />
       )}
 

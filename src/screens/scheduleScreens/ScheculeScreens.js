@@ -23,12 +23,17 @@ export default function ScheduleScreens(props) {
     currentUserHandler, 
     handleShowPunchCard,
     renderOverlayHandler,
+    renderPayment
   } = props
 
   useEffect(() => {
     if (currentUser) {
       passCountHandler(currentUser.passCount)
       // overlayMenuHandler(true)
+    }
+
+    if (renderPayment) {
+      noPassesLeftHandler(true)
     }
   }, [])
 
@@ -52,7 +57,7 @@ export default function ScheduleScreens(props) {
             renderOverlayHandler={renderOverlayHandler}
           />
         )}
-        {(currentUser !== null & noPassesLeft) && (
+        {(currentUser !== null & noPassesLeft && passCount === 0) && (
           <NoPasses 
             buySinglePassHandler={buySinglePassHandler}
             noPassesLeftHandler={noPassesLeftHandler}
@@ -61,7 +66,7 @@ export default function ScheduleScreens(props) {
             renderOverlayHandler={renderOverlayHandler}
           />
         )}
-        {(currentUser && !noPassesLeft && !buySinglePass) && (
+        {(currentUser && passCount > 0 && !buySinglePass) && (
           <ConfirmClass 
             secondaryDataPanel={secondaryDataPanel}
             renderOverlayHandler={renderOverlayHandler}
@@ -70,7 +75,7 @@ export default function ScheduleScreens(props) {
             renderOverlayHandler={renderOverlayHandler}
           />
         )}
-        {(currentUser !== null && buySinglePass) && (
+        {(currentUser !== null && buySinglePass && passCount === 0) && (
           <PaymentPanel 
             passCountHandler={passCountHandler}
             userId={currentUser.id}
