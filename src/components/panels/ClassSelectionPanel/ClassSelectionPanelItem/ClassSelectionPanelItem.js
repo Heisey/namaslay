@@ -16,19 +16,20 @@ const ClassSelectionPanelItem = props => {
     selectedClassHandler,
     currentUser,
     renderPaymentHandler,
-    selectedClass
+    selectedClass,
+    bookingInfoHandler
   } = props
 
   const [focused, focusedHandler] = useState(false)
   const [isBooked, setIsBooked] = useState(false)
 
-  // ?? hook up axios here to book appointment
-
-  const handleBooking = async () => {
+  const handleBooking = async (e) => {
+    selectedClassHandler(e.target.id * 1)
+    focusedHandler(true)
     renderOverlayHandler(true)
     renderPaymentHandler(true)
     //this needs to move out of here and into the overlay
-    // setIsBooked(true)
+    setIsBooked(true)
   }
   const handleCancelBooking = async () => {
     renderOverlayHandler(true)
@@ -37,8 +38,7 @@ const ClassSelectionPanelItem = props => {
   }
 
   const handleSelectedClass = (e) => {
-    selectedClassHandler(e.target.id * 1)
-    focusedHandler(true)
+    console.log(e.target.id)
   }
 
   return (
@@ -49,7 +49,6 @@ const ClassSelectionPanelItem = props => {
       className={`ClassSelectionPanel__listItem`}
     >
       <div className="ClassSelectionPanel__listInfo"
-        id={program.id}
       >
         <span className='ClassSelectionPanel__listItem--time'>{program.start_time}:00</span>
         <span className='ClassSelectionPanel__listItem--name'>{program.name}</span>
@@ -60,7 +59,10 @@ const ClassSelectionPanelItem = props => {
             className='ClassSelectionPanel__listItem--book'
             onClick={handleBooking}
           >
-            <div className="ClassSelectionPanel--button">BOOK</div>
+            <div
+              id={program.id} 
+              className="ClassSelectionPanel--button"
+            >BOOK</div>
           </span>
         }
         {isBooked &&

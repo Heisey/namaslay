@@ -1,0 +1,21 @@
+.NoPasses {
+  background-color: var(--neutral-color);
+  height: 120%;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    font-family: var(--font-secondary);
+    color: var(--accent-tertiary);
+    padding-top: 10%;
+    font-size: 2rem;
+  }
+
+  &__text--one,
+  &__text--two {
+    color: var(--accent-primary)
+  }
+}

@@ -47,14 +47,13 @@ export default function LoginPanel(props) {
       .then((res) => {
         
         if (res.data.status === 'success') {
-          console.log(res.data.data.first_name)
-          console.log('hello')
           currentUserHandler(() => res.data.data)
           showLoadingHandler(false)
           showLoggedInHandler(true)
           
           if (onSchedule) {
             if (res.data.data.passCount === 0) {
+              console.log('passcount is ', res.data.data.passCount)
               noPassesLeftHandler(true)
             }
           }

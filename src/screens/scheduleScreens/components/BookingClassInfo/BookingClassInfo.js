@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './BookingClassInfo.scss'
+
 export default function BookingClassInfo(props) {
 
   const { currentUser } = props
