@@ -149,7 +149,7 @@ const handleSubmit = async (event) => {
 
       {(!showLoading && !showForm && !showError) && (
         <div className='PaymentPanel__success'>
-          <span>SUCCESS</span>
+          <h3>SUCCESS</h3>
           <div className='PaymentPanel__success--button'>
             <SnakeBorderButton
               text='Confirm'
