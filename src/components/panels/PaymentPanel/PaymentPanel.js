@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React, {useState} from 'react';
 import { useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement, PaymentRequestButtonElement } from '@stripe/react-stripe-js';
+=======
+import React from 'react';
+import { CardElement, useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement, PaymentRequestButtonElement } from '@stripe/react-stripe-js';
+>>>>>>> 50bf8817ab5c2085e2cd824c132386558795e92c
 import axios from 'axios'
 import './PayemntPanel.scss'
 import qs from 'qs'
@@ -44,9 +49,9 @@ const handleSubmit = async (event) => {
     // event.preventDefault();
 
     if (!stripe || !elements) {
-        // Stripe.js has not loaded yet. Make sure to disable
-        // form submission until Stripe.js has loaded.
-        return;
+      // Stripe.js has not loaded yet. Make sure to disable
+      // form submission until Stripe.js has loaded.
+      return;
     }
 
     // Get a reference to a mounted CardElement. Elements knows how
@@ -73,7 +78,7 @@ const handleSubmit = async (event) => {
     }
     if (paymentMethod.created) {
       const requestBody = { type: 'single', selectedClass }
-      await axios.post(`/students/${userId}/passes`, qs.stringify(requestBody), config)
+      await axios.post(`/classes/${selectedClass}/book`, qs.stringify(requestBody), config)
         .then((res) => {
           showLoadingHandler(false)
           console.log(res.data);

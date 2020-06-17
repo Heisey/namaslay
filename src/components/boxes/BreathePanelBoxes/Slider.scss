@@ -10,7 +10,7 @@
    width: 75%;
 
    &-toptext {
-
+    font-family: var(--font-secondary);
    }
    
   &-slider {
@@ -35,6 +35,7 @@
   }
 
   &-value {
+    font-family: var(--font-secondary);
     color: #B50E0E;
   }
 
