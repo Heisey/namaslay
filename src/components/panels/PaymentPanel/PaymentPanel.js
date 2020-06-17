@@ -13,7 +13,7 @@ const config = {
 
 export default function PaymentPanel(props) {
 
-    const {passCountHandler, userId } = props
+    const {passCountHandler, userId, selectedClass } = props
     
   const stripe = useStripe();
   const elements = useElements();
@@ -48,7 +48,7 @@ const handleSubmit = async (event) => {
       //  hte user id is userId props
     }
     if (paymentMethod.created) {
-      const requestBody = { type: 'single' }
+      const requestBody = { type: 'single', selectedClass }
       await axios.post(`/students/${userId}/passes`, qs.stringify(requestBody), config)
         .then((res) => {
           console.log(res.data);

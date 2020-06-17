@@ -184,6 +184,7 @@ const Schedule = props => {
           currentUserHandler={currentUserHandler}
           handleShowPunchCard={handleShowPunchCard}
           bookingInfo={bookingInfo}
+          selectedClass={selectedClass}
         />
       )}
 
