@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 import React, {useState} from 'react';
 import { useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement, PaymentRequestButtonElement } from '@stripe/react-stripe-js';
-=======
-import React from 'react';
-import { CardElement, useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement, PaymentRequestButtonElement } from '@stripe/react-stripe-js';
->>>>>>> 50bf8817ab5c2085e2cd824c132386558795e92c
 import axios from 'axios'
 import './PayemntPanel.scss'
 import qs from 'qs'
