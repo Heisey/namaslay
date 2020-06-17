@@ -93,6 +93,8 @@ export default function ScheduleScreens(props) {
             userId={currentUser.id}
             selectedClass={selectedClass}
             renderOverlayHandler={renderOverlayHandler}
+            noPassesLeftHandler={noPassesLeftHandler}
+            buySinglePassHandler={buySinglePassHandler}
           />
         )}
         {/* {(currentUser !== null && !classInfo) && (

@@ -30,7 +30,13 @@ const ELEMENT_OPTIONS = {
 
 export default function PaymentPanel(props) {
 
-    const {passCountHandler, userId, selectedClass } = props
+    const {
+      passCountHandler, 
+      userId, 
+      selectedClass,
+      noPassesLeftHandler,
+      buySinglePassHandler
+    } = props
 
     const [showLoading, showLoadingHandler] = useState(false)
     const [showForm, showFormHandler] = useState(true)
@@ -63,30 +69,37 @@ const handleSubmit = async (event) => {
       showFormHandler(false)
       showLoadingHandler(false)
       showErrorHandler(true)
+      showLoadingHandler(false)
       console.log('[error]', error);
     } else {
       console.log('hiding form')
       showFormHandler(false)
+      showLoadingHandler(false)
+      // passCountHandler(cur => cur += 1)
       // ?? need to make request to db to add a pass to the user
       //  hte user id is userId props
     }
-    if (paymentMethod.created) {
-      const requestBody = { type: 'single', selectedClass }
-      await axios.post(`/classes/${selectedClass}/book`, qs.stringify(requestBody), config)
-        .then((res) => {
-          showLoadingHandler(false)
-          console.log(res.data);
-        })
-        .catch((e) => {
-          showLoadingHandler(false)
-          showErrorHandler(true)
-          showFormHandler(false)
-        })
-    }
+    // if (paymentMethod.created) {
+    //   const requestBody = { type: 'single', selectedClass }
+    //   await axios.post(`/classes/${selectedClass}/book`, qs.stringify(requestBody), config)
+    //     .then((res) => {
+    //       showLoadingHandler(false)
+    //       console.log(res.data);
+    //     })
+    //     .catch((e) => {
+    //       showLoadingHandler(false)
+    //       showErrorHandler(true)
+    //       showFormHandler(false)
+    //     })
+    // }
 
 
   };
 
+  const handleConfirmedPayment = () => {
+    noPassesLeftHandler(false)
+    buySinglePassHandler(false)
+  }
 
   return (
     <div className="PaymentPanel">
@@ -137,6 +150,13 @@ const handleSubmit = async (event) => {
       {(!showLoading && !showForm && !showError) && (
         <div className='PaymentPanel__success'>
           <span>SUCCESS</span>
+          <div className='PaymentPanel__success--button'>
+            <SnakeBorderButton
+              text='Confirm'
+              clickHandler={handleConfirmedPayment}
+            />
+          </div>
+          
         </div>
       )}
 

@@ -70,5 +70,9 @@
     letter-spacing: 2px;
     font-size: 3em;
     font-family: var(--font-secondary);
+
+    span {
+      text-align: center;
+    }
   }
 }
