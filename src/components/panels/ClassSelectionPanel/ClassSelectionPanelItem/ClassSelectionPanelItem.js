@@ -21,8 +21,10 @@ const ClassSelectionPanelItem = props => {
     selectedClassHandler(e.target.id * 1)
     focusedHandler(true)
     renderOverlayHandler(true)
-    if (currentUser.passCount <= 0) {
-      renderPaymentHandler(true)
+    if (currentUser !== null) {
+      if (currentUser.passCount <= 0) {
+        renderPaymentHandler(true)
+      }
     } else {
       renderPaymentHandler(false)
     }
