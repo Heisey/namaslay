@@ -1,12 +1,4 @@
 import React, { useState } from 'react'
-import axios from 'axios'
-import qs from 'qs'
-
-const config = {
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded'
-  }
-}
 
 const ClassSelectionPanelItem = props => {
   const {
@@ -17,7 +9,8 @@ const ClassSelectionPanelItem = props => {
     currentUser,
     renderPaymentHandler,
     selectedClass,
-    bookingInfoHandler
+    bookingInfoHandler,
+    classesForDay
   } = props
 
   const [focused, focusedHandler] = useState(false)
@@ -30,6 +23,17 @@ const ClassSelectionPanelItem = props => {
     renderPaymentHandler(true)
     //this needs to move out of here and into the overlay
     setIsBooked(true)
+    const classInfo = classesForDay.filter(curClass => curClass.id === e.target.id * 1)
+    console.log(classInfo)
+    secondaryDataPanelHandler({
+      title: classInfo[0].name, 
+      info: '', 
+      difficulty: classInfo[0].difficulty,
+      start_time: classInfo[0].start_time,
+      teacher_id: classInfo[0].teacher_id,
+      day_id: classInfo[0].day_id,
+      discipline_id: classInfo[0].discipline_id
+    })
   }
   const handleCancelBooking = async () => {
     renderOverlayHandler(true)

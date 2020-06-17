@@ -4,6 +4,7 @@ import PaymentPanel from '../../components/panels/PaymentPanel/PaymentPanel';
 import LoginPanel from '../../components/panels/LoginPanel/LoginPanel';
 import NoPasses from './components/NoPasses/NoPasses';
 import BookingClassInfo from './components/BookingClassInfo/BookingClassInfo';
+import ConfirmClass from './components/ConfirmClass/ConfirmClass'
 
 import './ScheduleScreens.scss'
 
@@ -14,7 +15,14 @@ export default function ScheduleScreens(props) {
   const [passCount, passCountHandler] = useState(0)
   const [overlayMenu, overlayMenuHandler] = useState(true)
 
-  const { selectedClass, bookingInfo, currentUser, currentUserHandler, handleShowPunchCard } = props
+  const { 
+    secondaryDataPanel, 
+    selectedClass, 
+    bookingInfo, 
+    currentUser, 
+    currentUserHandler, 
+    handleShowPunchCard 
+  } = props
 
   useEffect(() => {
     if (currentUser) {
@@ -47,6 +55,11 @@ export default function ScheduleScreens(props) {
             noPassesLeftHandler={noPassesLeftHandler}
             handleShowPunchCard={handleShowPunchCard}
             overlayMenuHandler={overlayMenuHandler}
+          />
+        )}
+        {(currentUser && !noPassesLeft) && (
+          <ConfirmClass 
+            secondaryDataPanel={secondaryDataPanel}
           />
         )}
         {(currentUser !== null && buySinglePass) && (

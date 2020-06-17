@@ -34,6 +34,7 @@ const ClassSelectionPanel = props => {
           currentUser={currentUser}
           program={el}
           bookingInfoHandler={bookingInfoHandler}
+          classesForDay={classesForDay}
         />
       ))
       return listItems

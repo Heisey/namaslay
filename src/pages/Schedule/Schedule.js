@@ -185,6 +185,7 @@ const Schedule = props => {
           handleShowPunchCard={handleShowPunchCard}
           bookingInfo={bookingInfo}
           selectedClass={selectedClass}
+          secondaryDataPanel={secondaryDataPanel}
         />
       )}
 
@@ -227,6 +228,7 @@ const Schedule = props => {
           currentUser={currentUser}
           showAnimation={showAnimation}
           bookingInfoHandler={bookingInfoHandler}
+          
         />}
         {!dataLoad && (
           <div className="Schedule__classSelection--animate">

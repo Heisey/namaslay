@@ -65,7 +65,6 @@ const handleSubmit = async (event) => {
       showErrorHandler(true)
       console.log('[error]', error);
     } else {
-      passCountHandler(1)
       console.log('hiding form')
       showFormHandler(false)
       // ?? need to make request to db to add a pass to the user
