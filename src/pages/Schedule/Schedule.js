@@ -57,6 +57,10 @@ const Schedule = props => {
   const [showAnimation, showAnimationHandler] = useState(true)
   const [bookingInfo, bookingInfoHandler] = useState(null)
   const [quote, setQuote] = useState({ words: null, id: null, author: null })
+  const [teacherFilterSelected, teacherFilterSelectedHandler] = useState(false)
+  const [disciplineFilterSelected, disciplineFilterSelectedHandler] = useState(false)
+  const [programFilterSelected, programFilterSelectedHandler] = useState(false)
+  const [difficultiesFilterSelected, difficultiesFilterSelectedHandler] = useState(false)
 
   useEffect(() => {
     const getQuote = async () => {
@@ -138,6 +142,10 @@ const Schedule = props => {
     const teachers = scheduleData.teachers.map((t) => t)
     teachers.push('Teacher')
     setDynamicData(teachers);
+    teacherFilterSelectedHandler(true)
+    disciplineFilterSelectedHandler(false)
+    programFilterSelectedHandler(false)
+    difficultiesFilterSelectedHandler(false)
   }
 
   const handleDisciplinesFilter = () => {
@@ -145,6 +153,10 @@ const Schedule = props => {
     const disciplines = scheduleData.disciplines.map((t) => t)
     disciplines.push('Discipline')
     setDynamicData(disciplines);
+    teacherFilterSelectedHandler(false)
+    disciplineFilterSelectedHandler(true)
+    programFilterSelectedHandler(false)
+    difficultiesFilterSelectedHandler(false)
   }
 
   // !! CSS is fucked up here
@@ -153,12 +165,20 @@ const Schedule = props => {
     const programs = scheduleData.programs.map((t) => t)
     programs.push('Program')
     setDynamicData(programs);
+    teacherFilterSelectedHandler(false)
+    disciplineFilterSelectedHandler(false)
+    programFilterSelectedHandler(true)
+    difficultiesFilterSelectedHandler(false)
   }
 
   const handleDifficultiesFilter = () => {
     const difficulties = scheduleData.difficulties.map((t) => t);
     difficulties.push('Difficulty')
     setDynamicData(difficulties);
+    teacherFilterSelectedHandler(false)
+    disciplineFilterSelectedHandler(false)
+    programFilterSelectedHandler(false)
+    difficultiesFilterSelectedHandler(true)
   }
 
   const handleTypeSelection = (id, type) => {
@@ -269,24 +289,28 @@ const Schedule = props => {
       <div className="Schedule__teacherFilter">
         <TeacherFilterBox
           handleTeacherFilter={handleTeachersFilter}
+          teacherFilterSelected={teacherFilterSelected}
         />
       </div>
 
       <div className="Schedule__disciplineFilter">
         <DisciplinesFilterBox
           handleDisciplinesFilter={handleDisciplinesFilter}
+          disciplineFilterSelected={disciplineFilterSelected}
         />
       </div>
 
       <div className="Schedule__eventFilter">
         <ProgramsFilterBox
           handleProgramsFilter={handleProgramsFilter}
+          programFilterSelected={programFilterSelected}
         />
       </div>
 
       <div className="Schedule__difficultyFilter">
         <DifficultiesFilterBox
           handleDifficultiesFilter={handleDifficultiesFilter}
+          difficultiesFilterSelected={difficultiesFilterSelected}
         />
       </div>
 
