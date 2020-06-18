@@ -10,9 +10,9 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
 function App() {
-  const [showLanding, showLandingHandler] = useState(false)
+  const [showLanding, showLandingHandler] = useState(true)
   const [showNav, showNavHandler] = useState(false)
-  const [showPunchCard, showPunchCardHandler] = useState(true)
+  const [showPunchCard, showPunchCardHandler] = useState(false)
   const [showSchedule, showScheduleHandler] = useState(false)
   const [showUserProfile, showUserProfileHandler] = useState(false)
   const [showUserDataDash, showUserDataDashHandler] = useState(false)

@@ -8,10 +8,19 @@
   &__close {
     position: absolute;
     right: 37%;
-    top: 20%;
+    top: 30%;
     font-size: 2em;
     color: var(--accent-tertiary);
     transition: 0.3s linear;
+  }
+
+  &__title {
+    position: absolute;
+    display: block;
+    color: var(--accent-secondary);
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   &__close:hover {
@@ -20,7 +29,7 @@
 
   &__container {
     position: absolute;
-    height: 50vh;
+    height: 30vh;
     width: 40vh;
     background-color: var(--neutral-color);
     top: 50%;

@@ -21,10 +21,13 @@ export default function PunchCardScreen(props) {
         ></i>
       </span>
       <div className='PunchCardScreen__container'>
+        <span className="PunchCardScreen__title">
+          Confirm your Purchase
+        </span>
         <div className="PunchCardScreen__button">
           <SnakeBorderButton 
             clickHandler={closeOverlay}
-            text='CLOSE'
+            text='CONFIRM'
           />
         </div>
       </div>
