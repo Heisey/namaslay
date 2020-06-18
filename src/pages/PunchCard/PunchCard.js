@@ -10,7 +10,7 @@ import PunchCardPanel from '../../components/panels/PunchCardPanel/PunchCardPane
 import TwentyFiveClass from '../../components/boxes/punchCardBoxes/TwentyFiveClass/TwentyFiveClass'
 import Unlimited from '../../components/boxes/punchCardBoxes/Unlimited/Unlimited'
 import PersonLogo2 from '../../components/logos/PersonLogo2/PersonLoop2';
-
+import PunchCardScreen from '../../screens/PunchCardScreen/PunchCardScreen'
 import Nav from '../../components/Nav/Nav'
 
 import './PunchCard.scss';
@@ -22,6 +22,7 @@ const PunchCard = props => {
   const [passType, setPassType] = useState()
   const [passCount, setPassCount] = useState()
   const [price, priceHandler] = useState(0)
+  const [showOverlay, showOverlayHandler] = useState(false)
 
   const {
     handleShowLanding,
@@ -61,6 +62,11 @@ const PunchCard = props => {
 
   return (
     <div className="PunchCard">
+      {showOverlay && (
+        <PunchCardScreen 
+          showOverlayHandler={showOverlayHandler}
+        />
+      )}
       <Nav
         handleShowLanding={handleShowLanding}
         handleShowNav={handleShowNav}
@@ -106,6 +112,7 @@ const PunchCard = props => {
           price={price}
           currentUserHandler={currentUserHandler}
           currentUser={currentUser}
+          showOverlayHandler={showOverlayHandler}
         />
       </div>
       <div className="PunchCard__singleClass">

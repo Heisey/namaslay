@@ -11,7 +11,7 @@ const config = {
 
 export default function PunchCardPanel(props) {
 
-  const { type, setPassCount, price, currentUser, currentUserHandler } = props
+  const { showOverlayHandler, type, setPassCount, price, currentUser, currentUserHandler } = props
 
   const [quote, setQuote] = useState({ words: null, id: null, author: null })
 
@@ -44,6 +44,8 @@ export default function PunchCardPanel(props) {
       } else if (type === 'monthly') {
         setPassCount(prev => prev + 9999)
       }
+
+      showOverlayHandler(true)
       //update to add state instead of 1
       axios.post(`/students/1/passes`, qs.stringify(requestBody), config)
         .then((res) => {

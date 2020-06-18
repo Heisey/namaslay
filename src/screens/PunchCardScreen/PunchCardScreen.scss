@@ -1,0 +1,37 @@
+.PunchCardScreen {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background-color: rgba($color: black, $alpha: 0.7);
+  z-index: 200;
+
+  &__close {
+    position: absolute;
+    right: 37%;
+    top: 20%;
+    font-size: 2em;
+    color: var(--accent-tertiary);
+    transition: 0.3s linear;
+  }
+
+  &__close:hover {
+    color: var(--accent-primary);
+  }
+
+  &__container {
+    position: absolute;
+    height: 50vh;
+    width: 40vh;
+    background-color: var(--neutral-color);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
